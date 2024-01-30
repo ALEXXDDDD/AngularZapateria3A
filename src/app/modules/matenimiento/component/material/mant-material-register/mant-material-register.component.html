@@ -1,0 +1,92 @@
+<div class="modal-header">
+    <h4 class="modal-title pull-left" >{{title}}</h4>
+    <!-- (click)="modalRef?.hide() -->
+    <button type="button" class="btn-close close pull-right" aria-label="Close" >
+      <span aria-hidden="true" class="visually-hidden">&times;</span>
+    </button>
+  </div>
+  
+  <DIv class="row" >
+    <form action="" [formGroup]="myForm">
+        <div class="col-12 mt-5">
+            <div class="form-group">
+                <label for="" aria-placeholder="Ingrese Nokbre Rol">ID</label>
+                <input type="text" formControlName="idMaterial"  class="form-control" placeholder="id">
+            </div>
+        </div>
+        <div class="col-12 mt-5">
+            <div class="form-group">
+                <label for="" aria-placeholder="Ingrese Nokbre Rol">Material</label>
+                <input type="text" formControlName="nombreMaterial"  class="form-control" placeholder="Ingrese Nombre de Rol">
+            </div>
+
+            <div *ngIf="myForm.get('nombreRol')?.errors && myForm.touched">
+                <span class="text-danger" *ngIf="myForm.get('nombreRol')?.hasError('required')" >Campo Requerido </span>
+            </div>
+
+        </div>
+        <div class="col-12 mt-5">
+            <div class="form-group">
+                <label for="" aria-placeholder="">Unidad </label>
+                <input type="text" formControlName="nombreUnidad" class="form-control" placeholder="Ingrese Descripcion">
+            </div>
+
+            <div *ngIf="myForm.get('desc')?.errors && myForm.touched">
+                <span class="text-danger" *ngIf="myForm.get('desc')?.hasError('required')" >Campo Requerido </span>
+            </div>
+        </div>
+        <div class="col-12 mt-5">
+            <div class="form-group">
+                <label for="" aria-placeholder="">Cantidad Ingresante </label>
+                <input type="text" formControlName="stock" class="form-control" placeholder="Ingrese Descripcion">
+            </div>
+
+            <div *ngIf="myForm.get('desc')?.errors && myForm.touched">
+                <span class="text-danger" *ngIf="myForm.get('desc')?.hasError('required')" >Campo Requerido </span>
+            </div>
+        </div>
+        <div class="col-12 mt-5">
+            <div class="form-group">
+                <label for="" aria-placeholder="">Descripcion</label>
+                <input type="text" formControlName="descripcion" class="form-control" placeholder="Ingrese Descripcion">
+            </div>
+
+            <div *ngIf="myForm.get('descripcion')?.errors && myForm.touched">
+                <span class="text-danger" *ngIf="myForm.get('descripcion')?.hasError('required')" >Campo Requerido </span>
+            </div>
+        </div>
+        <div class="col-12 mt-5">
+            <div class="form-group">
+                <label for="" aria-placeholder="">Marca </label>
+                <input type="text" formControlName="marca" class="form-control" placeholder="Ingrese Descripcion">
+            </div>
+
+            <div *ngIf="myForm.get('desc')?.errors && myForm.touched">
+                <span class="text-danger" *ngIf="myForm.get('desc')?.hasError('required')" >Campo Requerido </span>
+            </div>
+        </div>
+        <div class="col-12 mt-5">
+            <div class="form-group">
+                <label for="" aria-placeholder="">Estado </label>
+                <input type="text" formControlName="estado" class="form-control" placeholder="Ingrese Descripcion">
+            </div>
+
+            <div *ngIf="myForm.get('desc')?.errors && myForm.touched">
+                <span class="text-danger" *ngIf="myForm.get('desc')?.hasError('required')" >Campo Requerido </span>
+            </div>
+        </div>
+        
+        
+            <div class="col-6  mt-3">
+                <button   class="btn btn-primary" (click)="guardar()">
+                                Guardar
+                </button>
+            </div>
+            <div class="col-6 mt-3 ">    
+                <button class="btn btn-danger">
+                    Cancelar
+                </button>
+            </div>
+    </form>
+        
+  </DIv>

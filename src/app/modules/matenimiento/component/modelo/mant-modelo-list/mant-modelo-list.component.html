@@ -1,0 +1,50 @@
+<h1>MANTENIMEIENTO DE EMPLEADO</h1>
+<table class="table">
+    
+    <thead>
+      <tr>
+        <tr>
+          <th scope="col" >IdEmpleado</th>
+          <th scope="col">Nombre del Modelos </th>
+          <th scope="col">Codigo del MOdelo</th>
+          <th scope="col">Breve Descripcion </th>
+        <th>
+        
+        <button (click)="crearModelo(modalEdit)"  class="btn btn-primary btn-sm">
+            <i class="fas fa-plus"></i>
+        </button>
+      </tr>
+    </thead>
+   
+      <tbody >
+        <tr  *ngFor="let mod of responseModelo">
+         
+          <td>{{mod.idModelo}}</td>
+          <td>{{mod.nombreModelo}}</td>
+          <td>{{mod.codigoModelo}}</td>
+          <td>{{mod.descripcion}}</td>
+
+
+            <button (click)="editaModelo(modalEdit,mod)" class="btn btn-primary mr-4">
+                <i class="fas fa-edit"></i>
+            </button>
+            <button (click)="eliminarModelo(mod.idModelo)" type="button" class="btn btn-danger mr-4">
+                <i class="fas fa-trash"></i>
+            </button>
+        </tr>
+      </tbody>    
+      
+      
+    
+  </table>
+  
+    <ng-template #modalEdit>
+      <app-mant-empleado-register
+        
+      
+      
+    
+      >
+      </app-mant-empleado-register>
+    </ng-template>
+

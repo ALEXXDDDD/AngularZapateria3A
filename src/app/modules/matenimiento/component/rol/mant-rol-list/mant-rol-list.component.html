@@ -1,0 +1,40 @@
+
+<h1>MANTENIMEIENTO DE CARGO</h1>
+<table class="table">
+    
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nombre Rol</th>
+        <th scope="col">Descripcion</th>
+        <button (click)="crearRol(modalEdit)"  class="btn btn-primary btn-sm">
+            <i class="fas fa-plus"></i>
+        </button>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let car of Rol">
+        <th scope="row">{{car.irol}}</th>
+        <td>{{car.nombreRol}}</td>
+        <td>{{car.desc}}</td>
+        <button (click)="editarRol(modalEdit,car)" class="btn btn-primary mr-4">
+            <i class="fas fa-edit"></i>
+        </button>
+        <button (click)="eliminarRol(car.irol)" type="button" class="btn btn-danger mr-4">
+            <i class="fas fa-trash"></i>
+        </button>
+      
+        
+      </tr>
+      
+    </tbody>
+  </table>
+  <ng-template #modalEdit>
+    <app-mant-rol-registrer
+    [title]="titleModal"
+    [rol]="rolSelect"
+    [accion]="accionModal"
+  (closeModalEmmit)="getCloseModalEmmit($event)"
+    >
+    </app-mant-rol-registrer>
+  </ng-template>

@@ -1,0 +1,50 @@
+<h1>Productos</h1>
+<table class="table">
+    
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nombre Material</th>
+        <th scope="col">Nombre Unidad</th>
+        
+        <th scope="col">Stock</th>
+        <th scope="col">Descripcion</th>
+        <th scope="col">Marca</th>
+        <th scope="col">Estado</th>
+        <button (click)="crearMaterial(modalEdit)" class="btn btn-primary mr-4">
+          <i class="fas fa-plus"></i>
+      </button>
+      </tr>
+    </thead>
+    <tbody *ngFor="let list of response">
+      <tr *ngFor="let a of list.material">
+        <th scope="row">{{a.idMaterial}}</th>
+        <td>{{a.nombreMaterial}}</td>
+        <td>{{a.nombreUnidad}}</td>
+        <td>{{a.stock}}</td>
+        <td>{{a.descripcion}}</td>
+        <td>{{a.marca}}</td>
+        <td>{{a.estado}}</td>
+        
+       
+        <button (click)="editarMaterial(modalEdit,list)" type="button" class="btn btn-danger mr-4">
+            <i class="fas fa-edit"></i>
+        </button> 
+        <button (click)="eliminarMaterial(a.idMaterial)" type="button" class="btn btn-danger mr-4">
+          <i class="fas fa-trash"></i>
+      </button> 
+      
+        
+      </tr>
+      
+    </tbody>
+  </table>
+  <ng-template #modalEdit>
+    <app-mant-material-register
+    [title]="titleModal"
+    [material]="materialSelect"
+    [accion]="accionModal"
+  (closeModalEmmit)="getCloseModalEmmit($event)"
+    >
+    </app-mant-material-register> 
+  </ng-template>

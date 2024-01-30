@@ -1,0 +1,51 @@
+<html >
+  
+
+  
+  <body  >
+    <div class="completo">
+      <div class="login">
+        <h1>Login</h1>
+        <div class="col-md-9 col-lg-6 col-xl-5">
+          <img src="./../../../assets/img/Img_Welcome/images.png" alt="">
+
+        </div>
+    
+        <form method="post" [formGroup]="loginForm" class="completo">
+          <input formControlName="usuario" type="text" name="u" placeholder="Username" required="required" />
+          <input formControlName="password" type="password" name="p" placeholder="Password" required="required" />
+          <button [disabled]="loginForm.invalid" (click)="login()" type="submit" class="btn btn-primary btn-block btn-large">Ingresar</button>
+          
+                    
+        </form>
+        <div class="completo">
+          <input class="" type="checkbox" value=""   />
+              <label class="form-check-label" for="">
+                  <a href="">Te Olvidaste</a>
+                  ////
+                  <a href="" routerLink="register">No tienes Cuenta</a>
+              </label>  
+        </div>
+            
+      </div >
+        <div class="button-pag" >
+            <button type="button" class="btn btn-primary ">
+              <i class="fab fa-facebook-f"></i>
+            </button>
+                  
+            <button type="button" class="btn btn-primary btn-floating mx-1">
+              <i class="fab fa-twitter"></i>
+            </button>
+                  
+            <button type="button" class="btn btn-primary btn-floating mx-1">
+                <i class="fab fa-linkedin-in"></i>
+              </button>
+          </div> 
+    </div> 
+  </body>
+
+</html>
+
+
+
+    

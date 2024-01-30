@@ -1,0 +1,56 @@
+
+#seccion{
+    background-color: #161616;
+    padding: 30px;
+    margin: 10px 0px;
+}
+a{
+    font-size: 1.2em;
+    text-decoration: none;
+}
+@media (max-width: 768px) {
+    #relleno{
+        display: none;
+    }
+    #nav ul li a{
+        width: 100%;
+    }
+    
+}
+
+#navegacion{
+    display: flex;
+    
+}
+
+#inicio{
+    list-style: none;
+    background-color: #000000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    font-size: 30px;
+}
+#inicio li > a{
+    width: 120px;
+}
+#inicio li:hover > a{
+    background-color: #5F6A6A;
+}
+#inicio li a fa-icon{
+    color: #fff;
+    margin-right: 5px;
+}
+#inicio li a{
+    display: block;
+    background-color: #fcfcfc;
+    color: rgb(2, 2, 2);
+    padding: 10px 12px;
+    border-radius: 20px;
+    margin-left: 20px;
+}
+.imgP{
+    margin-right: 735px;
+    margin-bottom: 20px;
+}

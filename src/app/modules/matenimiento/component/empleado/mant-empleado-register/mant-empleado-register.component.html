@@ -1,0 +1,122 @@
+<div class="modal-header">
+    <h4 class="modal-title pull-left">{{title}}</h4>
+    <!-- (click)="modalRef?.hide()" -->
+    <button (click)="cerrarModal(true)" type="button" class="btn-close close pull-right" aria-label="Close">
+        <span aria-hidden="true" class="visually-hidden">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <form [formGroup]="myForm">
+        <div class="row">
+            <div class="col-12 mt-3">
+                <div class="form-group">
+                    <label for="idEmpleado">IdEmpleado</label>
+                    <input id="idEmpleado" formControlName="idEmpleado" type="text" class="form-control" placeholder="Ingrese el Identificador">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-10 mt-3">
+                    <div class="form-control">
+                        <label for="ndoc">Numero Documento</label>
+                        <input type="text" formControlName="numeroDocumento" id="ndoc" class="form-control">
+                    </div>
+                </div>
+                <div class="col-2 mt-5">
+                    <div class="d-grid gap-2">
+                        <button class="btn-block btn btn-primary btn-sm" ><i class="fa-solid fa-magnifying-glass"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 mt-3">
+                <div class="form-group">
+                    <label for="tipoDoc">Tipo Documento</label>
+                    <select name="" id="tipoDoc" formControlName="tipoDocumento" class="form-select">
+                        <option value="dni">Dni</option>
+                        <option value="ruc">Ruc</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="col-12 mt-3">
+                <div class="form-group">
+                    <label for="nombrePersona">NombrePersona</label>
+                    <input id="nombrePersona" formControlName="nombrePersona" type="text" class="form-control" placeholder="Ingrese el código">
+                </div>
+                <!--
+                <div *ngIf="myForm.get('codigo')?.errors &&  myForm.touched ">
+                    <small class="text-danger" *ngIf="myForm.get('codigo')?.hasError('required')"> Campo requerido
+                    </small>
+                </div>
+                -->
+            </div>
+            <div class="col-12 mt-3">
+                <div class="form-group">
+                    <label for="apellidoEmp">Apellido Empleado</label>
+                    <input id="apellidoEmp" formControlName="apellidoEmp" type="text" class="form-control" placeholder="Ingrese el código">
+                </div>
+                <!--
+                <div *ngIf="myForm.get('nombre')?.errors &&  myForm.touched ">
+                    <small class="text-danger" *ngIf="myForm.get('nombre')?.hasError('required')"> Campo requerido
+                    </small>
+                </div>
+                -->
+            </div>
+            <div class="col-12 mt-3">
+                <div class="form-group">
+                    <label for="tipoP">Tipo Persona</label>
+                    <select name="" id="tipoP" formControlName="tipoPersona" class="form-select">
+                        <option value="juridica">Juridica</option>
+                        <option value="natural">Natural</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="col-12 mt-3">
+                <div class="form-control">
+                    <label for="tel">Telefono</label>
+                    <input type="text" formControlName="telefono" id="tel" class="form-control">
+                </div>
+            </div>
+            <div class="col-12 mt-3">
+                <div class="form-control">
+                    <label for="ubigeo">Codigo Ubigeo</label>
+                    <input type="" formControlName="codigoUbigeo" id="ubigeo" class="form-control">
+                </div>
+            </div>
+            <div class="col-12 mt-3">
+                <div class="form-control">
+                    <label for="dir">Dirección</label>
+                    <input type="text" formControlName="direccion" id="dir" class="form-control">
+                </div>
+            </div>
+            <div class="col-12 mt-3">
+                <div class="form-control">
+                    <label for="sueldo">Sueldo</label>
+                    <input type="text" formControlName="salario" id="sueldo" class="form-control">
+                </div>
+            </div>
+            <div class="col-12 mt-3">
+                <div class="form-control">
+                    <label for="estado">Estado</label>
+                    <select id="estado" formControlName="estado" class="form-select">
+                        <option value="true">Activo</option>
+                        <option value="false">Inactivo</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-6 mt-3">
+                <div class="d-grid gap-2">
+                    <button [disabled]="myForm.invalid" (click)="guardar()"
+                        class="btn-block btn btn-primary btn-sm">GUARDAR</button>
+                </div>
+            </div>
+            <div class="col-6 mt-3">
+                <div class="d-grid gap-2">
+                    <button class="btn-block btn btn-danger btn-sm" (click)="cerrarModal(true)">CANCELAR</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

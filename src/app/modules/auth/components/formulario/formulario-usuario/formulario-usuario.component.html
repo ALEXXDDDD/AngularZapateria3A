@@ -1,0 +1,84 @@
+
+<html class="completo">
+  <div class="completo">
+  <form action="" class="completo" [formGroup]="myForm">
+        <h1>Login</h1>
+        <div class="col-md-9 col-lg-6 col-xl-5">
+          <img src="./../../../assets/img/Img_Welcome/images.png" alt="">
+
+        </div>
+        <div class="input-group">
+        <span class="input-group-text">First and last name</span>
+          <input type="text" aria-label="First name" class="form-control">
+          <input type="text" aria-label="Last name" class="form-control">
+        </div>
+        
+
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="Correo Electronico" aria-label="Recipient's username" aria-describedby="basic-addon2">
+          <span class="input-group-text" id="basic-addon2">@ejemplo.gmail.com</span>
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text">$</span>
+          <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+          <span class="input-group-text">.00</span>
+        </div>
+        <div class="input-group mb-3">
+          <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"> + 51</button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" >+ 51 </a></li>
+            <li><a class="dropdown-item" >+ 50</a></li>
+            
+          </ul>
+          <input type="text" class="form-control" aria-label="Text input with dropdown button" placeholder="Telefono">
+        </div>
+        <label class="input-group-text" for="inputGroupSelect01">Seleccione su Forma de Registro</label>
+        <div class="input-group mb-3">
+          
+          <select class="form-select" id="inputGroupSelect01">
+            <option selected>Cliente</option>
+            <option value="1">Vendedor</option>
+            <option value="1">Administrador</option>
+            
+          </select>
+        </div>
+        <div class="input-group">
+          <span class="input-group-text">Direccion y Codigo de Ubigueo</span>
+          <input type="text" aria-label="First name" class="form-control">
+          <input type="text" aria-label="Last name" class="form-control">
+        </div>
+        <div class="input-group mb-3">
+          
+          <select class="form-select" id="inputGroupSelect01">
+            <option selected>DNI</option>
+            <option value="1">RUC</option>
+            <option value="1">PASAPORTE</option>
+            
+          </select>
+        </div>
+        <div class="mb-3">
+          <span class="input-group-text">Numero de Documento</span>
+          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Numero de Documento">
+        </div>
+        <span class="input-group-text">Contraseña</span>
+        <input type="password" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock">
+        <div id="passwordHelpBlock" class="form-text">
+            Tu Contraseña debe ser mayor a 8 a 20 caracteres
+        </div>
+        <div class="input-group mb-3">
+          
+          <select class="form-select" id="inputGroupSelect01">
+            <option selected>ACTIVO</option>
+            <option value="1">INACTIVO</option>  
+          </select>
+        </div>
+        <button type="button" class="btn btn-primary" [disabled]="myForm.invalid" (click)="guardar()">Registrar</button>
+        <button type="button" class="btn btn-danger" routerLink="/auth">Volver</button>
+      </form>
+  </div>
+    
+</html>
+
+
+
+  

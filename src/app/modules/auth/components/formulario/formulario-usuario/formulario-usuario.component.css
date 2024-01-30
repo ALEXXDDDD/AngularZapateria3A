@@ -1,0 +1,13 @@
+html
+{
+  background-color: rgb(0, 0, 0);
+}
+.completo{
+  background-color: rgb(0, 0, 0);
+}
+form{
+  margin-left: 20px;
+  margin-right: 20px;
+  
+  padding: 20px;
+}
