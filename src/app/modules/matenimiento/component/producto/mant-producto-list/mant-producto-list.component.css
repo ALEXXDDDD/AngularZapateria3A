@@ -6,10 +6,41 @@
     border-radius: 20px;
 }
 .prd{
-    background-color: white;
-    color: black;
+    background-color: rgb(15, 14, 14);
+    
 }
 img{
     margin-left: 180px;
     margin-top: 20px;
     }
+    html{
+        background-color: black;
+    }
+    th{
+        color: white;
+    }
+    table{
+        background-color: black;
+    }
+    td{
+        color: white;
+    }
+    button{
+        color: white;
+    }
+    h1{
+        text-align: center;
+        background-color: black;
+        color: white; 
+        
+        margin-bottom: 20px;
+        margin-left: 20px;
+    }   
+    h2{
+        text-align: center;
+        background-color: black;
+        color: white; 
+        margin-top: 20px;
+        margin-bottom: 20px;
+        margin-left: 20px;
+    }   

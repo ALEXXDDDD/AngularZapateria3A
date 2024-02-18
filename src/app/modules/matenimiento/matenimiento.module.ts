@@ -20,6 +20,10 @@ import { MantProductoRegisterComponent } from './component/producto/mant-product
 import { MantProductoListComponent } from './component/producto/mant-producto-list/mant-producto-list.component';
 import { MantMaterialListComponent } from './component/material/mant-material-list/mant-material-list.component';
 import { MantMaterialRegisterComponent } from './component/material/mant-material-register/mant-material-register.component';
+import { MantProdModLisComponent } from './component/modelo/mant-prod-mod-lis/mant-prod-mod-lis.component';
+import { MantDetallProduccionListComponent } from './component/detalleProduccion/mant-detall-produccion-list/mant-detall-produccion-list.component';
+import { MantDetallProduccionRegisterComponent } from './component/detalleProduccion/mant-detall-produccion-register/mant-detall-produccion-register.component';
+import { MantEmplAreaListComponent } from './component/empleado/mant-empl-area-list/mant-empl-area-list.component';
 
 
 
@@ -41,6 +45,10 @@ import { MantMaterialRegisterComponent } from './component/material/mant-materia
     MantProductoListComponent,
     MantMaterialListComponent,
     MantMaterialRegisterComponent,
+    MantProdModLisComponent,
+    MantDetallProduccionListComponent,
+    MantDetallProduccionRegisterComponent,
+    MantEmplAreaListComponent,
    
   ],
   imports: [

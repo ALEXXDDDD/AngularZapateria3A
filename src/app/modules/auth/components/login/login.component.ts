@@ -4,6 +4,7 @@ import { AuthService } from '../../service/auth.service';
 import { RequestLogin } from '../../models/login-request.models';
 import { ResponseLogin } from 'src/app/models/login-response.models';
 import { Router } from '@angular/router';
+import { alert_error, alert_sucess } from 'src/app/funcionts/general.funcionts';
 
 @Component({
   selector: 'app-login',
@@ -39,7 +40,8 @@ export class LoginComponent {
       {
         next: (data:ResponseLogin) => {
           console.log(data)
-          alert("LOGUIN CORRECTO")
+         
+          alert_sucess("Iniciaste Sesion Correctamente")
           // routeamos al dahboard
           this._router.navigate(['dasboard'])
           //Alamcenamos el token Valores Del Usuario Ingresadp
@@ -62,7 +64,10 @@ export class LoginComponent {
             return;
           }
         },
-        error: () => {},
+        error: (error) => {
+          alert_error("No Iniciaste Sesion")
+          this._router.navigate(['login'])
+        },
         complete: () => {}
       }
     )

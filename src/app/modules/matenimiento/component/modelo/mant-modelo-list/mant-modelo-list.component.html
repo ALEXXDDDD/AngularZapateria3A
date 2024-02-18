@@ -1,4 +1,64 @@
-<h1>MANTENIMEIENTO DE EMPLEADO</h1>
+<h1>Modelos</h1>
+<a class="btn btn-info btn-sm" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><i class="fa-solid fa-bag-shopping">   </i>Productos</a>
+    <ul class="dropdown-menu">
+      
+      <li><a class="dropdown-item" href="#scrollspyHeading4" [routerLink]="['/dasboard/mantenimiento/producto']">Ver</a></li>
+      <li><a class="dropdown-item" href="#scrollspyHeading4">Productos-Modelo</a></li>
+      <li><hr class="dropdown-divider"></li>
+    </ul>
+    ////
+    <a class="btn btn-danger btn-sm" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><i class="fa-solid fa-bag-shopping"></i>   Modelo</a>
+    <ul class="dropdown-menu">
+      
+      <li><a class="dropdown-item" [routerLink]="['/dasboard/mantenimiento/modelo']" href="#scrollspyHeading4">Ver</a></li>
+      <li><a class="dropdown-item" href="#scrollspyHeading4">Producto-Modelo </a></li>
+      <li><hr class="dropdown-divider"></li>
+    </ul>
+    ////
+    
+    <br>
+    <img src="./../../../../../../assets/img/img_Template/img_Modelo.png" alt="" class="img_prod">
+    <div class="container text-center">
+      <div class="row">
+        <div class="col">
+          
+         Modelos Populares
+          <div class="prd">
+            <ul >Zapato Color Negro</ul>
+          <ul >Reservado</ul>
+          <ul >Reservado</ul>
+          <ul >Reservado</ul>
+          </div>
+          <button class="btn btn-danger"> Ver mas </button>
+        </div> 
+        
+    
+      <tbody class="col">
+        <tr>Modelos Para Hombres</tr> 
+        <tr  *ngFor="let mod of responseModelo" class="prd">
+          
+        
+        <td>{{mod.nombreModelo}}</td>
+        
+        
+        </tr> 
+      <tr><button class="btn btn-danger"> Ver mas </button>   </tr> 
+      </tbody>
+      <div class="col" >
+         Modelos Para Mujeres
+          <div class="prd">
+            <ul >Zapato Color Negro</ul>
+          <ul >Reservado</ul>
+          <ul >Reservado</ul>
+          <ul >Reservado</ul>
+          </div>
+          <button class="btn btn-danger"> Ver mas </button>
+        </div>
+      </div>
+            
+      </div>
+        
+    
 <table class="table">
     
     <thead>
@@ -39,12 +99,12 @@
   </table>
   
     <ng-template #modalEdit>
-      <app-mant-empleado-register
-        
-      
-      
-    
+      <app-mant-modelo-resgister 
+      [title]="titleModal"
+      [modelo]="selectModelo"
+      [accion]="accionModal"
+      (closeModalEmmit)="getCloseModalEmmit($event)"
       >
-      </app-mant-empleado-register>
+      </app-mant-modelo-resgister>
     </ng-template>
 

@@ -4,6 +4,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RequestVWMaterial } from '../../../models/material/material-requestVW.model';
 import { MaterialService } from '../../../service/material/material.service';
 import { AcciontConstants } from 'src/app/constants/general.constans';
+import { ResponseUnidad } from '../../../models/unidad/p/unidad-response.model';
+import { UnidadService } from '../../../service/unidad/unidad.service';
+import { alert_error, alert_sucess } from 'src/app/funcionts/general.funcionts';
 
 @Component({
   selector: 'app-mant-material-register',
@@ -13,15 +16,18 @@ import { AcciontConstants } from 'src/app/constants/general.constans';
 export class MantMaterialRegisterComponent implements OnInit {
   @Input() title :String=""
   @Input() material :ResponseVWMaterial= new ResponseVWMaterial() 
+  @Input() unidad :ResponseUnidad= new ResponseUnidad() 
   @Input() accion :number= 0 
 
   @Output () closeModalEmmit = new EventEmitter<boolean>()
   myForm : FormGroup
 
+  responseUnidad : ResponseUnidad[] = []
   envioMaterial : RequestVWMaterial = new RequestVWMaterial ()
   constructor (
     private fb:FormBuilder,
-    private _materialService : MaterialService
+    private _materialService : MaterialService,
+    private _unidadService : UnidadService
   )
   {
     this.myForm = this.fb.group(
@@ -39,6 +45,7 @@ export class MantMaterialRegisterComponent implements OnInit {
   ngOnInit(): void {
     console.log(this.title)
     this.myForm.patchValue(this.material);
+    this.listarUnidad()
   }
   guardar()
   {
@@ -57,14 +64,26 @@ export class MantMaterialRegisterComponent implements OnInit {
     }
      console.log(this.myForm.getRawValue())
   }
+  listarUnidad()
+  {
+    this._unidadService.getAll().subscribe(
+      {
+        next :(unidades:ResponseUnidad[])=>{
+          this.responseUnidad = unidades
+        }
+      }
+    )
+  }
   crearMaterial()
   {
     this._materialService.create(this.envioMaterial).subscribe(
       {
         next : () => {
-          alert("Se ha Creado correctamente ")
+          alert_sucess("Se ha Creado el Modelo correctamente")
         },
-        error :() => {},
+        error :() => {
+          alert_error("No se pudo crear el Modelo ")
+        },
         complete :() => {}
       }
     )
@@ -74,7 +93,9 @@ export class MantMaterialRegisterComponent implements OnInit {
     this._materialService.update(this.envioMaterial).subscribe
     (
       {
-        next : () => {},
+        next : () => {
+          alert_sucess("Se ha Actaulizado el Modelo correctamente")
+        },
         error : () => {},
         complete : () => {}
       }

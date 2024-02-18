@@ -12,40 +12,44 @@ export class TemplateSidebarComponent implements OnInit {
   meny:any[]=[]
   rellenarMenu()
   {
+    
     let rolID = sessionStorage.getItem("rolId")
-    switch (rolID)
+    let nombreRol = sessionStorage.getItem("nombreRol")
+    switch (nombreRol)
     {
-      case "1":
+      case "Administrador":
         this.meny =[
           {
-            name:"Mantenimiento", target:"TargetMantenimiento",
+            name:"Administracion", target:"TargetMantenimiento",
             subMenu:[
               
-                {name:"rol",URL:"matenimiento/rol", incon:"fas fa-card"},
-                {name:"empleado",URL:"matenimiento/rol", incon:"fas fa-card"},
-                {name:"usuario",URL:"matenimiento/rol", incon:"fas fa-card"},
-                {name:"productos",URL:"matenimiento/rol", incon:"fas fa-card"} 
+                {name:"Roles de la Empresa ",url:"mantenimiento/rol", incon:"fas fa-card"},
+                {name:"Empleados",url:"mantenimiento/empleado", incon:"fas fa-card"},
+                {name:"Usuarios",url:"mantenimiento/persona", incon:"fas fa-users"},
+                 
+            ]
+            
+          },
+          {
+            name:"Venta", target:"TargetVenta",incon:"fas fa-users",
+            subMenu:[
+              
+                {name:"Lista de Ventas",url:"mantenimiento/rol", incon:"fas fa-users"},
+                {name:"VENTA 2",url:"mantenimiento/rol", incon:"fas fa-users"},
+                {name:"VENTA 3",url:"mantenimiento/rol", incon:"fas fa-dashboard"},
+                {name:"VENTA 4",url:"mantenimiento/rol", incon:"fas fa-users"} 
             ]
           },
           {
-            name:"Venta", target:"TargetMantenimiento",incon:"fas fa-card",
+            name:"Produccion", target:"TargetProduccion",incon:"fas fa-edit",
             subMenu:[
-              
-                {name:"rol",URL:"matenimiento/rol", incon:"fas fa-crash"},
-                {name:"empleado",URL:"matenimiento/rol", incon:"fas fa-users"},
-                {name:"usuario",URL:"matenimiento/rol", incon:"fas fa-dashboard"},
-                {name:"productos",URL:"matenimiento/rol", incon:"fas fa-card"} 
-            ]
-          },
-          {
-            name:"Produccion", target:"TargetMantenimiento",incon:"fas fa-edit",
-            subMenu:[
-                {name:"empleado",URL:"matenimiento/rol", incon:"fas fa-users"},
-                {name:"productos",URL:"matenimiento/rol", incon:"fas fa-card"} 
+                {name:"Materiales",url:"mantenimiento/empleado", incon:"fas fa-users"},
+                {name:"productos",url:"mantenimiento/producto", incon:"fa-solid fa-bag-shopping"}, 
+                {name:"Modelos de Zapatos ",url:"mantenimiento/modelo", incon:"fa-solid fa-bag-shopping"}
             ]
           }
         ]
-        break;
+      break;
     }
   }
 }

@@ -7,6 +7,7 @@ import { MantEmpleadoListComponent } from './component/empleado/mant-empleado-li
 import { MantModeloListComponent } from './component/modelo/mant-modelo-list/mant-modelo-list.component';
 import { MantProductoListComponent } from './component/producto/mant-producto-list/mant-producto-list.component';
 import { MantMaterialListComponent } from './component/material/mant-material-list/mant-material-list.component';
+import { MantEmplAreaListComponent } from './component/empleado/mant-empl-area-list/mant-empl-area-list.component';
 
 const routes: Routes = [
   {
@@ -31,6 +32,9 @@ const routes: Routes = [
   },
   {
     path: 'modelo', component:MantModeloListComponent
+  },
+  {
+    path: 'empleado-area', component:MantEmplAreaListComponent
   }
 
 ];

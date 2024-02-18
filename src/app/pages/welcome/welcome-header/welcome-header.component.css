@@ -1,11 +1,18 @@
 
 #seccion{
     background-color: #161616;
-    padding: 30px;
-    margin: 10px 0px;
+    padding-bottom: 10px;
+    
+}
+nav{
+    
+    
+}
+span{
+    color: wheat;
 }
 a{
-    font-size: 1.2em;
+    font-size: 1em;
     text-decoration: none;
 }
 @media (max-width: 768px) {
@@ -25,7 +32,7 @@ a{
 
 #inicio{
     list-style: none;
-    background-color: #000000;
+   
     display: flex;
     justify-content: center;
     align-items: center;
@@ -33,7 +40,7 @@ a{
     font-size: 30px;
 }
 #inicio li > a{
-    width: 120px;
+    width: 100px;
 }
 #inicio li:hover > a{
     background-color: #5F6A6A;
@@ -42,15 +49,25 @@ a{
     color: #fff;
     margin-right: 5px;
 }
+img{
+    width: 133px;
+    height: 150px;
+    margin-top: 0px;
+    margin-right: 33px;
+    margin-left: -84px;
+    height: 118px;
+}
 #inicio li a{
-    display: block;
-    background-color: #fcfcfc;
+    display: contents;
+    background-color: #d34e4e;
     color: rgb(2, 2, 2);
-    padding: 10px 12px;
+    padding: 2px px;
     border-radius: 20px;
-    margin-left: 20px;
+    margin-right: 10px;
+    margin-left: px;
 }
 .imgP{
     margin-right: 735px;
     margin-bottom: 20px;
+    background-color: black;
 }

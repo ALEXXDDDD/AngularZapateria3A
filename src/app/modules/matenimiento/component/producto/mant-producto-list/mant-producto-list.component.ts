@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { ResponseProducto } from '../../../models/producto/producto-response.model';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { Router } from '@angular/router';
 import { ProductoService } from '../../../service/producto/producto.service';
 import { ModeloService } from '../../../service/modelo/modelo.service';
 import { ResponseModelo } from '../../../models/modelo/modelo-response.model';
+import { AcciontConstants } from 'src/app/constants/general.constans';
 
 @Component({
   selector: 'app-mant-producto-list',
@@ -61,9 +62,30 @@ export class MantProductoListComponent implements OnInit {
       }
     )
   }
-  crearProducto()
+  crearProducto(template : TemplateRef<any>)
   {
-
+      this.titleModal = "TNuevo Producto"
+      this.accionModal = AcciontConstants.crear
+      this.productoEnviar = new ResponseProducto()
+      this.openModal (template)
   }
-  
+  editarProducto(template : TemplateRef<any>, Producto:ResponseProducto)
+  {
+    this.titleModal = "Editar Producto"
+    this.productoEnviar = Producto 
+    this.accionModal = AcciontConstants.editar
+    this.openModal (template)
+  }
+  openModal( template : TemplateRef<any>)
+  {
+    this.modalRef = this.modalService.show(template)
+  }
+  getCloseModalEmit(res : Boolean)
+  {
+    this.modalRef?.hide()
+    if(res)
+    {
+      this.listarProductos()
+    }
+  }
 }

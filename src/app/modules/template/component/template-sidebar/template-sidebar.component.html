@@ -1,49 +1,22 @@
 <div id="layoutSidenav_nav">
     <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
         <div class="sb-sidenav-menu">
-            <div class="nav">
-                <div class="sb-sidenav-menu-heading">Core</div>
-                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
-                    <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                    Mantenimiento 
+            <div class="nav" *ngFor="let d of meny">
+
+                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" 
+                [attr.data-bs-target]="'#'+ d.target"
+                aria-expanded="false" aria-controls="pagesCollapseAuth">
+                    <div class="sb-nav-link-icon"><i class="{{d.incon}}"></i></div>
+                    {{d.name}}
                     <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                 </a>
-                <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
+                <div *ngFor="let x of d.subMenu" class="collapse" id="{{d.target}}" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
                     <nav class="sb-sidenav-menu-nested nav">
-                        <a class="nav-link"  href="" [routerLink]="['mantenimiento/producto']">Productos</a>
+                        <a class="nav-link"  href="" [routerLink]="[x.url]"><i class="{{x.incon}}" class="mr-5"></i>{{x.name}}</a>
                         
-                        <a class="nav-link" href="" [routerLink]="['mantenimiento/cliente']">Cliente</a>
-                        <a class="nav-link" href="" [routerLink]="['mantenimiento/modelo']">Modelo</a>
-                        <a class="nav-link" href="" [routerLink]="['mantenimiento/empleado']" >Empleado</a>
-                        <a class="nav-link" href="" [routerLink]="['mantenimiento/rol']">Rol</a>
                     </nav>
                 </div>
                 
-                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
-                    <div class="sb-nav-link-icon" [routerLink]="['mantenimiento/material']"><i class="fas fa-columns"></i></div>
-                        <a class="nav-link"  href="" [routerLink]="['mantenimiento/material']">Material</a>
-                    <div class="sb-sidenav-collapse-arrow"></div>
-                </a> 
-                
-
-                <a class="nav-link"  href="" [routerLink]="['mantenimiento/persona']">Usuarios</a>
-                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
-                    <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                    COMPRAS
-                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                </a>
-                
-
-                <div *ngFor="let d of meny">
-                    <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
-                        <nav class="sb-sidenav-menu-nested nav">
-                        <a class="nav-link" href="">CLIENTE</a>
-                        <a class="nav-link" href="">PEDIDOS</a>
-                            <a class="nav-link" href="">PRODUCTOS COMPRADOS</a>
-                                                
-                        </nav>
-                    </div>
-                </div>
                 <!-- <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
                     <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
                     Informe  Empleado

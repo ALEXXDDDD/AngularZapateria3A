@@ -1,6 +1,9 @@
 
 
 export const dominio = "https://localhost:7287/" 
+/**
+ * TODO: las constantes para llamar al backedn 
+ */
 export const urlConstants ={
     rol: dominio+'api/Rol/',
     producto:dominio+'api/Producto',
@@ -11,5 +14,6 @@ export const urlConstants ={
     Modelo:dominio+'api/Modelo',
     Unidad:dominio+'api/Unidad',
     auth:dominio + "api/Auth",
-    Usuario:dominio + "api/Usuario"
+    Usuario:dominio + "api/Usuario",
+    DetalleProduccion:dominio+"api/DetalleProduccion"
 }

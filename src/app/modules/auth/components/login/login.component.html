@@ -1,9 +1,9 @@
-<html >
+<html style="background-color: black;">
   
 
   
   <body  >
-    <div class="completo">
+    
       <div class="login">
         <h1>Login</h1>
         <div class="col-md-9 col-lg-6 col-xl-5">
@@ -11,22 +11,16 @@
 
         </div>
     
-        <form method="post" [formGroup]="loginForm" class="completo">
+        <form method="post" [formGroup]="loginForm" >
           <input formControlName="usuario" type="text" name="u" placeholder="Username" required="required" />
           <input formControlName="password" type="password" name="p" placeholder="Password" required="required" />
+          <a href="">Te olvidaste</a>
+          <a href="" routerLink="register">No tienes Cuenta ?</a>
           <button [disabled]="loginForm.invalid" (click)="login()" type="submit" class="btn btn-primary btn-block btn-large">Ingresar</button>
+         
           
                     
-        </form>
-        <div class="completo">
-          <input class="" type="checkbox" value=""   />
-              <label class="form-check-label" for="">
-                  <a href="">Te Olvidaste</a>
-                  ////
-                  <a href="" routerLink="register">No tienes Cuenta</a>
-              </label>  
-        </div>
-            
+        </form>      
       </div >
         <div class="button-pag" >
             <button type="button" class="btn btn-primary ">
@@ -41,7 +35,7 @@
                 <i class="fab fa-linkedin-in"></i>
               </button>
           </div> 
-    </div> 
+    
   </body>
 
 </html>

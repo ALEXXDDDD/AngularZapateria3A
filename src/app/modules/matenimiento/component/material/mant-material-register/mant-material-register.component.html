@@ -20,15 +20,20 @@
                 <input type="text" formControlName="nombreMaterial"  class="form-control" placeholder="Ingrese Nombre de Rol">
             </div>
 
-            <div *ngIf="myForm.get('nombreRol')?.errors && myForm.touched">
-                <span class="text-danger" *ngIf="myForm.get('nombreRol')?.hasError('required')" >Campo Requerido </span>
+            <div *ngIf="myForm.get('nombreMaterial')?.errors && myForm.touched">
+                <span class="text-danger" *ngIf="myForm.get('nombreMaterial')?.hasError('required')" >Campo Requerido </span>
             </div>
 
         </div>
         <div class="col-12 mt-5">
-            <div class="form-group">
-                <label for="" aria-placeholder="">Unidad </label>
-                <input type="text" formControlName="nombreUnidad" class="form-control" placeholder="Ingrese Descripcion">
+            <div class="form-group" >
+                <label for="">Seleccione En que Unidad esta </label>
+                <br>
+                <select name="" id="" formControlName="nombreUnidad" >
+                    <option value={{listUnidad.nombreUnidad}} *ngFor="let listUnidad of responseUnidad"  formControlName="nombreUnidad">{{listUnidad.nombreUnidad}}</option>
+                    
+                </select>
+               
             </div>
 
             <div *ngIf="myForm.get('desc')?.errors && myForm.touched">

@@ -1,37 +1,42 @@
-<h1>Productos</h1>
-  <a class="btn btn-info btn-sm" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><i class="fa-solid fa-bag-shopping">   </i>Unidad de Cantidad</a>
-    <ul class="dropdown-menu">
+<html>
+  <h1>Productos</h1>
+<!--Start Cabecera Productos -->
+    <div class="d-grid gap-2">
       
-      <li><a class="dropdown-item" href="#scrollspyHeading4">Ver</a></li>
-      <li><a class="dropdown-item" href="#scrollspyHeading4">Material-Unidad Cantidad </a></li>
-      <li><hr class="dropdown-divider"></li>
-    </ul>
-    ////
-    <a class="btn btn-danger btn-sm" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><i class="fa-solid fa-bag-shopping"></i>   Modelo</a>
-    <ul class="dropdown-menu">
-      
-      <li><a class="dropdown-item" href="#scrollspyHeading4">Ver</a></li>
-      <li><a class="dropdown-item" href="#scrollspyHeading4">Producto-Modelo </a></li>
-      <li><hr class="dropdown-divider"></li>
-    </ul>
-    ////
-    <a class="btn btn-info btn-sm" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><i class="fa-solid fa-bag-shopping"></i>  Proveedor</a>
-    <ul class="dropdown-menu">
-      
-      <li><a class="dropdown-item" href="#scrollspyHeading4">Ver</a></li>
-      <li><a class="dropdown-item" href="#scrollspyHeading4">Proveedor-Material </a></li>
-      <li><hr class="dropdown-divider"></li>
-    </ul>
-    ////
-    <a class="btn btn-info btn-sm" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><i class="fa-solid fa-bag-shopping"></i>  Clientes</a>
-    <ul class="dropdown-menu">
-      
-      <li><a class="dropdown-item" href="#scrollspyHeading4">Ver</a></li>
-      <li><a class="dropdown-item" href="#scrollspyHeading4">Productos-Clientes </a></li>
-      <li><hr class="dropdown-divider"></li>
-    </ul>
+      <a class="btn btn-primary" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Unidad de Cantidad</a>
+      <ul class="dropdown-menu">
+        
+        <li><a class="dropdown-item" href="#scrollspyHeading4">Ver</a></li>e
+        <li><a class="dropdown-item" href="#scrollspyHeading4">Material-Unidad Cantidad </a></li>
+        <li><hr class="dropdown-divider"></li>
+      </ul>
+      <a class="btn btn-primary" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">   Modelo</a>
+      <ul class="dropdown-menu">
+        
+        <li><a class="dropdown-item" [routerLink]="['/dasboard/mantenimiento/modelo']" href="#scrollspyHeading4">Ver</a></li>
+        <li><a class="dropdown-item" href="#scrollspyHeading4">Producto-Modelo </a></li>
+        <li><hr class="dropdown-divider"></li>
+      </ul>
+      <a class="btn btn-primary" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><i class="fa-solid fa-bag-shopping"></i>  Proveedor</a>
+      <ul class="dropdown-menu">
+        
+        <li><a class="dropdown-item" href="#scrollspyHeading4">Ver</a></li>
+        <li><a class="dropdown-item" href="#scrollspyHeading4">Proveedor-Material </a></li>
+        <li><hr class="dropdown-divider"></li>
+      </ul>
+      <a class="btn btn-primary" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><i class="fa-solid fa-bag-shopping"></i>  Clientes</a>
+      <ul class="dropdown-menu">
+        
+        <li><a class="dropdown-item" href="#scrollspyHeading4">Ver</a></li>
+        <li><a class="dropdown-item" href="#scrollspyHeading4">Productos-Clientes </a></li>
+        <li><hr class="dropdown-divider"></li>
+      </ul>
+    
+    </div>
+  <!--End  Cabecera Productos -->    
     <br>
     <img src="./../../../../../../assets/img/img_Template/img_template.PNG" alt="" class="img_prod">
+  <!--Columnas son datos  -->  
     <div class="container text-center">
       <div class="row">
         <div class="col">
@@ -46,13 +51,13 @@
           <button class="btn btn-danger"> Ver mas </button>
         </div> 
         
-        <div class="col" *ngFor="let listM of responseModelo">
-         Modelos Existentes
-          <div class="prd">
-            <ul >{{listM.nombreModelo}}</ul>
-          </div>
-          <button class="btn btn-danger"> Ver mas </button>
-        </div>
+        <tbody class="col">
+          <tr>Modelos </tr> 
+          <tr  *ngFor="let mod of responseModelo" class="prd">
+              <td>{{mod.nombreModelo}}</td>          
+          </tr> 
+        <tr><button class="btn btn-danger"> Ver mas </button>   </tr> 
+        </tbody>
         <div class="col">
           Productos Antiguos
           <div class="prd">
@@ -65,24 +70,26 @@
         </div>
       </div>
     </div>
-  
+  <!--End Cabecera Productos -->
 <h2>Lista De Productos</h2>
 
-<button  class="btn btn-info btn-sm">
-  <i class="fa-solid fa-eye"></i>
-  Productos Bajos de Stock
-</button>
-///
-<button  class="btn btn-info btn-sm">
-  <i class="fa-solid fa-eye"> </i>
-  Productos
-</button>
-///
-<button  class="btn btn-primary btn-sm">
-  <i class="fas fa-plus"> </i>
-  Nuevo Producto
-</button>
 
+  <!--Start Cabecera Buttones CRUD Productos -->
+    <button  class="btn btn-info btn-sm">
+      <i class="fa-solid fa-eye"></i>
+      Productos Bajos de Stock
+    </button>
+    ///
+    <button  class="btn btn-info btn-sm">
+      <i class="fa-solid fa-eye"> </i>
+      Productos
+    </button>
+    ///
+    <button  class="btn btn-primary btn-sm">
+      <i class="fas fa-plus"> </i>
+      Nuevo Producto
+    </button>
+  <!--End Cabecera Buttones CRUD Productos -->
 <table class="table">
     
     <thead>
@@ -135,5 +142,13 @@
   (closeModalEmmit)="getCloseModalEmmit($event)"
     >
     </app-mant-rol-registrer> -->
+    <app-mant-producto-register
+    
+      [title]="titleModal"
+      []
+    >
+
+    </app-mant-producto-register>
   </ng-template>
   
+</html>

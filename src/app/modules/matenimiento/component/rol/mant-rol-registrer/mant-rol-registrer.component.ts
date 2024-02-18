@@ -5,6 +5,7 @@ import { RequestRol } from '../../../models/rol/rol-request.model';
 import { AcciontConstants } from 'src/app/constants/general.constans';
 import { HttpClient } from '@angular/common/http';
 import { RolService } from '../../../service/rol.service';
+import { alert_sucess } from 'src/app/funcionts/general.funcionts';
 
 @Component({
   selector: 'app-mant-rol-registrer',
@@ -82,7 +83,8 @@ export class MantRolRegistrerComponent implements OnInit {
       this._rolService.update(this.rolEnvio).subscribe(
         {
           next: (data:ResponseRol)=> {
-            alert("Se ha Actualizado correctamente ")
+            alert_sucess("Se ha Actualizado correctamente")
+            
           },
           error: ()=> {
             alert("Ocurrio un error")

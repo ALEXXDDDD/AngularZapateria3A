@@ -3,34 +3,27 @@
     
     <thead>
       <tr>
+        <button (click)="crearEmpleado(modalEdit)"  class="btn btn-primary btn-sm">
+          <i class="fas fa-plus">Nuevo Empleado</i>
+      </button>
+      <button  class="btn btn-secondary btn-sm" [routerLink]="['/dasboard/mantenimiento/empleado-area']">
+        <i class="fas fa-plus">Empleado Area</i>
+    </button> 
         <tr>
           <th scope="col" >IdEmpleado</th>
           <th scope="col">Nombre Apellido</th>
-          <th scope="col">Documento</th>
-          <th scope="col">Numero Documento</th>
           <th scope="col">Telefono</th>
-          <th scope="col">Direccion</th>
           <th scope="col">Salario</th>
           <th scope="col">Estado</th>
         <th>
-        
-        <button (click)="crearEmpleado(modalEdit)"  class="btn btn-primary btn-sm">
-            <i class="fas fa-plus">Nuevo Empleado</i>
-        </button>
-        <button  class="btn btn-secondary btn-sm">
-          <i class="fas fa-plus">Nuevo Area</i>
-      </button>
       </tr>
     </thead>
    
       <tbody *ngFor="let list of responseEmpleado">
         <tr *ngFor="let e of list.empleado">
           <td>{{e.idEmpleado}}</td>
-          <td>{{e.nombrePersona + " " + e.apellidoEmp}}</td>
-          <td>{{e.tipoDocumento}}</td>
-          <td>{{e.numeroDocumento}}</td>
+          <td>{{e.nombrePersona + " " + e.apellidoEmp}}</td>       
           <td>{{e.telefono}}</td>
-          <td>{{e.direccion}}</td>
           <td>{{e.salario}}</td>
           <td>{{e.estado}}</td>
           <td>
