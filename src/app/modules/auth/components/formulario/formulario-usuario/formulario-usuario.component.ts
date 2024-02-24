@@ -2,8 +2,10 @@ import { Component, Input, OnInit, Output } from '@angular/core';
 import { Form, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AcciontConstants } from 'src/app/constants/general.constans';
+import { alert_error, alert_sucess } from 'src/app/funcionts/general.funcionts';
 import { RequestVWUsuario } from 'src/app/models/request-vwUsuario-model';
 import { ResponseVWUsuario } from 'src/app/models/response-vwUsuario-model';
+import { CorreoVerifApi } from 'src/app/modules/matenimiento/models/usuario/usuarioApiCorreo.model';
 import { UsuarioService } from 'src/app/modules/matenimiento/service/usuario/usuario.service';
 
 @Component({
@@ -43,6 +45,7 @@ export class FormularioUsuarioComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  
     console.log("Title",this.title)
     console.log("Usuario",this.usuario)
     this.myForm.patchValue(this.usuario)
@@ -50,25 +53,54 @@ export class FormularioUsuarioComponent implements OnInit {
   
   guardar()
   {
-    debugger;
+    
+ 
     this.usuarioEnvio = this.myForm.getRawValue()
     this.crearUsuario()
   }
   crearUsuario()
   {
-    this._usuarioService.create(this.usuarioEnvio).subscribe(
+   
+    if(this.usuarioEnvio.idUsuario==0)
+    {
+      this.validarCorreo()
+
+      if(!this.usuarioEnvio.email==null)
       {
-      next : (data:ResponseVWUsuario) => {
-        alert("Se creo el Usuario exitosamente ")
-      },  
-      complete : () => {
-        alert("Ocurrio un error")
-        this._router.navigate(['dasboard'])
-      },
-      error : () => {
-        alert("Ocurrio un error")
+        this._usuarioService.create(this.usuarioEnvio).subscribe(
+              {
+              next : (data:ResponseVWUsuario) => {
+                alert("Se creo el Usuario exitosamente ")
+              },  
+              complete : () => {
+                alert("Ocurrio un error")
+                this._router.navigate(['dasboard'])
+              },
+              error : () => {
+                alert("Ocurrio un error")
+              }
+            })
       }
-    })
+    }
+    
+  }
+  validarCorreo()
+  {
+    this._usuarioService.validacionCorreoUsuario(this.usuarioEnvio.email)
+    .subscribe(
+      {
+        
+        next:(data:CorreoVerifApi)=>{
+          console.log(data)
+          alert_sucess("Correo Correcto")
+          this.myForm.get("email")?.setValue(data.email)
+        },
+        error:()=>{
+          alert_error(" No se pudo Verficar el Correo")
+        },
+        complete:()=>{}
+      }
+    )
   }
 
 }

@@ -22,7 +22,10 @@ export class AuthInterceptor implements HttpInterceptor {
     
     let token = sessionStorage.getItem("token")
     let request = req;
-    if(token)
+
+    if(!req.url.includes("dniruc.apisperu.com")&&!req.url.includes("api.hunter.io"))
+    {
+      if(token)
     {
       request=req.clone(
         {
@@ -31,7 +34,23 @@ export class AuthInterceptor implements HttpInterceptor {
           }
         }
       );
+     }
     }
+
+    /* else if (!req.url.includes("api.hunter.io"))
+    {
+      if(token)
+      {
+        request=req.clone(
+          {
+            setHeaders:{
+              authorization: `Bearer ${token}`
+            }
+          }
+        );
+       }
+    } */
+    
     return  next.handle(request).pipe(
       catchError(  
         (err:HttpErrorResponse)=>

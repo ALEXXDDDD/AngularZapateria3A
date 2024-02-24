@@ -6,6 +6,10 @@ import { EmpleadoService } from '../../../service/empleado/empleado.service';
 import { AcciontConstants } from 'src/app/constants/general.constans';
 import { ResponseEmpleado } from '../../../models/empleado/response-list-empleado.models';
 import { convertBolean } from 'src/app/funcionts/general.funcionts';
+import { HttpClient } from '@angular/common/http';
+import { empleadoApiPeru } from '../../../models/empleado/empleadoApisPero.model';
+import { Observable } from 'rxjs';
+import { identifierName } from '@angular/compiler';
 
 @Component({
   selector: 'app-mant-empleado-register',
@@ -28,7 +32,8 @@ export class MantEmpleadoRegisterComponent implements OnInit{
 
   constructor(
     private fb : FormBuilder,
-    private _empleadoService: EmpleadoService
+    private _empleadoService: EmpleadoService,
+    private http:HttpClient
   )
   {
     this.myForm = this.fb.group(
@@ -46,11 +51,14 @@ export class MantEmpleadoRegisterComponent implements OnInit{
         estado:[null,[Validators.required]]
       }
     )
+    
   }
 
   ngOnInit(): void {
+   
     console.log("Titulo =>",this.title);
     console.log("Titulo =>",this.empleado);
+   
     this.myForm.patchValue(this.empleado)
     
     
@@ -60,13 +68,16 @@ export class MantEmpleadoRegisterComponent implements OnInit{
    */
   guardar()
   {
-    debugger;
+    
     this.EmpleadoEnvio = this.myForm.getRawValue()
+    
     this.EmpleadoEnvio.estado = convertBolean(this.EmpleadoEnvio.estado.toString())
     switch(this.accion)
     {
       case AcciontConstants.crear:
-        this.crearEmpleado()
+       
+        this.crearEmpleado(this.EmpleadoEnvio.idEmpleado)
+        
       break;
       case AcciontConstants.editar:
         this.editarEmpleado()
@@ -75,9 +86,17 @@ export class MantEmpleadoRegisterComponent implements OnInit{
       break;
     }
   }
-  crearEmpleado()
+  crearEmpleado(idEmpleado:number)
     {
-      this._empleadoService.create(this.EmpleadoEnvio).subscribe(
+     
+      if(idEmpleado==0)
+      {
+        
+        this.buscar();
+       
+      }
+      
+      /* this._empleadoService.create(this.EmpleadoEnvio).subscribe(
         {
           next: (data:ResponseEmpleado) => 
           {
@@ -90,7 +109,7 @@ export class MantEmpleadoRegisterComponent implements OnInit{
           }
         }
         
-      )
+      ) */
       console.log(this.myForm.getRawValue())
     }
   editarEmpleado()
@@ -122,5 +141,24 @@ export class MantEmpleadoRegisterComponent implements OnInit{
       //false => No hubo modificacion de la base de datos
     }
     
+  buscar()
+  {
+    debugger
+    this._empleadoService.buscarEmpleadoDNI(this.EmpleadoEnvio.numeroDocumento).subscribe(
+      {
+        next:(data:empleadoApiPeru)=>{
+          this.myForm.get("nombrePersona")?.setValue(data.nombres)
+          this.myForm.get("apellidoEmp")?.setValue(data.apellidoPaterno  + "  " + data.apellidoMaterno)
+          
+        },
+        error:(error)=>{
+            alert("nO ESNTRA AQUI")
+        },
+        complete:()=>{
+          
+        }
+      }
+    )
+  }
 
 }
