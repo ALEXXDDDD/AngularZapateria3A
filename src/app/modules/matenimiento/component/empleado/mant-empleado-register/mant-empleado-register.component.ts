@@ -144,6 +144,8 @@ export class MantEmpleadoRegisterComponent implements OnInit{
   buscar()
   {
     debugger
+    this.EmpleadoEnvio = this.myForm.getRawValue()
+    this.EmpleadoEnvio.estado = convertBolean(this.EmpleadoEnvio.estado.toString())
     this._empleadoService.buscarEmpleadoDNI(this.EmpleadoEnvio.numeroDocumento).subscribe(
       {
         next:(data:empleadoApiPeru)=>{
