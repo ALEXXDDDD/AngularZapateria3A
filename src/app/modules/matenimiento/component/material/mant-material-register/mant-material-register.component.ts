@@ -36,7 +36,7 @@ export class MantMaterialRegisterComponent implements OnInit {
         nombreMaterial: [null,Validators.required],
         nombreUnidad: [null,Validators.required],
         stock: [null,Validators.required],
-        descripcion: [null,Validators.required],
+        descripcionMaterial: [null,Validators.required],
         marca: [null,Validators.required],
         estado: [null,Validators.required]
       }
@@ -70,6 +70,8 @@ export class MantMaterialRegisterComponent implements OnInit {
       {
         next :(unidades:ResponseUnidad[])=>{
           this.responseUnidad = unidades
+          console.log(unidades);
+          
         }
       }
     )

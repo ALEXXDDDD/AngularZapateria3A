@@ -9,5 +9,5 @@ export class ResponseVWEmpleado {
     codigoUbigeo: string = "";
     direccion: string = "";
     salario: number = 0;
-    estado: boolean = false;
+    fotografiaEmpleado: string = "";
 }

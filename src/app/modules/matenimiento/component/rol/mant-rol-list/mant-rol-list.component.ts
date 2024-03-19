@@ -5,6 +5,10 @@ import { ResponseRol } from '../../../models/rol/rol-response.model';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { HttpHeaders } from '@angular/common/http';
 import { AcciontConstants } from 'src/app/constants/general.constans';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { RequestFilterGeneric } from '../../../models/genericFilterRequest.model';
+import { ResponseFilterGeneric } from '../../../models/genericFilterResponse.models';
+import { PageChangedEvent } from 'ngx-bootstrap/pagination';
 
 @Component({
   selector: 'app-mant-rol-list',
@@ -17,13 +21,24 @@ export class MantRolListComponent implements OnInit {
   rolSelect :ResponseRol = new ResponseRol() // Mandar para el register 
   titleModal : string = ""
   accionModal : number = 0
+  totalItems:number =0
+  itemsPerPage:number=1
+  request : RequestFilterGeneric = new RequestFilterGeneric()
+  myFormFilter:FormGroup
 
   constructor(
     private _router:Router, 
+    private fb:FormBuilder,
     private modalService: BsModalService,
     private _rolService : RolService
   ){
-    
+    this.myFormFilter = this.fb.group(
+      {
+        
+        nombreRol: [""],
+        descripRol: [""]
+      }
+    )
   }
   /**
    * FIXME: El lo primero que se ejecuta al cargar la pagina 
@@ -41,7 +56,7 @@ export class MantRolListComponent implements OnInit {
       alert("No as iniciado Sesion")
       this._router.navigate(['auth'])
     } */
-    this.listarRoles()
+    this.filtrar()
   }
   listarRoles()
   {
@@ -82,7 +97,7 @@ export class MantRolListComponent implements OnInit {
     this.modalRef?.hide()
     if(res)
     {
-      this.listarRoles()
+      this.filtrar()
     }
   }
   eliminarRol(id:number)
@@ -100,5 +115,44 @@ export class MantRolListComponent implements OnInit {
         }
       )
     }
+  }
+  filtrar()
+  {
+    
+    let valuedorm = this.myFormFilter.getRawValue()
+
+    this.request.filtros.push({name:"nombreRol",value: valuedorm.nombreRol} );
+    this.request.filtros.push({name:"descripRol",value: valuedorm.descripRol} );
+    
+    this._rolService.genericFilter(this.request).subscribe
+    (
+      {
+        next:(data:ResponseFilterGeneric<ResponseRol>)=>{
+          console.log(data)
+          this.Rol  = data.lista;
+          this.totalItems = data.totalRegistros
+          
+        },
+        error:(error)=>{
+          console.log("ERROR")
+        },
+        complete:(
+
+        )=>{
+          console.log("Compelete")
+        }
+      }
+    )
+    
+  }
+  changePage(event:PageChangedEvent)
+  {
+    this.request.numeroPagina = event.page
+  this.filtrar()
+  }
+  changeItemsPerPage()
+  {
+    this.request.cantidad = this.itemsPerPage
+    this.filtrar()
   }
 }

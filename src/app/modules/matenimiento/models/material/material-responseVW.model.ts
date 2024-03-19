@@ -3,7 +3,8 @@ export class ResponseVWMaterial {
     nombreMaterial: string= "" ;
     nombreUnidad: string = "";
     stock: number= 0;
-    descripcion: string = "";
+    descripcionMaterial: string = "";
     marca: string = "";
+    imagenMaterial: string = "";
     estado: string = "";
 }

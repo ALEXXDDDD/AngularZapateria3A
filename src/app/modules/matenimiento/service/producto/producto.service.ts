@@ -13,6 +13,6 @@ export class ProductoService extends CrudService<RequestProducto,ResponseProduct
   constructor(
     protected http:HttpClient
   ) {
-    super (http,urlConstants.producto)
+    super (http,urlConstants.productoContProduct)
    }
 }

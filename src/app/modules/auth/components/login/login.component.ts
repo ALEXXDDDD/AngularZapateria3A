@@ -65,7 +65,7 @@ export class LoginComponent {
           }
         },
         error: (error) => {
-          alert_error("No Iniciaste Sesion")
+          alert_error("Datos Icorrectos")
           this._router.navigate(['login'])
         },
         complete: () => {}

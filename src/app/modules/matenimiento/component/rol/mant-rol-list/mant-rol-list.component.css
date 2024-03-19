@@ -1,17 +1,18 @@
-html{
-    background-color: black;
-}
+
 th{
-    color: white;
+    color: rgb(245, 245, 245);
 }
-table{
+thead{
     background-color: black;
 }
 td{
+    color: rgb(15, 13, 13);
+}
+#button-MAS{
     color: white;
 }
 button{
-    color: white;
+    color: rgb(19, 13, 13);
 }
 h1{
     text-align: center;

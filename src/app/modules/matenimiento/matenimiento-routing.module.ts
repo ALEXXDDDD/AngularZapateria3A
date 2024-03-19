@@ -8,10 +8,14 @@ import { MantModeloListComponent } from './component/modelo/mant-modelo-list/man
 import { MantProductoListComponent } from './component/producto/mant-producto-list/mant-producto-list.component';
 import { MantMaterialListComponent } from './component/material/mant-material-list/mant-material-list.component';
 import { MantEmplAreaListComponent } from './component/empleado/mant-empl-area-list/mant-empl-area-list.component';
+import { MantRolRegisterMultipleComponent } from './component/rol/mant-rol-register-multiple/mant-rol-register-multiple.component';
 
 const routes: Routes = [
   {
     path: 'rol', component:MantRolListComponent
+  },
+  {
+    path: 'rolMultiple', component:MantRolRegisterMultipleComponent
   },
   {
     path: 'persona', component:MantPersonaListComponent

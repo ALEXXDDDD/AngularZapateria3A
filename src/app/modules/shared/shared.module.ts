@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { CrudService } from './services/crud.service';
+import { PaginationModule } from 'ngx-bootstrap/pagination';
 
 
 
@@ -13,11 +14,13 @@ import { CrudService } from './services/crud.service';
     FormsModule,
     ReactiveFormsModule,
     ModalModule.forRoot(),
+    PaginationModule.forRoot(),
     HttpClientModule
   ],
   exports:[
     FormsModule,
     ModalModule,
+    PaginationModule,
     ReactiveFormsModule
   ]
 })

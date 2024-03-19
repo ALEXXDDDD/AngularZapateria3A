@@ -3,7 +3,7 @@
 <!--Start Cabecera Productos -->
     <div class="d-grid gap-2">
       
-      <a class="btn btn-primary" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Unidad de Cantidad</a>
+      <!-- <a class="btn btn-primary" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Unidad de Cantidad</a>
       <ul class="dropdown-menu">
         
         <li><a class="dropdown-item" href="#scrollspyHeading4">Ver</a></li>e
@@ -16,15 +16,17 @@
         <li><a class="dropdown-item" [routerLink]="['/dasboard/mantenimiento/modelo']" href="#scrollspyHeading4">Ver</a></li>
         <li><a class="dropdown-item" href="#scrollspyHeading4">Producto-Modelo </a></li>
         <li><hr class="dropdown-divider"></li>
-      </ul>
-      <a class="btn btn-primary" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><i class="fa-solid fa-bag-shopping"></i>  Proveedor</a>
+      </ul> -->
+      <a class="btn btn-primary" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><img src="https://imgs.search.brave.com/mQfYhtHiJhgKeKvkPCHAyK5zbCDJAUyoMbFjJSqO7_s/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTM1/MTQzNzYxNy9lcy9m/b3RvL2xhcmdhLWV4/cG9zaWNpJUMzJUIz/bi1kZS1wYXF1ZXRl/cy1lbi1jaW50YS10/cmFuc3BvcnRhZG9y/YS5qcGc_cz02MTJ4/NjEyJnc9MCZrPTIw/JmM9ZVlCWWZmYkJp/b2thRjlyZHE0VDJT/R2l3c2JKX1hELVU2/eF9KSjJUQ0pSRT0" 
+        alt="" class="img_producto">  Proveedor</a>
       <ul class="dropdown-menu">
         
         <li><a class="dropdown-item" href="#scrollspyHeading4">Ver</a></li>
         <li><a class="dropdown-item" href="#scrollspyHeading4">Proveedor-Material </a></li>
         <li><hr class="dropdown-divider"></li>
       </ul>
-      <a class="btn btn-primary" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><i class="fa-solid fa-bag-shopping"></i>  Clientes</a>
+      <a class="btn btn-primary" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><img src="https://imgs.search.brave.com/a55-vXiD_9ulT5WAVAruritbgM8BlSHruOlsGO8Fn1o/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvNjEz/MTM0MzA2L2VzL2Zv/dG8vbXVqZXItZW1v/Y2lvbmFkYS1kaXZp/cnRpJUMzJUE5bmRv/c2UtZGUtY29tcHJh/cy5qcGc_cz02MTJ4/NjEyJnc9MCZrPTIw/JmM9bm13Q1NIVWZ2/RkpfQzU3eGF2Y0FQ/QVdFZ0J1UFhVU3Yy/QURCTmtzOVpubz0"
+         alt="" class="img_producto">  Clientes</a>
       <ul class="dropdown-menu">
         
         <li><a class="dropdown-item" href="#scrollspyHeading4">Ver</a></li>
@@ -35,38 +37,37 @@
     </div>
   <!--End  Cabecera Productos -->    
     <br>
-    <img src="./../../../../../../assets/img/img_Template/img_template.PNG" alt="" class="img_prod">
+   
   <!--Columnas son datos  -->  
     <div class="container text-center">
       <div class="row">
-        <div class="col">
+        <div class="col" id="containerProd">
           
           Producto Bajo Stock
           <div class="prd">
             <ul >Zapato Color Negro</ul>
-          <ul >Reservado</ul>
-          <ul >Reservado</ul>
-          <ul >Reservado</ul>
+          
           </div>
-          <button class="btn btn-danger"> Ver mas </button>
+          
         </div> 
         
-        <tbody class="col">
-          <tr>Modelos </tr> 
-          <tr  *ngFor="let mod of responseModelo" class="prd">
-              <td>{{mod.nombreModelo}}</td>          
-          </tr> 
-        <tr><button class="btn btn-danger"> Ver mas </button>   </tr> 
+        <tbody class="col" id="containerProd">
+          Modelos
+          <div class="prd" *ngFor="let mod of responseModelo">
+            <ul>{{mod.nombreModelo}}</ul>  
+         
+          </div>
+          
+        <tr>   </tr> 
         </tbody>
         <div class="col">
           Productos Antiguos
-          <div class="prd">
-            <ul >Zapato Color Negro</ul>
-          <ul >Reservado</ul>
-          <ul >Reservado</ul>
-          <ul >Reservado</ul>
+          <div class="prd" *ngFor="let def of responseProducto">
+            <ul >{{def.nombreProd}}</ul>
+            <img src="{{def.fotografia_Producto}}" class="img_producto" alt="">
+          
           </div>
-          <button class="btn btn-danger"> Ver mas </button>
+          
         </div>
       </div>
     </div>
@@ -75,63 +76,50 @@
 
 
   <!--Start Cabecera Buttones CRUD Productos -->
-    <button  class="btn btn-info btn-sm">
-      <i class="fa-solid fa-eye"></i>
-      Productos Bajos de Stock
-    </button>
-    ///
-    <button  class="btn btn-info btn-sm">
-      <i class="fa-solid fa-eye"> </i>
-      Productos
-    </button>
-    ///
+  
+  
+    
+        
     <button  class="btn btn-primary btn-sm">
       <i class="fas fa-plus"> </i>
-      Nuevo Producto
+       
     </button>
-  <!--End Cabecera Buttones CRUD Productos -->
-<table class="table">
+
+
+
     
+  <!--End Cabecera Buttones CRUD Productos -->
+  <table class="table ">
+  
     <thead>
       <tr>
         <th scope="col">ID</th>
-        <th scope="col">Nombre Producto</th>
-        <th scope="col">Precio Unitario</th>
-        <th scope="col">Unidad</th>
-        <th scope="col">Stock</th>
-        <th scope="col">Estado</th>
-        <th scope="col">Fotografia</th>
-        
+        <th scope="col">Nombre Prodcuto</th>
+        <th scope="col">Precio</th>
+        <th scope="col">Imagen Producto</th>
+        <button (click)="crearProducto(modalEdit)"  class="btn btn-primary btn-sm" id="button-Mas">
+            <i class="fas fa-plus"></i>
+        </button>
       </tr>
-      
-
     </thead>
-    
-    <tbody *ngFor="let list of responseProducto">
-      
-      <tr >
-        <th scope="row">{{list.idProducto}}</th>
+    <tbody>
+      <tr *ngFor="let list of responseProducto">
+        <td >{{list.idProducto}}</td>
         <td>{{list.nombreProd}}</td>
         <td>{{list.precioUnitario}}</td>
-        <td>{{list.idUnidad}}</td>
-        <td>{{list.stock}}</td>
-        <td>{{list.estadoProducto}}</td>
-        <td>{{list.fotografia}}</td>
-        
-        <!-- 
-        <button (click)="eliminarRol(car.irol)" type="button" class="btn btn-danger mr-4">
-            <i class="fas fa-trash"></i>
-        </button> -->
-      <button  class="btn btn-primary mr-4">
-            <i class="fas fa-edit"></i>
-        </button>
+        <img src="{{list.fotografia_Producto}}" alt="" class="img_producto">
+       <td>
+        <button (click)="editarProducto(modalEdit,list)" class="btn btn-primary mr-4">
+          <i class="fas fa-edit"></i>
+      </button>
+      <button type="button" class="btn btn-danger mr-4">
+          <i class="fas fa-trash"></i>
+      </button>
+       </td>
+      
         
       </tr>
       
-    </tbody>
-    
-      
-  </table>
   
   
   <ng-template #modalEdit>
@@ -151,4 +139,4 @@
     </app-mant-producto-register>
   </ng-template>
   
-</html>
+

@@ -28,11 +28,11 @@
         <div class="col-12 mt-5">
             <div class="form-group">
                 <label for="" aria-placeholder="">Descripcion </label>
-                <input type="text" formControlName="desc" class="form-control" placeholder="Ingrese Descripcion">
+                <input type="text" formControlName="descripRol" class="form-control" placeholder="Ingrese Descripcion">
             </div>
 
-            <div *ngIf="myForm.get('desc')?.errors && myForm.touched">
-                <span class="text-danger" *ngIf="myForm.get('desc')?.hasError('required')" >Campo Requerido </span>
+            <div *ngIf="myForm.get('descripRol')?.errors && myForm.touched">
+                <span class="text-danger" *ngIf="myForm.get('descripRol')?.hasError('required')" >Campo Requerido </span>
             </div>
         </div>
         

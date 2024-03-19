@@ -3,7 +3,7 @@ export class RequestVWMaterial {
     nombreMaterial: string= "" ;
     nombreUnidad: string = "";
     stock: number= 0;
-    descripcion: string = "";
+    descripcionMaterial: string = "";
     marca: string = "";
     estado: string = "";
 }

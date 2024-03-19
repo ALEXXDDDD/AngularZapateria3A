@@ -1,41 +1,35 @@
-.row{
-    background-color: black;
-    color: wheat;
-    margin-top: 20px;
-    font-size: 15px;
-    border-radius: 20px;
+
+.img_producto{
+    width: 138px;
+    margin: auto;
 }
-.prd{
-    background-color: rgb(15, 14, 14);
-    
-}
-img{
-    margin-left: 180px;
-    margin-top: 20px;
-    }
-    html{
+
+    #containerProd{
         background-color: black;
+        color: wheat;
+        border-radius: 50px;
+        /* margin: auto; */
+        margin-left: 20px;
     }
+    #button-Mas{
+        background-color: white;
+    }
+    ul{
+        background-color: #1e5ce7;
+        text-align: center;
+        border-radius: 27px;
+        height: 48px;
+        padding: 11px;
+    } 
+    thead{
+        background-color: black;
+        
+    } 
+   
+   
     th{
         color: white;
     }
-    table{
-        background-color: black;
-    }
-    td{
-        color: white;
-    }
-    button{
-        color: white;
-    }
-    h1{
-        text-align: center;
-        background-color: black;
-        color: white; 
-        
-        margin-bottom: 20px;
-        margin-left: 20px;
-    }   
     h2{
         text-align: center;
         background-color: black;

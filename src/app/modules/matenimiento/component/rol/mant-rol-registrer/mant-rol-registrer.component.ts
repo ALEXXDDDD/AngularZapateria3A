@@ -5,7 +5,7 @@ import { RequestRol } from '../../../models/rol/rol-request.model';
 import { AcciontConstants } from 'src/app/constants/general.constans';
 import { HttpClient } from '@angular/common/http';
 import { RolService } from '../../../service/rol.service';
-import { alert_sucess } from 'src/app/funcionts/general.funcionts';
+import { alert_error, alert_sucess } from 'src/app/funcionts/general.funcionts';
 
 @Component({
   selector: 'app-mant-rol-registrer',
@@ -34,7 +34,7 @@ export class MantRolRegistrerComponent implements OnInit {
       {
         irol: [{value:0,disable:true},[Validators.required]],
         nombreRol: [null,Validators.required],
-        desc: [null]
+        descripRol: [null]
       }
     )
   }
@@ -67,10 +67,10 @@ export class MantRolRegistrerComponent implements OnInit {
     this._rolService.create(this.rolEnvio).subscribe(
       {
         next: (data:ResponseRol)=> {
-          alert("Se ha Creado correctamente ")
+          alert_sucess("Se ha Creado correctamente El Rol")
         },
         error: ()=> {
-          alert("Ocurrio un error")
+          alert_error("Ocurrio un error")
         },
         complete: ()=> {
           this.cerrarModal(true)

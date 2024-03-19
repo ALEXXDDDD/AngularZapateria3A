@@ -53,11 +53,11 @@
         <div class="col-12 mt-5">
             <div class="form-group">
                 <label for="" aria-placeholder="">Descripcion</label>
-                <input type="text" formControlName="descripcion" class="form-control" placeholder="Ingrese Descripcion">
+                <input type="text" formControlName="descripcionMaterial" class="form-control" placeholder="Ingrese Descripcion">
             </div>
 
-            <div *ngIf="myForm.get('descripcion')?.errors && myForm.touched">
-                <span class="text-danger" *ngIf="myForm.get('descripcion')?.hasError('required')" >Campo Requerido </span>
+            <div *ngIf="myForm.get('descripcionMaterial')?.errors && myForm.touched">
+                <span class="text-danger" *ngIf="myForm.get('descripcionMaterial')?.hasError('required')" >Campo Requerido </span>
             </div>
         </div>
         <div class="col-12 mt-5">
@@ -66,8 +66,8 @@
                 <input type="text" formControlName="marca" class="form-control" placeholder="Ingrese Descripcion">
             </div>
 
-            <div *ngIf="myForm.get('desc')?.errors && myForm.touched">
-                <span class="text-danger" *ngIf="myForm.get('desc')?.hasError('required')" >Campo Requerido </span>
+            <div *ngIf="myForm.get('marca')?.errors && myForm.touched">
+                <span class="text-danger" *ngIf="myForm.get('marca')?.hasError('required')" >Campo Requerido </span>
             </div>
         </div>
         <div class="col-12 mt-5">
@@ -76,8 +76,8 @@
                 <input type="text" formControlName="estado" class="form-control" placeholder="Ingrese Descripcion">
             </div>
 
-            <div *ngIf="myForm.get('desc')?.errors && myForm.touched">
-                <span class="text-danger" *ngIf="myForm.get('desc')?.hasError('required')" >Campo Requerido </span>
+            <div *ngIf="myForm.get('estado')?.errors && myForm.touched">
+                <span class="text-danger" *ngIf="myForm.get('estado')?.hasError('required')" >Campo Requerido </span>
             </div>
         </div>
         

@@ -31,7 +31,7 @@ export class MantModeloResgisterComponent implements OnInit {
       idModelo: [null,Validators.required],
       nombreModelo: [null,Validators.required] ,
       codigoModelo: [null,Validators.required] ,
-      descripcion: [null,Validators.required] ,
+      descripcionModelo: [null,Validators.required] ,
     })
   }
   guardar()
@@ -53,11 +53,11 @@ export class MantModeloResgisterComponent implements OnInit {
     this._modeloService.create(this.modeloEnvio).subscribe
     (
       {
-        next :(data:ResponseModelo) => {
+        next :(data:RequestModelo) => {
           alert_sucess("Se ha Creado el Modelo correctamente")
         },
         error :(error) => {
-         alert_error("Se ha Creado el Modelo correctamente")
+         alert_error("No se creo")
         },
         complete :() => {
           this.cerrarModal(true)

@@ -59,15 +59,8 @@ export class FormularioUsuarioComponent implements OnInit {
     this.crearUsuario()
   }
   crearUsuario()
-  {
-   
-    if(this.usuarioEnvio.idUsuario==0)
-    {
-      this.validarCorreo()
-
-      if(!this.usuarioEnvio.email==null)
-      {
-        this._usuarioService.create(this.usuarioEnvio).subscribe(
+  {    
+    this._usuarioService.create(this.usuarioEnvio).subscribe(
               {
               next : (data:ResponseVWUsuario) => {
                 alert("Se creo el Usuario exitosamente ")
@@ -80,8 +73,8 @@ export class FormularioUsuarioComponent implements OnInit {
                 alert("Ocurrio un error")
               }
             })
-      }
-    }
+      
+    
     
   }
   validarCorreo()

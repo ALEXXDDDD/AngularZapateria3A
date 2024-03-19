@@ -24,6 +24,7 @@ import { MantProdModLisComponent } from './component/modelo/mant-prod-mod-lis/ma
 import { MantDetallProduccionListComponent } from './component/detalleProduccion/mant-detall-produccion-list/mant-detall-produccion-list.component';
 import { MantDetallProduccionRegisterComponent } from './component/detalleProduccion/mant-detall-produccion-register/mant-detall-produccion-register.component';
 import { MantEmplAreaListComponent } from './component/empleado/mant-empl-area-list/mant-empl-area-list.component';
+import { MantRolRegisterMultipleComponent } from './component/rol/mant-rol-register-multiple/mant-rol-register-multiple.component';
 
 
 
@@ -44,6 +45,7 @@ import { MantEmplAreaListComponent } from './component/empleado/mant-empl-area-l
     MantProductoRegisterComponent,
     MantProductoListComponent,
     MantMaterialListComponent,
+    MantRolRegisterMultipleComponent,
     MantMaterialRegisterComponent,
     MantProdModLisComponent,
     MantDetallProduccionListComponent,

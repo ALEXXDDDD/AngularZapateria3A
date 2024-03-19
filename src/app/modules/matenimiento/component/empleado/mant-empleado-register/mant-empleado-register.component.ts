@@ -38,7 +38,7 @@ export class MantEmpleadoRegisterComponent implements OnInit{
   {
     this.myForm = this.fb.group(
       {
-        idEmpleado:[{value:0,disable:true},[Validators.required]], 
+        idEmpleado:[{value:0,disabled:true},[Validators.required]], 
         nombrePersona:[null,[Validators.required]],
         apellidoEmp:[null,[Validators.required]],
         tipoPersona:[null,[Validators.required]],
@@ -75,9 +75,7 @@ export class MantEmpleadoRegisterComponent implements OnInit{
     switch(this.accion)
     {
       case AcciontConstants.crear:
-       
-        this.crearEmpleado(this.EmpleadoEnvio.idEmpleado)
-        
+        this.crearEmpleado()
       break;
       case AcciontConstants.editar:
         this.editarEmpleado()
@@ -86,30 +84,25 @@ export class MantEmpleadoRegisterComponent implements OnInit{
       break;
     }
   }
-  crearEmpleado(idEmpleado:number)
+  crearEmpleado()
     {
-     
-      if(idEmpleado==0)
-      {
-        
-        this.buscar();
-       
-      }
-      
-      /* this._empleadoService.create(this.EmpleadoEnvio).subscribe(
+      this._empleadoService.create(this.EmpleadoEnvio).subscribe(
         {
           next: (data:ResponseEmpleado) => 
           {
             alert("Se a creado el Empleado Correctamente ")
           },
-          error: () => {},
+          error: () => 
+          {
+            alert("No se pudo crear el Empleado ")
+          },
           complete: () => 
           {
             this.cerrarModal(true)
           }
         }
         
-      ) */
+      )
       console.log(this.myForm.getRawValue())
     }
   editarEmpleado()
@@ -143,9 +136,9 @@ export class MantEmpleadoRegisterComponent implements OnInit{
     
   buscar()
   {
-    debugger
+    debugger;
     this.EmpleadoEnvio = this.myForm.getRawValue()
-    this.EmpleadoEnvio.estado = convertBolean(this.EmpleadoEnvio.estado.toString())
+  
     this._empleadoService.buscarEmpleadoDNI(this.EmpleadoEnvio.numeroDocumento).subscribe(
       {
         next:(data:empleadoApiPeru)=>{

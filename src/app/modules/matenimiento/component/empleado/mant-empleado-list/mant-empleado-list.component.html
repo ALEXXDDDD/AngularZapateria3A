@@ -1,20 +1,22 @@
-<h1>MANTENIMEIENTO DE EMPLEADO</h1>
+<h1> EMPLEADOS</h1>
+<button (click)="crearEmpleado(modalEdit)"  class="btn btn-primary btn-sm">
+  <i class="fas fa-plus"></i>
+</button>
+<button  class="btn btn-secondary btn-sm" [routerLink]="['/dasboard/mantenimiento/empleado-area']">
+<i class="fas fa-plus">Ver Area</i>
+</button> 
 <table class="table">
-    
+  
     <thead>
       <tr>
-        <button (click)="crearEmpleado(modalEdit)"  class="btn btn-primary btn-sm">
-          <i class="fas fa-plus">Nuevo Empleado</i>
-      </button>
-      <button  class="btn btn-secondary btn-sm" [routerLink]="['/dasboard/mantenimiento/empleado-area']">
-        <i class="fas fa-plus">Empleado Area</i>
-    </button> 
+        
         <tr>
           <th scope="col" >IdEmpleado</th>
           <th scope="col">Nombre Apellido</th>
+          <th scope="col">Sueldo</th>
           <th scope="col">Telefono</th>
-          <th scope="col">Salario</th>
-          <th scope="col">Estado</th>
+          <th scope="col">Fotografia</th>
+        
         <th>
       </tr>
     </thead>
@@ -22,17 +24,16 @@
       <tbody *ngFor="let list of responseEmpleado">
         <tr *ngFor="let e of list.empleado">
           <td>{{e.idEmpleado}}</td>
-          <td>{{e.nombrePersona + " " + e.apellidoEmp}}</td>       
+          <td>{{e.nombrePersona + " " + e.apellidoEmp}}</td> 
+          <td>{{e.salario}}</td>      
           <td>{{e.telefono}}</td>
-          <td>{{e.salario}}</td>
-          <td>{{e.estado}}</td>
+          <img src="{{e.fotografiaEmpleado}}" alt="">
+          
           <td>
         <button (click)="editarEmpleado(modalEdit,e)" class="btn btn-primary mr-4">
             <i class="fas fa-edit"></i>
         </button>
-        <button  class="btn btn-sucess mr-4">
-          <i class="fa-solid fa-plus"></i>
-      </button>
+        
         <button (click)="eliminarEmpleado(e.idEmpleado)" type="button" class="btn btn-danger mr-4">
             <i class="fas fa-trash"></i>
         </button>

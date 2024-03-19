@@ -11,7 +11,8 @@ import { WelcomeComponent } from './pages/welcome/welcome.component'
 import { AuthInterceptor } from './services/auth.interceptor';
 import { WelcomeHeaderComponent } from './pages/welcome/welcome-header/welcome-header.component';
 import { SinPermisoComponent } from './pages/sinPermiso/sin-permiso/sin-permiso.component';
-
+import { MantRolRegisterMultipleComponent } from './modules/matenimiento/component/rol/mant-rol-register-multiple/mant-rol-register-multiple.component';
+import { ServiceRolComponent } from './service-rol/service-rol.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +20,8 @@ import { SinPermisoComponent } from './pages/sinPermiso/sin-permiso/sin-permiso.
     NotFoudComponent,
     WelcomeComponent,
     WelcomeHeaderComponent,
-    SinPermisoComponent
+    SinPermisoComponent,
+    ServiceRolComponent
   ],
   imports: [
     BrowserModule,
