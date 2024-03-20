@@ -5,7 +5,7 @@
 /**
  * TODO: las constantes para llamar al backedn 
  */
-export const dominio = "http://zapateriaback.somee.com/" 
+export const dominio = "https://zapateriaback.somee.com/" 
 export const urlConstants ={
     rol: dominio+'api/Rol/',
     producto:dominio+'api/Producto',
