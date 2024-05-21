@@ -191,10 +191,34 @@ a:hover{
     border: 39px;
     padding: 22px;
 }
+.img-fluid{
+    height: 500px;
+    margin-left: 100px;
+}
+.img-modelo
+{
+   height: 350px;
+width: 450px;
+margin-left: 200px; 
+margin-top: 50px;
+}
+.label-pag{
+    font-size: 40px;
+    margin-left: 20px;
+}
+.img-modelo-pr
+{
+    float: right;
+    height: 720px;
+    margin-bottom: 50px;
+    margin-top: -350px;
+    width: 500px;
+    margin-right: 50px;
+}
 h1{
   text-align: center;
-  background-color: black;
-  color: white; 
+  background-color: rgb(255, 255, 255);
+  color: rgb(3, 2, 2); 
   margin-top: 20px;
   margin-bottom: 20px;
   margin-left: 20px;

@@ -1,0 +1,45 @@
+<div class="container-fluid mt-4">
+    <div class="card bg-light mb-3">
+        <div class="card-header"><strong>Produccion </strong></div>
+        <div class="card-body"></div>
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Codigo de Produccion </th>
+                        <th>Nombre Del Producto a Registrar</th>
+                        <th>Unidad</th>
+                        <th>Cantidad A Registrar</th>
+                        <th>Fecha De Registro</th>
+                        
+                        <button class="btn btn-danger" (click)="crearProduccion(modalEdit)"><i class="fas fa-plus"></i></button>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let d of Produccion" >
+                    <tr *ngFor="let e of d.produccion">
+                        <td>{{e.idProduccion}}</td>
+                        <td>{{e.cantidadFaltante}}</td>
+                        <td>{{e.estadoProduccion}}</td>
+                        <td>{{e.meta}}</td>
+                        <td>{{e.nombreUnidad}}</td>
+                        <td>
+                            <button class="btn btn-primary" (click)="editarProduccion(modalEdit,e)"><i class="fas fa-edit"></i></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+</div>
+<ng-template #modalEdit>
+    <app-mant-produccion-register
+    [title]="title"
+    [Produccion]="selectProduccion"
+    [accion]="accionModal"
+    (closeModalEmmit)="getCloseModal($event)"
+    >
+    </app-mant-produccion-register>
+  </ng-template>
+

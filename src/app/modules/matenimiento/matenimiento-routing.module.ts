@@ -9,6 +9,11 @@ import { MantProductoListComponent } from './component/producto/mant-producto-li
 import { MantMaterialListComponent } from './component/material/mant-material-list/mant-material-list.component';
 import { MantEmplAreaListComponent } from './component/empleado/mant-empl-area-list/mant-empl-area-list.component';
 import { MantRolRegisterMultipleComponent } from './component/rol/mant-rol-register-multiple/mant-rol-register-multiple.component';
+import { MantListProveedorComponent } from './component/proveedor/mant-list-proveedor/mant-list-proveedor.component';
+import { MantListOrdenComponent } from './component/orden/mant-list-orden/mant-list-orden.component';
+import { MantDetallProduccionListComponent } from './component/detalleProduccion/mant-detall-produccion-list/mant-detall-produccion-list.component';
+import { MantSalidaMaterialListComponent } from './component/salidaMaterial/mant-salida-material-list/mant-salida-material-list.component';
+import { MantProduccionListComponent } from './component/produccion/mant-produccion-list/mant-produccion-list.component';
 
 const routes: Routes = [
   {
@@ -23,6 +28,13 @@ const routes: Routes = [
   ,
   {
     path: 'material', component:MantMaterialListComponent
+  },
+  {
+    path: 'proveedor', component:MantListProveedorComponent
+  }
+  ,
+  {
+    path: 'orden', component:MantListOrdenComponent
   }
   ,
   {
@@ -33,6 +45,13 @@ const routes: Routes = [
   },
   {
     path: 'cliente', component:MantClienteListComponent
+  }, 
+  {
+        path: 'salidaMaterial', component:MantSalidaMaterialListComponent
+  },
+  
+  {
+    path: 'produccion', component:MantProduccionListComponent
   },
   {
     path: 'modelo', component:MantModeloListComponent

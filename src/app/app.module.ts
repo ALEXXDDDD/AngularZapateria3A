@@ -13,11 +13,16 @@ import { WelcomeHeaderComponent } from './pages/welcome/welcome-header/welcome-h
 import { SinPermisoComponent } from './pages/sinPermiso/sin-permiso/sin-permiso.component';
 import { MantRolRegisterMultipleComponent } from './modules/matenimiento/component/rol/mant-rol-register-multiple/mant-rol-register-multiple.component';
 import { ServiceRolComponent } from './service-rol/service-rol.component';
+import { CarritoComprasComponent } from './Ventas/component/carrito-compras/carrito-compras.component';
+import { ListarDetalleComponent } from './Ventas/component/listar-detalle/listar-detalle.component';
+import { VentasModule } from './Ventas/ventas.module';
+import { ProductoComponent } from './Ventas/component/vistas/producto/producto.component';
 @NgModule({
   declarations: [
     AppComponent,
     PruebaComponent,
     NotFoudComponent,
+    ProductoComponent,
     WelcomeComponent,
     WelcomeHeaderComponent,
     SinPermisoComponent,

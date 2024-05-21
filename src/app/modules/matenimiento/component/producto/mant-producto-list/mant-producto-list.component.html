@@ -21,16 +21,15 @@
         alt="" class="img_producto">  Proveedor</a>
       <ul class="dropdown-menu">
         
-        <li><a class="dropdown-item" href="#scrollspyHeading4">Ver</a></li>
-        <li><a class="dropdown-item" href="#scrollspyHeading4">Proveedor-Material </a></li>
+        <li><a class="dropdown-item" [routerLink]="['/dasboard/mantenimiento/proveedor']">Ver</a></li>
+        <li><a class="dropdown-item" [routerLink]="['/dasboard/mantenimiento/proveedor']">Proveedor-Material </a></li>
         <li><hr class="dropdown-divider"></li>
       </ul>
-      <a class="btn btn-primary" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><img src="https://imgs.search.brave.com/a55-vXiD_9ulT5WAVAruritbgM8BlSHruOlsGO8Fn1o/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvNjEz/MTM0MzA2L2VzL2Zv/dG8vbXVqZXItZW1v/Y2lvbmFkYS1kaXZp/cnRpJUMzJUE5bmRv/c2UtZGUtY29tcHJh/cy5qcGc_cz02MTJ4/NjEyJnc9MCZrPTIw/JmM9bm13Q1NIVWZ2/RkpfQzU3eGF2Y0FQ/QVdFZ0J1UFhVU3Yy/QURCTmtzOVpubz0"
+      <a class="btn btn-primary" data-bs-toggle="dropdown" href="" role="button" aria-expanded="false"><img src="https://imgs.search.brave.com/a55-vXiD_9ulT5WAVAruritbgM8BlSHruOlsGO8Fn1o/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvNjEz/MTM0MzA2L2VzL2Zv/dG8vbXVqZXItZW1v/Y2lvbmFkYS1kaXZp/cnRpJUMzJUE5bmRv/c2UtZGUtY29tcHJh/cy5qcGc_cz02MTJ4/NjEyJnc9MCZrPTIw/JmM9bm13Q1NIVWZ2/RkpfQzU3eGF2Y0FQ/QVdFZ0J1UFhVU3Yy/QURCTmtzOVpubz0"
          alt="" class="img_producto">  Clientes</a>
       <ul class="dropdown-menu">
         
-        <li><a class="dropdown-item" href="#scrollspyHeading4">Ver</a></li>
-        <li><a class="dropdown-item" href="#scrollspyHeading4">Productos-Clientes </a></li>
+        <li><a class="dropdown-item" [routerLink]="['/dasboard/mantenimiento/cliente']">Ver</a></li>
         <li><hr class="dropdown-divider"></li>
       </ul>
     
@@ -39,38 +38,70 @@
     <br>
    
   <!--Columnas son datos  -->  
-    <div class="container text-center">
-      <div class="row">
-        <div class="col" id="containerProd">
-          
-          Producto Bajo Stock
-          <div class="prd">
-            <ul >Zapato Color Negro</ul>
-          
-          </div>
-          
-        </div> 
-        
-        <tbody class="col" id="containerProd">
-          Modelos
-          <div class="prd" *ngFor="let mod of responseModelo">
-            <ul>{{mod.nombreModelo}}</ul>  
-         
-          </div>
-          
-        <tr>   </tr> 
-        </tbody>
-        <div class="col">
-          Productos Antiguos
-          <div class="prd" *ngFor="let def of responseProducto">
-            <ul >{{def.nombreProd}}</ul>
-            <img src="{{def.fotografia_Producto}}" class="img_producto" alt="">
-          
-          </div>
+  <form [formGroup]="myFormFilter">
+    <div class="card-body">
+      <div class="card bg-light mb-3" >
+        <div class="card-header">Busqueda</div>
+        <div class="card-body">
+            <div class="row">
+              <div class="col-3">
+                <div class="form-group">
+                  <label for="">Nombre de Producto</label>
+                  <input type="text" class="form-control" formControlName="nombreRol">
+                </div>
+              </div>
+              <div class="col-3">
+                <div class="form-group">
+                  <label for="">Codigo</label>
+                  <input type="text" class="form-control" formControlName="descripRol">
+                </div>
+              </div>
+              <div class="col-3">
+                <div class="form-group">
+                  <br>
+                  <button (click)="filtrar()" class="btn btn-primary btn-sm">
+                    <i class="fas fa-search"></i>
+                  </button>
+                  <button class="btn btn-danger btn-sm">
+                    <i class="fas fa-broom"></i>
+                  </button>
+    
+                </div>
+              </div>
+            </div>
           
         </div>
       </div>
     </div>
+
+  </form>
+ <div class="row">
+  <div class="col-xs-6 col-6">
+    <!-- <pagination [totalItems]="5" [(ngModel)]="currentPage"></pagination> -->
+    <select (change)="changeItemsPerPage()" [(ngModel)]="itemsPerPage"  class="form-select">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+    </select>
+  </div>
+ </div> 
+    <div class="container text-center">
+      <div class="row">
+          Productos Antiguos
+          <div class="prd" *ngFor="let def of responseProducto">
+            <ul >{{def.nombreProd}}</ul>
+            <img src="{{def.fotografiaProducto}}" class="img_producto" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-12">
+          <!-- <pagination [totalItems]="5" [(ngModel)]="currentPage"></pagination> -->
+          <pagination (pageChanged)="changePage($event)" [totalItems]="totalItems"  [itemsPerPage]="  itemsPerPage" [previousText]="'Anterior'" [nextText]="'Siguiente'"></pagination>
+        </div>
+        
+      </div>
   <!--End Cabecera Productos -->
 <h2>Lista De Productos</h2>
 
@@ -107,7 +138,7 @@
         <td >{{list.idProducto}}</td>
         <td>{{list.nombreProd}}</td>
         <td>{{list.precioUnitario}}</td>
-        <img src="{{list.fotografia_Producto}}" alt="" class="img_producto">
+        <img src="{{list.fotografiaProducto}}" alt="" class="img_producto">
        <td>
         <button (click)="editarProducto(modalEdit,list)" class="btn btn-primary mr-4">
           <i class="fas fa-edit"></i>

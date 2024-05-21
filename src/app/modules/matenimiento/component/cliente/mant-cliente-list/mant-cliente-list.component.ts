@@ -3,6 +3,7 @@ import { ClienteService } from '../../../service/cliente/cliente.service';
 import { Router } from '@angular/router';
 import { ResponseCliente } from '../../../models/cliente/cliente-response.model';
 import { ResponseVWCliente } from '../../../models/cliente/response-VMCliente.model';
+import { ResponseListCliente } from '../../../models/cliente/list-cliente-response.model';
 
 @Component({
   selector: 'app-mant-cliente-list',
@@ -10,8 +11,9 @@ import { ResponseVWCliente } from '../../../models/cliente/response-VMCliente.mo
   styleUrls: ['./mant-cliente-list.component.css']
 })
 export class MantClienteListComponent implements OnInit {
-  cliente:ResponseCliente[] =[]
+  cliente:ResponseVWCliente[] =[]
   responseVwCliente: ResponseVWCliente[] = [];
+  clienteResponse:ResponseListCliente = new ResponseListCliente()
   constructor(
     private _clienteService : ClienteService,
     private _router:Router
@@ -21,6 +23,10 @@ export class MantClienteListComponent implements OnInit {
   
   ngOnInit(): void {
  
+   this.listarClientes()
+  }
+  listarClientes()
+  {
     this._clienteService.getAll().subscribe({
       next:(data:ResponseVWCliente[])=>{
         this.responseVwCliente=data
@@ -30,6 +36,6 @@ export class MantClienteListComponent implements OnInit {
         alert("OCURRIO UN ERROR ")
       },
       complete:()=>{}
-    })
   }
+    )}
 }

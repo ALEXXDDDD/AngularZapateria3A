@@ -28,7 +28,7 @@ export class FormularioUsuarioComponent implements OnInit {
     
     this.myForm = this.fb.group(
       {
-        idUsuario: [{value:0 , disable:true},[Validators.required]],
+        idUsuario: [{value:0 , disabled:true},[Validators.required]],
         nombrePersona: [null,Validators.required],
         tipoPersona: [null,Validators.required],
         tipoDocumento: [null,Validators.required],
@@ -79,14 +79,26 @@ export class FormularioUsuarioComponent implements OnInit {
   }
   validarCorreo()
   {
+    debugger;
+    this.usuarioEnvio = this.myForm.getRawValue()
     this._usuarioService.validacionCorreoUsuario(this.usuarioEnvio.email)
     .subscribe(
       {
         
-        next:(data:CorreoVerifApi)=>{
+        next:(data:any)=>{
           console.log(data)
-          alert_sucess("Correo Correcto")
-          this.myForm.get("email")?.setValue(data.email)
+          debugger;
+          if (data.data.status == 'valid')
+          {
+            console.log(data)
+            alert_sucess("Correo Correcto")
+          }
+          else if (data.status == 'invalid'){
+            console.log(data)
+            alert_sucess("Correo INCorrecto")
+            
+          }
+       
         },
         error:()=>{
           alert_error(" No se pudo Verficar el Correo")

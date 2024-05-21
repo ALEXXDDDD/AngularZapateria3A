@@ -32,7 +32,7 @@ export class MantRolRegistrerComponent implements OnInit {
     //Enviar el Rol Request 
     this.myForm = this.fb.group(
       {
-        irol: [{value:0,disable:true},[Validators.required]],
+        irol: [{value:0,disabled:true},[Validators.required]],
         nombreRol: [null,Validators.required],
         descripRol: [null]
       }

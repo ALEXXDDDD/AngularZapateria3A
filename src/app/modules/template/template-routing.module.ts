@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { TemplateComponent } from './component/template/template.component';
 import { MantEmpleadoListComponent } from '../matenimiento/component/empleado/mant-empleado-list/mant-empleado-list.component';
 import { MantRolListComponent } from '../matenimiento/component/rol/mant-rol-list/mant-rol-list.component';
+import { MantSalidaMaterialListComponent } from '../matenimiento/component/salidaMaterial/mant-salida-material-list/mant-salida-material-list.component';
 
 const routes: Routes = [
   {
@@ -14,6 +15,10 @@ const routes: Routes = [
       {
         path: 'empleado', component:MantEmpleadoListComponent
       },
+      {
+        path: 'saukdaMaterial', component:MantSalidaMaterialListComponent
+      },
+   
       {
         path: 'rol', component:MantRolListComponent
       },

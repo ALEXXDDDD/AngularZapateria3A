@@ -6,6 +6,14 @@
   background-color: black;
   color: white;
 }
+input{
+  background-color: white;
+  color: black;
+}
+select{
+  background-color: white;
+  color: black;
+}
 span{
   background-color: blue;
 }

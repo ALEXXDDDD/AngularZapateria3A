@@ -4,6 +4,7 @@ import { PruebaComponent } from './pages/prueba/prueba.component';
 import { NotFoudComponent } from './pages/not-foud/not-foud.component';
 import { WelcomeComponent } from './pages/welcome/welcome.component';
 import { authGuard } from './guard/auth.guard';
+import { ProductoComponent } from './Ventas/component/vistas/producto/producto.component';
 
 const routes: Routes = [
   //Routeo
@@ -14,6 +15,10 @@ const routes: Routes = [
   // Utilizacion de Laysi Loding 
   {
     path:'auth',loadChildren:()=>import("./modules/auth/auth.module").then(x=>x.AuthModule) //Si es vacio dirigite a este componente
+
+  },
+  {
+    path:'lista_productos',component:ProductoComponent //Si es vacio dirigite a este componente
 
   },
   {

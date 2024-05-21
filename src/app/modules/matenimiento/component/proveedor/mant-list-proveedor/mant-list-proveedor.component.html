@@ -1,0 +1,48 @@
+<div class="container-fluid mt-4">
+    <div class="card bg-light mb-3">
+        <div class="card-header"><strong>Proveedores</strong></div>
+        <div class="card-body"></div>
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>ID Proveedor</th>
+                        <th>Nombres</th>
+                        <th>Tipo Persona</th>
+                        <th>Tipo de Documento</th>
+                        <th>Numero de Documento</th>
+                        <th>Telefono</th>
+                        <th>Direccion</th>
+                        <button class="btn btn-primary" (click)="crearProveedor(modalEdit)"><i class="fas fa-plus"></i></button>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let d of responseProveedor" >
+                    <tr *ngFor="let e of d.proveedor">
+                        <td>{{e.idProvedor}}</td>
+                        <td>{{e.nombrePersona}}</td>
+                        <td>{{e.tipoPersona}}</td>
+                        <td>{{e.tipoDocumento}}</td>
+                        <td>{{e.numerodocumento}}</td>
+                        <td>{{e.telefono}}</td>
+                        <td>{{e.direccion}}</td>
+                        <td>
+                            <button class="btn btn-primary" (click)="editarProveedor(modalEdit,e)"><i class="fas fa-edit"></i></button>
+                            <button class="btn btn-danger" (click)="editarProveedor(modalEdit,e)"><i class="fas fa-trash"></i></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+</div>
+<ng-template #modalEdit>
+    <app-mant-register-proveedor
+    [title]="titleModal"
+    [Proveedor]="proveedorEnviar"
+    [accion]="accionModal"
+    (closeModalEmmit)="getCloseModal($event)"
+    >
+    </app-mant-register-proveedor>
+  </ng-template>

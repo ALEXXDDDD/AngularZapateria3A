@@ -25,6 +25,14 @@ import { MantDetallProduccionListComponent } from './component/detalleProduccion
 import { MantDetallProduccionRegisterComponent } from './component/detalleProduccion/mant-detall-produccion-register/mant-detall-produccion-register.component';
 import { MantEmplAreaListComponent } from './component/empleado/mant-empl-area-list/mant-empl-area-list.component';
 import { MantRolRegisterMultipleComponent } from './component/rol/mant-rol-register-multiple/mant-rol-register-multiple.component';
+import { MantListProveedorComponent } from './component/proveedor/mant-list-proveedor/mant-list-proveedor.component';
+import { MantRegisterProveedorComponent } from './component/proveedor/mant-register-proveedor/mant-register-proveedor.component';
+import { MantListOrdenComponent } from './component/orden/mant-list-orden/mant-list-orden.component';
+import { MantRegisterOrdenComponent } from './component/orden/mant-register-orden/mant-register-orden.component';
+import { MantSalidaMaterialListComponent } from './component/salidaMaterial/mant-salida-material-list/mant-salida-material-list.component';
+import { MantSalidaMaterialRegisterComponent } from './component/salidaMaterial/mant-salida-material-register/mant-salida-material-register.component';
+import { MantProduccionListComponent } from './component/produccion/mant-produccion-list/mant-produccion-list.component';
+import { MantProduccionRegisterComponent } from './component/produccion/mant-produccion-register/mant-produccion-register.component';
 
 
 
@@ -51,6 +59,14 @@ import { MantRolRegisterMultipleComponent } from './component/rol/mant-rol-regis
     MantDetallProduccionListComponent,
     MantDetallProduccionRegisterComponent,
     MantEmplAreaListComponent,
+    MantListProveedorComponent,
+    MantRegisterProveedorComponent,
+    MantListOrdenComponent,
+    MantRegisterOrdenComponent,
+    MantSalidaMaterialListComponent,
+    MantSalidaMaterialRegisterComponent,
+    MantProduccionListComponent,
+    MantProduccionRegisterComponent,
    
   ],
   imports: [

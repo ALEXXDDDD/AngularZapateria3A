@@ -32,7 +32,7 @@ export class MantMaterialRegisterComponent implements OnInit {
   {
     this.myForm = this.fb.group(
       {
-        idMaterial: [{value:0,disable:true},[Validators.required]],
+        idMaterial: [{value:0,disabled:true},[Validators.required]],
         nombreMaterial: [null,Validators.required],
         nombreUnidad: [null,Validators.required],
         stock: [null,Validators.required],

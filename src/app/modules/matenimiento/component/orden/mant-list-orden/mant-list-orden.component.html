@@ -1,0 +1,58 @@
+<div class="container-fluid mt-4">
+    <div class="card bg-light mb-3">
+        <div class="card-header"><strong>Ordenes</strong></div>
+        <div class="d-grid gap-2">
+            <a class="btn btn-primary" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Productos</a>
+            <ul class="dropdown-menu">              
+              <li><a class="dropdown-item" href="#scrollspyHeading4" [routerLink]="['/dasboard/mantenimiento/producto']">Ver</a></li>       
+                <li><hr class="dropdown-divider"></li>
+            </ul>
+            <a class="btn btn-primary" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">   Modelo</a>
+            <ul class="dropdown-menu">              
+              <li><a class="dropdown-item" [routerLink]="['/dasboard/mantenimiento/modelo']" href="#scrollspyHeading4">Ver</a></li>
+                <li><hr class="dropdown-divider"></li>
+            </ul>
+            
+          
+          </div>
+        <div class="card-body"></div>
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>ID Orden</th>
+                        <th>Nombres del Cliente</th>
+                        <th>Precio del Orden</th>
+                        <th>Fecha del Orden</th>
+                        <th>Nombre del Producto</th>
+                        <th>Fecha Requerida </th>
+                        <button class="btn btn-primary" (click)="crearOrden(modalEdit)"><i class="fas fa-plus"></i></button>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let d of responseOrden" >
+                    <tr *ngFor="let e of d.orden">
+                        <td>{{e.idOrden}}</td>
+                        <td>{{e.nombrePersona}}</td>
+                        <td>{{e.precioUnitario}}</td>
+                        <td>{{e.fechaOrden}}</td>
+                        <td>{{e.nombreProd}}</td>
+                        <td>{{e.fechaRequerido}}</td>
+                        <td>
+                            <button class="btn btn-primary" (click)="editarOrden(modalEdit,e)"><i class="fas fa-edit"></i></button>
+                            <button class="btn btn-danger" ><i class="fas fa-trash"></i></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+</div>
+<ng-template #modalEdit>
+    <app-mant-register-orden
+    [title]="titleModal"
+   
+    >
+    </app-mant-register-orden>
+  </ng-template>
