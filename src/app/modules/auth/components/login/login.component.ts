@@ -53,10 +53,8 @@ export class LoginComponent {
             sessionStorage.setItem("nombrePersona",data.persona.nombrePersona);
             sessionStorage.setItem("idUsuario",data.vwUsuario
             .idUsuario.toString());
-            sessionStorage.setItem("usuario",data.vwUsuario
-            .usuarioV);
-            sessionStorage.setItem("nombreRol",data.vwUsuario
-            .nombreRol);
+            sessionStorage.setItem("usuario",data.vwUsuario.usuario1);
+            sessionStorage.setItem("nombreRol",data.nameRol);
             sessionStorage.setItem("rolId",data.rol.irol.toString());
             
           }

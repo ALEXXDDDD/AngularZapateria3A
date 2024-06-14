@@ -15,10 +15,10 @@
     button{
         color: rgb(32, 24, 24);
     }
-    h1{
+    h3{
         text-align: center;
-        background-color: black;
-        color: white; 
+        background-color: white;
+        color: black; 
         
         margin-bottom: 20px;
         margin-left: 20px;

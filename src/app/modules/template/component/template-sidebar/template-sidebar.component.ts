@@ -37,7 +37,6 @@ export class TemplateSidebarComponent implements OnInit {
                 name:"Venta", target:"TargetVenta",incon:"fas fa-users",
                 subMenu:[
                   
-                    {name:"Lista de Ventas",url:"mantenimiento/rol", incon:"fas fa-users"},
                     {name:"Clientes",url:"mantenimiento/clientes", incon:"fas fa-users"},
                     {name:"Ordenes",url:"mantenimiento/orden", incon:"fa-solid fa-bag-shopping"},
                     {name:"Produccion",url:"mantenimiento/produccion", incon:"fa-solid fa-warehouse"} 

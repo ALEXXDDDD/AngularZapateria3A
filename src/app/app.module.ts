@@ -15,13 +15,20 @@ import { MantRolRegisterMultipleComponent } from './modules/matenimiento/compone
 import { ServiceRolComponent } from './service-rol/service-rol.component';
 import { CarritoComprasComponent } from './Ventas/component/carrito-compras/carrito-compras.component';
 import { ListarDetalleComponent } from './Ventas/component/listar-detalle/listar-detalle.component';
-import { VentasModule } from './Ventas/ventas.module';
+
 import { ProductoComponent } from './Ventas/component/vistas/producto/producto.component';
+import { VistZapatillaComponent } from './Ventas/component/vistas/vist-zapatilla/vist-zapatilla.component';
+import { VistModelosComponent } from './Ventas/component/vistas/vist-modelos/vist-modelos.component';
+import { VistEmpresaComponent } from './Ventas/component/vistas/vist-empresa/vist-empresa.component';
+import { VistContactoComponent } from './Ventas/component/vistas/vist-contacto/vist-contacto.component';
+import { VistProductoComponent } from './Ventas/component/vistas/vist-producto/vist-producto.component';
 @NgModule({
   declarations: [
     AppComponent,
     PruebaComponent,
     NotFoudComponent,
+    VistEmpresaComponent,
+    VistContactoComponent,
     ProductoComponent,
     WelcomeComponent,
     WelcomeHeaderComponent,

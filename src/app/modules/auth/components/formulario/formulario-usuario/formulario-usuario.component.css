@@ -1,19 +1,41 @@
-.completo{
-  margin-left: 203px;
-  margin-right: 337px;
-}
-*{
+
+body{
   background-color: black;
-  color: white;
 }
-input{
-  background-color: white;
+.parte2{
+  float: right;
+}
+h1{
+  text-align: center;
+  font-size: 50px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+form{
+  background-color: rgb(41, 69, 161);
   color: black;
+ float: right;
+ margin-right: 80px;
+ margin-left: 200px;
+ padding-right: 70px;
+ padding-left: 20px;
+  
 }
-select{
-  background-color: white;
-  color: black;
+.botonesRegister{
+  text-align: center;
+  margin-left: 50px;
 }
-span{
-  background-color: blue;
+
+input
+{
+  padding: 20px;
+  width: 300px;
+  height: 80px;
+  margin: 20px;
+}
+img{
+  perspective: 100px;
+  
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 20px;
 }

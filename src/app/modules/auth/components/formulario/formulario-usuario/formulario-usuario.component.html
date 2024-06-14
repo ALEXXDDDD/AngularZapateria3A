@@ -1,74 +1,103 @@
-
 <html style="background-color: black;">
-  <div >
-  <form action="" class="completo" [formGroup]="myForm">
-        <h1>Login</h1>
-        <div class="col-md-9 col-lg-6 col-xl-5">
-          <img src="./../../../assets/img/Img_Welcome/images.png" alt="">
+    <h1>Registrese para realizar sus Acciones</h1>
+  <!--Formulario del registro del Usuario -->
+  <img  src="./../../../assets/img/Img_Welcome/images.png" alt="">
+  <img class="omh-login" src="./../../../assets/img/imagen-login.jpg" alt="">
+  <form class="formularioRegistro" action="">
+    <div class="parte1">
+        <div class="row g-3 align-items-center">
+        <div class="col-auto">
+          <input placeholder="Nombre de Usuario"  class="form-control" >
+        </div>
+      </div>
+      <div class="row g-3 align-items-center">
+        <div class="col-auto">
+          <input placeholder="fnfnf@gmail.com"   class="form-control" >
+        </div>
+      </div>
+      <div class="row g-3 align-items-center">
+        <div class="col-auto">
+          <input placeholder="Nombres"   class="form-control" >
+        </div>
+      </div>
+      <div class="row g-3 align-items-center">
+        <div class="col-auto">
+          <input placeholder="Como desea registrarse"   class="form-control" >
+        </div>
+      </div>
+      <div class="row g-3 align-items-center">
+        <div class="col-auto">
+          <input placeholder="Documento de Identidad"   class="form-control" >
+        </div>
+      </div>
+    </div>
+    <div class="parte2">
+        <div class="row g-3 align-items-center">
+        <div class="col-auto">
+          <input placeholder="Numero Documento"   class="form-control" >
+        </div>
+      </div>
+      <div class="row g-3 align-items-center">
+        <div class="col-auto">
+          <input placeholder="Telefono de Celular"   class="form-control" >
+        </div>
+      </div>
+      <div class="row g-3 align-items-center">
 
+        <div class="col-auto">
+          <input placeholder="Codigo de Ubigeo de tu DNI"   class="form-control" >
         </div>
-        <div class="input-group">
-          <input type="text" aria-label="First name" class="form-control" placeholder="Nombres" formControlName="nombrePersona" >
+      </div>
+      <div class="row g-3 align-items-center">
+        <div class="col-auto">
+          <input placeholder="Direccion de tu Casa"   class="form-control" >
         </div>
-        
-        <input type="text" aria-label="First name" class="form-control" placeholder="Nombre de Usuario" formControlName="usuarioV" >
-        
-
-        <div class="input-group mb-5">
-          <input type="text" class="form-control" placeholder="Correo Electronico" formControlName="email" aria-label="Recipient's username" aria-describedby="basic-addon2">
-          <span class="input-group-text" id="basic-addon2" >@ejemplo.gmail.com</span>
-          <button class="btn-block btn btn-primary btn-sm" ><i class="fa-solid fa-magnifying-glass" (click)="validarCorreo()"></i></button>
-        </div>
-        
-        <div class="input-group mb-5">
-          <button class="btn btn-outline-secondary dropdown-toggle" formControlName="telefono" type="button" data-bs-toggle="dropdown" aria-expanded="false"> + 51</button>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" formControlName="telefono">+ 51 </a></li>
-          </ul>
-          <input type="text" class="form-control" formControlName="telefono" aria-label="Text input with dropdown button" placeholder="Telefono">
-        </div>
-        <label class="input-group-text" for="inputGroupSelect01">Seleccione su Forma de Registro</label>
-        <div class="input-group mb-5">
-          
-          <select class="form-select" id="inputGroupSelect01" formControlName="tipoPersona">
-            <option selected formControlName="tipoPersona">Cliente</option>
-            <option  formControlName="tipoPersona">Vendedor</option>
-            <option  formControlName="tipoPersona">Administrador</option>
-            
-          </select>
-        </div>
-        <div class="input-group mb-5">
-          <input type="text" aria-label="First name" class="form-control" placeholder="Direccion " formControlName="direccion">
-          <input type="text" aria-label="Last name" class="form-control" placeholder="Codigo de Ubigueo" formControlName="codigoUbigeo">
-        </div>
-        <div class="input-group mb-5">
-          
-          <select class="form-select" id="inputGroupSelect01" formControlName="tipoDocumento">
-            <option selected formControlName="tipoDocumento">DNI</option>
-            <option formControlName="tipoDocumento">RUC</option>
-            <option  formControlName="tipoDocumento">PASAPORTE</option>
-          </select>
-        </div>
-        <div class="mb-3">
-          <input type="email"  formControlName="numeroDocumento"  class="form-control" id="exampleFormControlInput1" placeholder="Numero de Documento">
-         
-        </div>
-        <input type="password"  id="select-table" placeholder="contraseña" formControlName="password" class="form-control" aria-describedby="passwordHelpBlock">
-        <div id="passwordHelpBlock" class="form-text " id="select-table">
-            Tu Contraseña debe ser mayor a 8 a 20 caracteres
-        </div>
-        <div class="input-group ml-50" id="select-table" style="width: 100;">
-          <select class="form-select" id="select-table" formControlName="estado">
-            <option selected formControlName="estado">ACTIVO</option>
-            <option formControlName="estado">INACTIVO</option>  
-          </select>
-        </div>
-        <button type="button" class="btn btn-primary" [disabled]="myForm.invalid" (click)="guardar()">Registrar</button>
-        <button type="button" class="btn btn-danger" routerLink="/auth">Volver</button>
-      </form>
-  </div>
+      </div>
+    </div>
     
+   
+  </form>
+  
+  <div class="botonesRegister">
+
+  
+    <div class="d-grid gap-2">
+      <button class="btn btn-primary" type="button">Registrar</button>
+      
+    </div>
+    <div>
+      <button class="btn btn-danger" [routerLink]="['']">
+        Volver
+      </button>
+      
+    </div>
+    
+    <a class="icon-link icon-link-hover" href="#" [routerLink]="['/auth']">
+      Tienes cuenta Inicia Sesion 
+      <svg class="bi" aria-hidden="true"><use xlink:href="#arrow-right"></use></svg>
+    </a>
+    
+    <p>
+      <button class="btn btn-success">
+        Ver la Empresa
+      </button>
+    </p>
+  </div>
+  <div class="d-grid gap-2" >
+    <button type="button" class="btn btn-primary ">
+      Iniciar Sesion con Facebook
+      <i class="fab fa-facebook-f"></i>
+    </button>
+     <br>     
+    <button type="button" class="btn btn-primary ">
+      Iniciar Sesion con Google
+      <i class="fab fa-google"></i>
+    </button>
+        
+</div> 
+
 </html>
+
 
 
 

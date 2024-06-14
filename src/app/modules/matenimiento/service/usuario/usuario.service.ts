@@ -3,14 +3,15 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { urlConstants } from 'src/app/constants/url.constants';
 import { RequestVWUsuario } from 'src/app/models/request-vwUsuario-model';
-import { ResponseVWUsuario } from 'src/app/models/response-vwUsuario-model';
+
 import { CrudService } from 'src/app/modules/shared/services/crud.service';
 import { CorreoVerifApi } from '../../models/usuario/usuarioApiCorreo.model';
+import { ResponseVUsuario } from 'src/app/models/response-vwUsuario-model';
 
 @Injectable({
   providedIn: 'root'
 })
-export class UsuarioService extends CrudService<RequestVWUsuario,ResponseVWUsuario> {
+export class UsuarioService extends CrudService<RequestVWUsuario,ResponseVUsuario> {
 
   constructor(
     protected http:HttpClient

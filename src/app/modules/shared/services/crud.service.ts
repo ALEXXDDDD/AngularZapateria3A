@@ -37,6 +37,6 @@ export class CrudService<T,Y> implements crudInterface <T,Y> {
   }
   genericFilter(request:RequestFilterGeneric):Observable<ResponseFilterGeneric<Y>>
   {
-    return this._http.post<ResponseFilterGeneric<Y>>(`${this.url_service}filter`,request)
+    return this._http.post<ResponseFilterGeneric<Y>>(`${this.url_service}/filter`,request)
   }
 }

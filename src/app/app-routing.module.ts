@@ -5,6 +5,8 @@ import { NotFoudComponent } from './pages/not-foud/not-foud.component';
 import { WelcomeComponent } from './pages/welcome/welcome.component';
 import { authGuard } from './guard/auth.guard';
 import { ProductoComponent } from './Ventas/component/vistas/producto/producto.component';
+import { VistContactoComponent } from './Ventas/component/vistas/vist-contacto/vist-contacto.component';
+import { VistEmpresaComponent } from './Ventas/component/vistas/vist-empresa/vist-empresa.component';
 
 const routes: Routes = [
   //Routeo
@@ -19,6 +21,15 @@ const routes: Routes = [
   },
   {
     path:'lista_productos',component:ProductoComponent //Si es vacio dirigite a este componente
+
+  },
+  
+  {
+    path:'empresa',component:VistEmpresaComponent //Si es vacio dirigite a este componente
+
+  },
+  {
+    path:'contacto',component:VistContactoComponent //Si es vacio dirigite a este componente
 
   },
   {
