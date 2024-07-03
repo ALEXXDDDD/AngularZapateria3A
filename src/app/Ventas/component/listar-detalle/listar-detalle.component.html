@@ -1,1 +1,12 @@
 <p>listar-detalle works!</p>
+<h2>{{title}}</h2>
+
+<tbody  *ngFor="let car of responseDetalle"> 
+  Mensaje <tr>{{car.message}}</tr>
+    <tr *ngFor="let mod of car.detalleProducts">
+
+      Material<td scope="row">{{mod.material}}</td>
+      Talla <td>{{mod.talla}}</td>      
+    </tr>
+    
+  </tbody>

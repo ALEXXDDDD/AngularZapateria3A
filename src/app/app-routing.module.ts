@@ -7,6 +7,9 @@ import { authGuard } from './guard/auth.guard';
 import { ProductoComponent } from './Ventas/component/vistas/producto/producto.component';
 import { VistContactoComponent } from './Ventas/component/vistas/vist-contacto/vist-contacto.component';
 import { VistEmpresaComponent } from './Ventas/component/vistas/vist-empresa/vist-empresa.component';
+import { VistBailarinaComponent } from './Ventas/component/vistas/mod-bailarinas/vist-bailarina/vist-bailarina.component';
+import { VistZapatillaComponent } from './Ventas/component/vistas/vist-zapatilla/vist-zapatilla.component';
+import { CarritoComprasComponent } from './Ventas/component/carrito-compras/carrito-compras.component';
 
 const routes: Routes = [
   //Routeo
@@ -21,6 +24,14 @@ const routes: Routes = [
   },
   {
     path:'lista_productos',component:ProductoComponent //Si es vacio dirigite a este componente
+
+  },
+  {
+    path:'lvistaBailarina',component:VistBailarinaComponent //Si es vacio dirigite a este componente
+
+  },
+  {
+    path:'vistaZapatillas',component:VistZapatillaComponent //Si es vacio dirigite a este componente
 
   },
   
@@ -38,9 +49,12 @@ const routes: Routes = [
     ,loadChildren:()=>import("./modules/template/template.module").then(x=>x.TemplateModule) //Si es vacio dirigite a este componente
 
   },
-  
-  
+  {
+    canActivate: [  authGuard],
+    path:'carrito',
+    component:CarritoComprasComponent //Si es vacio dirigite a este componente
 
+  },
   {
     path:'prueba',component:PruebaComponent //Si es vacio dirigite a este componente
 

@@ -1,10 +1,10 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { ResponseListCliente } from '../../../models/cliente/list-cliente-response.model';
 import { ResponseVWCliente } from '../../../models/cliente/response-VMCliente.model';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RequestVWCliente } from '../../../models/cliente/request-VWCliente.model';
 import { ClienteService } from '../../../service/cliente/cliente.service';
 import { AcciontConstants } from 'src/app/constants/general.constans';
+import { ResponseVCliente } from '../../../models/cliente/list-cliente-response.model';
 
 @Component({
   selector: 'app-mant-cliente-register',
@@ -13,10 +13,9 @@ import { AcciontConstants } from 'src/app/constants/general.constans';
 })
 export class MantClienteRegisterComponent implements OnInit {
 
-  
   @Input() title :string=""
   @Input() responseVwCliente: ResponseVWCliente = new ResponseVWCliente();
-  @Input() responsListCliente:ResponseListCliente = new ResponseListCliente();
+  @Input() responsListCliente:ResponseVCliente = new ResponseVCliente();
   @Input() accion :number=0
 
   //Output
@@ -32,14 +31,16 @@ export class MantClienteRegisterComponent implements OnInit {
   constructor(
     private fb : FormBuilder,
     private _clienteService: ClienteService
+    
   )
   {
     this.myForm = this.fb.group(
       {
         idCliente: [{ value: 0, disabled: true }, [Validators.required]],
-        nombrePersona: [{value: "",disabled: true}, [Validators.required]],
-        tipoPersona: [{value: "",disabled: true}, [Validators.required]],
-        tipoDocumento: [{value: "",disabled: true}, [Validators.required]],
+        idPersona: [{ value: 0, disabled: true }, [Validators.required]],
+        nombrePersona: [null, [Validators.required]],
+        tipoPersona: [null, [Validators.required]],
+        tipoDocumento: [null, [Validators.required]],
         numeroDocumento: [null, [Validators.required]],
         telefono: [null, [Validators.required]],
         codigoUbigeo: [null,[Validators.required]],
@@ -67,22 +68,22 @@ export class MantClienteRegisterComponent implements OnInit {
     switch(this.accion)
     {
       case AcciontConstants.crear:
-        this.crearEmpleado()
+        this.crearCliente()
       break;
       case AcciontConstants.editar:
-        this.editarEmpleado()
+        this.editarCliente()
       break;
       case AcciontConstants.eliminar:
       break;
     }
   }
-  crearEmpleado()
+  crearCliente()
     {
       this._clienteService.create(this.requestCiente).subscribe(
         {
           next: (data:ResponseVWCliente) => 
           {
-            alert("Se a creado el Empleado Correctamente ")
+            alert("Se a creado el Cliente Correctamente ")
           },
           error: () => {},
           complete: () => 
@@ -94,7 +95,7 @@ export class MantClienteRegisterComponent implements OnInit {
       )
       console.log(this.myForm.getRawValue())
     }
-  editarEmpleado()
+  editarCliente()
     {
       this._clienteService.update(this.requestCiente).subscribe(
         {
@@ -114,6 +115,7 @@ export class MantClienteRegisterComponent implements OnInit {
       )
      
     }
+    
     cerrarModal(res:boolean)
     {
       this.closeModalEmmit.emit(res)

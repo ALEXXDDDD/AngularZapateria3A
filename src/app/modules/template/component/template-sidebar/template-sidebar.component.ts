@@ -14,7 +14,7 @@ export class TemplateSidebarComponent implements OnInit {
   meny:any[]=[]
   rellenarMenu()
   {
-  
+    
     let rolID = sessionStorage.getItem("rolId")
     let nombreRol = sessionStorage.getItem("nombreRol")
     switch (nombreRol)
@@ -28,7 +28,7 @@ export class TemplateSidebarComponent implements OnInit {
                   
                 {name:"Roles de la Empresa ",url:"mantenimiento/rol", incon:"fas fa-card"},
                 {name:"Empleados",url:"mantenimiento/empleado", incon:"fas fa-card"},
-                {name:"Usuarios",url:"mantenimiento/persona", incon:"fas fa-users"},
+                {name:"Usuarios",url:"mantenimiento/usuario", incon:"fas fa-users"},
                     
                 ]
                 
@@ -37,7 +37,7 @@ export class TemplateSidebarComponent implements OnInit {
                 name:"Venta", target:"TargetVenta",incon:"fas fa-users",
                 subMenu:[
                   
-                    {name:"Clientes",url:"mantenimiento/clientes", incon:"fas fa-users"},
+                    {name:"Clientes",url:"mantenimiento/cliente", incon:"fas fa-users"},
                     {name:"Ordenes",url:"mantenimiento/orden", incon:"fa-solid fa-bag-shopping"},
                     {name:"Produccion",url:"mantenimiento/produccion", incon:"fa-solid fa-warehouse"} 
                 ]
@@ -56,7 +56,7 @@ export class TemplateSidebarComponent implements OnInit {
                 name:"Materiales", target:"TargetProduccion1",incon:"fas fa-edit",
                 subMenu:[
                     {name:"Salida de  Materiales",url:"mantenimiento/salidaMaterial", incon:"fa-solid fa-warehouse"},
-                    {name:"Materiales",url:"mantenimiento/Material", incon:"fa-solid fa-warehouse"},
+                    {name:"Materiales",url:"mantenimiento/material", incon:"fa-solid fa-warehouse"},
                     {name:"Ingreso de Materiales",url:"mantenimiento/producto", incon:"fa-solid fa-warehouse"}, 
                 ]
               },

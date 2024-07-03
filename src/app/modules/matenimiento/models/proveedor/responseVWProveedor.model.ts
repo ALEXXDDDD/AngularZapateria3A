@@ -1,10 +1,14 @@
 export class ResponseVWProveedor {
-    idProvedor: number = 0;
-    nombrePersona: string ="";
-    tipoPersona: string ="";
-    tipoDocumento: string ="";
-    numerodocumento: string ="";
-    telefono: string ="";
-    codigoUbigeo: string ="" ;
-    direccion: string ="" ;
+    nombreProveedor: string ="";
+    fechaEntrega: string="";
+    fechaPedido: string="";
+    cantidad: number=0;
+    precioUnitario: number=0;
+    nombreMaterial: string="";
+    telefono: string="";
+    montoTotal: number=0 ;
+    idProvedor: number=0;
+    idComprobante: number=0;
+    idMaterial: number=0;
 }
+

@@ -10,6 +10,8 @@ import { RequestFilterGeneric } from '../../../models/genericFilterRequest.model
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { PageChangedEvent } from 'ngx-bootstrap/pagination';
 import { ResponseFilterGeneric } from '../../../models/genericFilterResponse.models';
+import { VistProducAcabadoService } from '../../../service/producto/vist-produc-acabado.service';
+import { ResponseProcedureProducto } from '../../../models/producto/producto-responseProcedure.model';
 
 @Component({
   selector: 'app-mant-producto-list',
@@ -20,6 +22,7 @@ export class MantProductoListComponent implements OnInit {
 
   responseProducto : ResponseProducto []=[]
   responseModelo : ResponseModelo []=[]
+  responseStoreProducto : ResponseProcedureProducto[]=[]
   productoEnviar : ResponseProducto = new ResponseProducto ()
   modalRef?: BsModalRef;
   titleModal : string = ""
@@ -33,6 +36,7 @@ export class MantProductoListComponent implements OnInit {
     private fb:FormBuilder,
     private modalService: BsModalService,
     private _productoService : ProductoService,
+    private _storeProducto : VistProducAcabadoService,
     private _modeloService : ModeloService
 
   )
@@ -48,13 +52,27 @@ export class MantProductoListComponent implements OnInit {
   ngOnInit(): void {
     this.filtrar()
     this.listarProductos()
+    this.listarProductosAcabados()
+  }
+  listarProductosAcabados()
+  {
+    this._storeProducto.getAll().subscribe(
+      {
+        next:(data:ResponseProcedureProducto[])=>{
+          this.responseStoreProducto=data;
+          console.log("Productos Acabados",data)
+        },
+        error:()=>{},
+        complete:()=>{}
+      }
+    )
   }
   listarProductos()
   {
     this._productoService.getAll().subscribe({
       next: (data:ResponseProducto[])=>{
         this.responseProducto = data 
-        console.log(data)
+        console.log("Productos",data)
       },
       error: (error)=>{
         alert("Ocurrio Un error ")

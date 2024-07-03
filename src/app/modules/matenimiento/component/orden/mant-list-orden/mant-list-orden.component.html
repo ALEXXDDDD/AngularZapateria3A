@@ -20,26 +20,41 @@
             <table class="table table-bordered table-striped">
                 <thead>
                     <tr>
-                        <th>ID Orden</th>
-                        <th>Nombres del Cliente</th>
-                        <th>Precio del Orden</th>
-                        <th>Fecha del Orden</th>
-                        <th>Nombre del Producto</th>
-                        <th>Fecha Requerida </th>
-                        <button class="btn btn-primary" (click)="crearOrden(modalEdit)"><i class="fas fa-plus"></i></button>
+                        <th>Fecha De Orden</th>
+                        <th>Fecha De Requerida</th>
+                        <th>Estado</th>
+                        <th>Nombre del Cliente</th>
+                        <th>Producto</th>
+                        <th>Categoria Producto</th>
+                        <th>Cantidad</th>
+                        <th>Precio/Unidad</th>
+                        <th>Total</th>
+                        <th>
+                            <button class="btn btn-primary" (click)="crearOrden(modalEdit)"><i class="fas fa-plus"></i>
+                                Agregar Orden
+                            </button> 
+                        </th>
+                        
                     </tr>
                 </thead>
                 <tbody *ngFor="let d of responseOrden" >
-                    <tr *ngFor="let e of d.orden">
-                        <td>{{e.idOrden}}</td>
-                        <td>{{e.nombrePersona}}</td>
-                        <td>{{e.precioUnitario}}</td>
+                    <tr *ngFor="let e of d.ordens">
                         <td>{{e.fechaOrden}}</td>
-                        <td>{{e.nombreProd}}</td>
                         <td>{{e.fechaRequerido}}</td>
+                        <td>{{e.estadoOrden}}</td>
+                        <td>{{e.nombreCliente}}</td>
+                        <td>{{e.nombreProd}}</td>
+                        <td>{{e.categoria}}</td>
+                        <td>{{e.cantidad}}</td>
+                        <td>{{e.precioUnitario}}</td>
+                        <td>{{e.montoTotal}}</td>
                         <td>
-                            <button class="btn btn-primary" (click)="editarOrden(modalEdit,e)"><i class="fas fa-edit"></i></button>
-                            <button class="btn btn-danger" ><i class="fas fa-trash"></i></button>
+                            <button class="btn btn-primary" (click)="editarOrden(modalEdit,e)"><i class="fas fa-edit"></i>
+                                Actualizar
+                            </button>
+                            <button class="btn btn-danger" ><i class="fas fa-trash"></i>
+                                Eliminar
+                            </button>
                         </td>
                     </tr>
                 </tbody>

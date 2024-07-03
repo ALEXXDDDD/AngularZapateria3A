@@ -1,12 +1,18 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { PageChangedEvent } from 'ngx-bootstrap/pagination';
+import { AcciontConstants } from 'src/app/constants/general.constans';
 import { RequestFilterGeneric } from 'src/app/modules/matenimiento/models/genericFilterRequest.model';
+import { ResponseFilterGeneric } from 'src/app/modules/matenimiento/models/genericFilterResponse.models';
 import { ResponseModelo } from 'src/app/modules/matenimiento/models/modelo/modelo-response.model';
 import { RequestProducto } from 'src/app/modules/matenimiento/models/producto/producto-request.model';
 import { ResponseProducto } from 'src/app/modules/matenimiento/models/producto/producto-response.model';
+import { ResponseVDetalleProducto } from 'src/app/modules/matenimiento/models/producto/producto-responseVDetalle.model';
 import { ModeloService } from 'src/app/modules/matenimiento/service/modelo/modelo.service';
 import { ProductoService } from 'src/app/modules/matenimiento/service/producto/producto.service';
+import { CarritoService } from 'src/app/services/carrito/carrito.service';
 
 @Component({
   selector: 'app-welcome',
@@ -14,12 +20,18 @@ import { ProductoService } from 'src/app/modules/matenimiento/service/producto/p
   styleUrls: ['./welcome.component.css']
 })
 export class WelcomeComponent implements OnInit  {
-  responseProducto : ResponseProducto []=[]
-  responseModelo : ResponseModelo[]=[]
-  ProductoSelect : RequestProducto = new RequestProducto()
+  modalRef?: BsModalRef;
   titleModal : string = ""
   accionModal : number = 0
-
+  detalleSelect:ResponseVDetalleProducto = new ResponseVDetalleProducto()
+  productoSelect : ResponseProducto = new ResponseProducto()
+  responseProducto : ResponseProducto []=[]
+  responseModelo : ResponseModelo[]=[]
+  requestProducto :RequestProducto= new RequestProducto();
+  
+  ProductoSelect : RequestProducto = new RequestProducto()
+  responseDetalle : ResponseVDetalleProducto[]=[]
+  idProduc=this.requestProducto.idProducto
   totalItems:number =0
   itemsPerPage:number=1
   request : RequestFilterGeneric = new RequestFilterGeneric()
@@ -27,6 +39,8 @@ export class WelcomeComponent implements OnInit  {
   constructor (
     private _router:Router, 
     private fb:FormBuilder,
+    private _carritoService:CarritoService,
+    private modalService: BsModalService,
     private _productoService : ProductoService,
     private _modeloService : ModeloService,
 
@@ -36,7 +50,7 @@ export class WelcomeComponent implements OnInit  {
   {
     this.myFormFilter = this.fb.group(
       {
-        
+        idProducto:[],
         nombreProd: [""],
         codigoProd: [""]
       }
@@ -44,9 +58,35 @@ export class WelcomeComponent implements OnInit  {
   }
  
   ngOnInit(): void {
-    // this.listarProductos()
+    //  this.listarProductos()
+     this.filtrar()
     // this.listarModelos()
   }
+  addProducto(prod:ResponseProducto)
+  {
+    debugger
+    this._carritoService.addProducto(prod)
+  }
+  monstrarDetalle(template:TemplateRef<any>,producto:ResponseProducto,id:number)
+  {
+    this.titleModal ="Detalle"
+    this.productoSelect = producto
+    this.accionModal = AcciontConstants.detalle
+    this.openModal(template);
+
+  }
+  // monstrarDetalleProducto(id:number)
+  // {
+  //   debugger;
+  //   this._productoService.getById(id).subscribe(
+  //     {
+  //       next:(data:ResponseVDetalleProducto[])=>{
+  //         this.responseDetalle=data
+  //         console.log(data)
+  //       }
+  //     }
+  //   )
+  // }
   listarProductos()
   {
     this._productoService.getAll().subscribe({
@@ -74,9 +114,10 @@ export class WelcomeComponent implements OnInit  {
         }
       )
   }
-  /* openModal(template: TemplateRef<any>) {
+  openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template);
   }
+
   getCloseModalEmmit(res:boolean)
   {
     this.modalRef?.hide()
@@ -138,7 +179,7 @@ export class WelcomeComponent implements OnInit  {
   {
     this.request.cantidad = this.itemsPerPage
     this.filtrar()
-  } */
+  } 
 }
 
 

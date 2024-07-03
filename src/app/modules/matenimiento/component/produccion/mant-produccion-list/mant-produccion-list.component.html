@@ -6,24 +6,40 @@
             <table class="table table-bordered table-striped">
                 <thead>
                     <tr>
-                        <th>Codigo de Produccion </th>
-                        <th>Nombre Del Producto a Registrar</th>
-                        <th>Unidad</th>
-                        <th>Cantidad A Registrar</th>
-                        <th>Fecha De Registro</th>
+
+                        <th>Nombre Del Producto</th>
+                        <th>Codigo Del Producto</th>
+                        <th>Cantidad Producida</th>
+                        <th>Meta</th>
+                        <th>Fecha De Inicio</th>
+                        <th>Fecha De Fin</th>
+                       
+                     
                         
-                        <button class="btn btn-danger" (click)="crearProduccion(modalEdit)"><i class="fas fa-plus"></i></button>
+                        <th>
+                            <button class="btn btn-primary" (click)="crearProduccion(modalEdit)"><i class="fas fa-plus"></i>
+                                Crear Nueva Produccion
+                            </button>
+                        </th>
+                       
                     </tr>
                 </thead>
                 <tbody *ngFor="let d of Produccion" >
-                    <tr *ngFor="let e of d.produccion">
-                        <td>{{e.idProduccion}}</td>
-                        <td>{{e.cantidadFaltante}}</td>
-                        <td>{{e.estadoProduccion}}</td>
+                    <tr *ngFor="let e of d.produccions">
+                        <td>{{e.nombreProd}}</td>
+                        <td>{{e.codigoProd}}</td>
+                        <td>{{e.cantidadProduccion}}</td>
                         <td>{{e.meta}}</td>
-                        <td>{{e.nombreUnidad}}</td>
+                        <td>{{e.fechaInicio}}</td>
+                        <td>{{e.fechaFin}}</td>
+
                         <td>
-                            <button class="btn btn-primary" (click)="editarProduccion(modalEdit,e)"><i class="fas fa-edit"></i></button>
+                            <button class="btn btn-primary" (click)="editarProduccion(modalEdit,e)"><i class="fas fa-edit"></i>
+                                Actualizar
+                            </button>
+                            <button class="btn btn-danger" ><i class="fas fa-edit"></i>
+                                Eliminar 
+                            </button>
                         </td>
                     </tr>
                 </tbody>

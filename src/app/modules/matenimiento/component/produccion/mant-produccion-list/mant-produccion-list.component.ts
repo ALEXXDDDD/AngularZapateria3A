@@ -35,7 +35,6 @@ export class MantProduccionListComponent implements OnInit{
   }
   ngOnInit(): void {
     this.listarProduccion()
-    this.listarProductos()
   }
   listarProduccion ()
   {
@@ -44,9 +43,7 @@ export class MantProduccionListComponent implements OnInit{
       {
         next:(data:ResponseProduccion[])=>
           {
-            console.log("Datos de la salida De Material", data)
             this.Produccion=data
-            alert_sucess("LISTADO CORRECTO")
           },
         error:(error)=>{
           alert_error("No se pudo cargar la data ")

@@ -38,17 +38,22 @@ export class MantEmpleadoRegisterComponent implements OnInit{
   {
     this.myForm = this.fb.group(
       {
-        idEmpleado:[{value:0,disabled:true},[Validators.required]], 
-        nombrePersona:[null,[Validators.required]],
-        apellidoEmp:[null,[Validators.required]],
-        tipoPersona:[null,[Validators.required]],
-        tipoDocumento:[null,[Validators.required]],
-        numeroDocumento: [null,[Validators.required]],
-        telefono:[null,[Validators.required]],
-        codigoUbigeo:[null],
-        direccion:[null,[Validators.required]],
-        salario:[null,[Validators.required]],
-        estado:[null,[Validators.required]]
+        idEmpleado: [{value:0,disabled:true},[Validators.required]],
+        apellidoEmp:[null,[Validators.required]] ,
+        salario:[null,[Validators.required]] ,
+        nombrePersona:[null,[Validators.required]] ,
+
+        tipoPersona:[null,[Validators.required]] ,
+        usuario1:[null,[Validators.required]] ,
+        password:[null,[Validators.required]] ,
+        email:[null,[Validators.required]] ,
+        estado:[1,[Validators.required]] ,
+        tipoDocumento:[null,[Validators.required]] ,
+        numeroDocumento:[null,[Validators.required]] ,
+        telefono:[null,[Validators.required]] ,
+        codigoUbigeo:[null,[Validators.required]] ,
+        direccion:[null,[Validators.required]] ,
+        imagenEmpleado:["dd",[Validators.required]]
       }
     )
     
@@ -70,7 +75,6 @@ export class MantEmpleadoRegisterComponent implements OnInit{
   {
     
     this.EmpleadoEnvio = this.myForm.getRawValue()
-    
     this.EmpleadoEnvio.estado = convertBolean(this.EmpleadoEnvio.estado.toString())
     switch(this.accion)
     {

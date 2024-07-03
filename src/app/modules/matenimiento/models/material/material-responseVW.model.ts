@@ -1,10 +1,10 @@
 export class ResponseVWMaterial {
-    idMaterial: number= 0;
-    nombreMaterial: string= "" ;
-    nombreUnidad: string = "";
-    stock: number= 0;
-    descripcionMaterial: string = "";
-    marca: string = "";
-    imagenMaterial: string = "";
-    estado: string = "";
+    idMaterial: number=0;
+    nombreMaterial: string="";
+    stock: number=0;
+    descripMaterial: string="" ;
+    marca: string="" ;
+    estado: string="" ;
+    idUnidad: number=0;
 }
+

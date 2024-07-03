@@ -8,21 +8,18 @@
                     <tr>
                         <th>Codigo de Produccion </th>
                         <th>Material Sacado</th>
-                        <th>Unidad</th>
+                        <th>Estado</th>
                         <th>Cuanto Saco</th>
-                        <th>Numero de Documento</th>
-                        <th>Fecha Sacado</th>
                         
                         <button class="btn btn-danger" (click)="crearSalidaMateria(modalEdit)"><i class="fas fa-plus"></i></button>
                     </tr>
                 </thead>
                 <tbody *ngFor="let d of salidaMaterial" >
-                    <tr *ngFor="let e of d.salidaMaterial">
+                    <tr *ngFor="let e of d.salidaMaterials">
                         <td>{{e.idProduccion}}</td>
                         <td>{{e.nombreMaterial}}</td>
-                        <td>{{e.nombreUnidad}}</td>
+                        <td>{{e.estado}}</td>
                         <td>{{e.cantidad}}</td>
-                        <td>{{e.fechaSalida}}</td>
                         <td>
                             <button class="btn btn-primary" (click)="editarSalidaMaterial(modalEdit,e)"><i class="fas fa-edit"></i></button>
                         </td>
