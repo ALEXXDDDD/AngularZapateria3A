@@ -109,13 +109,17 @@
                
             
         </div>
-        <div class="row">
+        <div class="row"  *ngFor="let mod of responseProducto">
             <div class="col-12 col-md-4 p-5 mt-3">
-                <a href="#"><img src="./../../../assets/img/Img_Welcome/category_img_01.jpg" class="rounded-circle img-fluid border"></a>
-                <h5 class="text-center mt-3 mb-3">Watches</h5>
-                <p class="text-center"><a class="btn btn-success">Go Shop</a></p>
+                <a href="#"><img src="{{mod.fotografia}}" class="rounded-circle img-fluid border"></a>
+                <h5 class="text-center mt-3 mb-3"> {{mod.nombreProd}}</h5>
+                <h5 class="text-center mt-3 mb-3">$ {{mod.precioUnitario}}</h5>
+                <p class="text-center"><a class="btn btn-success" (click)="monstrarDetalle(modalEdit,mod,mod.idProducto)">Ver Detalle</a></p>
+                <div>
+                    <button (click)="addProducto(mod)">Agregar al carrito</button>
+                </div>
             </div>
-            <div class="col-12 col-md-4 p-5 mt-3">
+            <!-- <div class="col-12 col-md-4 p-5 mt-3">
                 <a href="#"><img src="./../../../assets/img/Img_Welcome/category_img_02.jpg" class="rounded-circle img-fluid border"></a>
                 <h2 class="h5 text-center mt-3 mb-3">Shoes</h2>
                 <p class="text-center"><a class="btn btn-success">Go Shop</a></p>
@@ -124,16 +128,16 @@
                 <a href="#"><img src="./../../../assets/img/Img_Welcome/category_img_03.jpg" class="rounded-circle img-fluid border"></a>
                 <h2 class="h5 text-center mt-3 mb-3">Accessories</h2>
                 <p class="text-center"><a class="btn btn-success">Go Shop</a></p>
-            </div>
+            </div> -->
         </div>
     </section>
     <div class="contendido-centro row">
         
-       <!--  <section class="row col-lg-9">
+        <section class="row col-lg-9">
            <form action="" class="container-producto"
            *ngFor="let mod of responseProducto"
            >
-            <a href="" ><img src="{{mod.fotografiaProducto}}" alt=""></a>
+            <a href="" ><img src="{{mod.fotografia}}" alt=""></a>
             <div>
                 <label for="">Nombre</label>
                 =>
@@ -145,9 +149,9 @@
             </div>
             
             
-        </form> -->
+        </form> 
                 
-        <!-- </section> -->
+        </section>
 
 
     </div>
@@ -275,15 +279,16 @@
 <div class="narvar3">
 
 </div>
-<!-- <ng-template #modalEdit>
+<ng-template #modalEdit>
     <app-listar-detalle
     [title]="titleModal"
-    
+    [Producto]="productoSelect"
     [accion]="accionModal"
   (closeModalEmmit)="getCloseModalEmmit($event)"
     >
+
     </app-listar-detalle>
-  </ng-template> -->
+</ng-template>  
 
 
  

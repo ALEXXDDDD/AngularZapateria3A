@@ -5,11 +5,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { CrudService } from './services/crud.service';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
+import { LoadingWidgetComponent } from '../auth/components/widgets/loading-widget/loading-widget.component';
+
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+
+  ],
   imports: [
     FormsModule,
     ReactiveFormsModule,

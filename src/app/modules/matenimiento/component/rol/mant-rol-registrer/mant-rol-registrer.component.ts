@@ -34,7 +34,7 @@ export class MantRolRegistrerComponent implements OnInit {
       {
         irol: [{value:0,disabled:true},[Validators.required]],
         nombreRol: [null,Validators.required],
-        descripRol: [null]
+        descripRol: [null,Validators.required]
       }
     )
   }

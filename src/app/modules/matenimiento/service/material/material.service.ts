@@ -9,7 +9,7 @@ import { ResponseMaterial } from '../../models/material/material-response.model'
 @Injectable({
   providedIn: 'root'
 })
-export class MaterialService extends CrudService<RequestVWMaterial,ResponseMaterial> {
+export class MaterialService extends CrudService<RequestVWMaterial,ResponseVWMaterial> {
 
   constructor(
     protected http:HttpClient

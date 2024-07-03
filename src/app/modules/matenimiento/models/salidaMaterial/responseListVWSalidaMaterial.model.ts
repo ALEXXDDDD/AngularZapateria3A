@@ -1,7 +1,8 @@
 export class ResponseListSalidaMaterial {
-    idProduccion: string = "";
-    nombreMaterial: string = "";
-    nombreUnidad: string = "" ;
-    cantidad: number = 0;
-    fechaSalida: string = "" ;
+    cantidad: number= 0;
+    idMaterial: number= 0;
+    idProduccion: number= 0;
+    nombreMaterial: string="";
+    estado: string ="";
+    stock: number= 0;
 }

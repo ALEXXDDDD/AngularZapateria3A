@@ -5,6 +5,7 @@ import { AcciontConstants } from 'src/app/constants/general.constans';
 import { alert_error, alert_sucess } from 'src/app/funcionts/general.funcionts';
 import { RequestVWUsuario } from 'src/app/models/request-vwUsuario-model';
 import { ResponseVUsuario } from 'src/app/models/response-vwUsuario-model';
+import { ResponseUsuario } from 'src/app/modules/matenimiento/models/usuario/responseUsuario.models';
 import { CorreoVerifApi } from 'src/app/modules/matenimiento/models/usuario/usuarioApiCorreo.model';
 import { UsuarioService } from 'src/app/modules/matenimiento/service/usuario/usuario.service';
 
@@ -62,7 +63,7 @@ export class FormularioUsuarioComponent implements OnInit {
   {    
     this._usuarioService.create(this.usuarioEnvio).subscribe(
               {
-              next : (data:ResponseVUsuario) => {
+              next : (data:ResponseUsuario) => {
                 alert("Se creo el Usuario exitosamente ")
               },  
               complete : () => {

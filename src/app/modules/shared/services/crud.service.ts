@@ -26,6 +26,9 @@ export class CrudService<T,Y> implements crudInterface <T,Y> {
   getAll(): Observable<Y[]> {
     return this._http.get<Y[]>(this.url_service)
   }
+  // getById(id:number):Observable<Y[]>{
+  //   return this._http.get<Y[]>(`${this.url_service}/${id}`)
+  // }
   create(request: T): Observable<Y> {
     return this._http.post<Y>(this.url_service,request)
   }

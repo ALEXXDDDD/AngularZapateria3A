@@ -1,37 +1,53 @@
 <h1>Materiales</h1>
 <table class="table">
     
+  <thead>
+    <ul>Materiales Acabados </ul>
+    <tr>
+
+      <th scope="col">Nombre Material</th>       
+      <th scope="col">Stock</th>
+
+    
+      
+    </tr>
+  </thead>
+  <tbody *ngFor="let list of responseMaterialesAcabados">
+    <tr >
+  
+      <td>{{list.nombreMaterial}}</td>
+      <td>{{list.stock}}</td>          
+    </tr>
+    
+  </tbody>
+</table>
+<table class="table">
+    
     <thead>
       <button (click)="crearMaterial(modalEdit)" class="btn btn-primary mr-4" id="#button-Mas">
         <i class="fas fa-plus"></i>
       </button>
       <tr>
         <th scope="col">ID</th>
-        <th scope="col">Nombre Material</th>
-        <th scope="col">Nombre Unidad</th>
-        
+        <th scope="col">Nombre Material</th>       
         <th scope="col">Stock</th>
-        <th scope="col">Descripcion</th>
         <th scope="col">Marca</th>
-        <th scope="col">Estado</th>
+      
         
       </tr>
     </thead>
-    <tbody *ngFor="let list of response">
-      <tr *ngFor="let a of list.material">
-        <td scope="row">{{a.idMaterial}}</td>
-        <td>{{a.nombreMaterial}}</td>
-        <td>{{a.nombreUnidad}}</td>
-        <td>{{a.stock}}</td>
-        <td>{{a.descripcionMaterial}}</td>
-        <td>{{a.marca}}</td>
-        <td><img src="{{a.imagenMaterial}}" alt=""></td>
+    <tbody *ngFor="let list of responseVWMaterial">
+      <tr >
+        <td scope="row">{{list.idMaterial}}</td>
+        <td>{{list.nombreMaterial}}</td>
+        <td>{{list.stock}}</td>  
+        <td>{{list.marca}}</td>
         
        
-        <button (click)="editarMaterial(modalEdit,list)" type="button" class="btn btn-danger mr-4">
+        <button  type="button" class="btn btn-danger mr-4">
             <i class="fas fa-edit"></i>
         </button> 
-        <button (click)="eliminarMaterial(a.idMaterial)" type="button" class="btn btn-danger mr-4">
+        <button  type="button" class="btn btn-danger mr-4">
           <i class="fas fa-trash"></i>
       </button> 
       

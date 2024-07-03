@@ -37,7 +37,15 @@
         </div> 
           
   </body>
-
+  <div *ngIf="frmLoadSt == loadStateEnum.None">
+      
+  </div>
+  <div *ngIf="frmLoadSt == loadStateEnum.Loading">
+    <app-loading-widget ></app-loading-widget>
+  </div>
+  <div *ngIf="frmLoadSt == loadStateEnum.Success">
+    
+  </div>
 </html>
 
 

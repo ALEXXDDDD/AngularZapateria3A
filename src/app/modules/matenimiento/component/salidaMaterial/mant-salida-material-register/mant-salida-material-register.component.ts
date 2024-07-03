@@ -117,8 +117,8 @@ export class MantSalidaMaterialRegisterComponent implements OnInit {
     this._materialService.getAll().subscribe
     (
       {
-        next:(data:ResponseMaterial[]) => {
-          this.response = data 
+        next:(data:ResponseVWMaterial[]) => {
+          this.responseVWMaterial = data 
           console.log(data)
         },
         error:() => {},

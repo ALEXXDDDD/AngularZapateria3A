@@ -33,6 +33,11 @@ import { MantSalidaMaterialListComponent } from './component/salidaMaterial/mant
 import { MantSalidaMaterialRegisterComponent } from './component/salidaMaterial/mant-salida-material-register/mant-salida-material-register.component';
 import { MantProduccionListComponent } from './component/produccion/mant-produccion-list/mant-produccion-list.component';
 import { MantProduccionRegisterComponent } from './component/produccion/mant-produccion-register/mant-produccion-register.component';
+import { MantUsuarioListComponent } from './component/usuario/mant-usuario-list/mant-usuario-list.component';
+import { MantCreditoListComponent } from './component/credito/mant-credito-list/mant-credito-list.component';
+import { MantCreditoRegisterComponent } from './component/credito/mant-credito-register/mant-credito-register.component';
+import { MantDetalleCreditoLisComponent } from './component/detalleCredito/mant-detalle-credito-lis/mant-detalle-credito-lis.component';
+import { MantDetalleCreditoRegisterComponent } from './component/detalleCredito/mant-detalle-credito-register/mant-detalle-credito-register.component';
 
 
 
@@ -49,6 +54,7 @@ import { MantProduccionRegisterComponent } from './component/produccion/mant-pro
     MantModeloListComponent,
     MantModeloResgisterComponent,
     MantUnidadResgisterComponent,
+    MantUsuarioListComponent,
     MantUnidadListComponent,
     MantProductoRegisterComponent,
     MantProductoListComponent,
@@ -67,6 +73,10 @@ import { MantProduccionRegisterComponent } from './component/produccion/mant-pro
     MantSalidaMaterialRegisterComponent,
     MantProduccionListComponent,
     MantProduccionRegisterComponent,
+    MantCreditoListComponent,
+    MantCreditoRegisterComponent,
+    MantDetalleCreditoLisComponent,
+    MantDetalleCreditoRegisterComponent,
    
   ],
   imports: [

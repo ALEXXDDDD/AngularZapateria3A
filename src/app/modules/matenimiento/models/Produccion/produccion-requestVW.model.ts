@@ -1,9 +1,11 @@
 export class RequestVWProduccion {
-    idProduccion: string= "";
-    nombreUnidad: string= "" ;
+    idProduccion: number=0;
+    cantidadProduccion: number=0;
+    descripcion: string="" ;
     meta: number=0;
-    cantidadFaltante: number=0 ;
-    fechaInicio: string= "";
-    fechaFinalizacion: string= "";
-    estadoProduccion: string= "";   
+    fechaInicio: string="";
+    estadoProduccion: string="";
+    fechaFin: string="" ;
+    nombreProd: string="" ;
+    codigoProd: string="" ;
 }

@@ -22,6 +22,12 @@ import { VistModelosComponent } from './Ventas/component/vistas/vist-modelos/vis
 import { VistEmpresaComponent } from './Ventas/component/vistas/vist-empresa/vist-empresa.component';
 import { VistContactoComponent } from './Ventas/component/vistas/vist-contacto/vist-contacto.component';
 import { VistProductoComponent } from './Ventas/component/vistas/vist-producto/vist-producto.component';
+import { VistBailarinaComponent } from './Ventas/component/vistas/mod-bailarinas/vist-bailarina/vist-bailarina.component';
+import { VistaZapatoComponent } from './Ventas/component/vistas/vist-zapato/vista-zapato/vista-zapato.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { CommonModule } from '@angular/common';
+import { TemplateRoutingModule } from './modules/template/template-routing.module';
+import { SharedModule } from './modules/shared/shared.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,11 +38,18 @@ import { VistProductoComponent } from './Ventas/component/vistas/vist-producto/v
     ProductoComponent,
     WelcomeComponent,
     WelcomeHeaderComponent,
+    VistBailarinaComponent,
+    VistZapatillaComponent,
+    ListarDetalleComponent,
+    CarritoComprasComponent,
     SinPermisoComponent,
-    ServiceRolComponent
+    ServiceRolComponent,
+    VistaZapatoComponent
   ],
   imports: [
+    SharedModule,
     BrowserModule,
+    ModalModule.forRoot(),
     AppRoutingModule,
     /**
      * TODO: PARA USUAR DOBLE BINDING    
