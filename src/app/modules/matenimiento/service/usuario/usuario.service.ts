@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { EventEmitter, Injectable, Input, Output } from '@angular/core';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { urlConstants } from 'src/app/constants/url.constants';
 import { RequestVWUsuario } from 'src/app/models/request-vwUsuario-model';
 
@@ -9,16 +9,25 @@ import { CrudService } from 'src/app/modules/shared/services/crud.service';
 import { ResponseVUsuario } from 'src/app/models/response-vwUsuario-model';
 import { CorreoVerifApi } from '../../models/usuario/usuarioApiCorreo.model';
 import { ResponseUsuario } from '../../models/usuario/responseUsuario.models';
+import { UsuarioSesionStore } from '../../models/usuario/responseSesionStore.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsuarioService extends CrudService<RequestVWUsuario,ResponseUsuario> {
+  @Input () usuarioResponse :   ResponseVUsuario = new ResponseVUsuario()
+  @Input () title = ""
 
+  @Output () closeModalEmmit = new EventEmitter<boolean>()
+  listarUsuario : UsuarioSesionStore[]=[]
+  listarUsuarioSubject: BehaviorSubject<UsuarioSesionStore[]>= 
+  new BehaviorSubject<UsuarioSesionStore[]>([])
   constructor(
     protected http:HttpClient
   ) { 
+
     super (http,urlConstants.Usuario)
+   
   }
   
   
@@ -31,4 +40,5 @@ export class UsuarioService extends CrudService<RequestVWUsuario,ResponseUsuario
   urlHunterIO = urlHunterIO.replace("##correo##",correoUsuario)
    return this.http.get<CorreoVerifApi>(urlHunterIO)
   }
+ 
 }

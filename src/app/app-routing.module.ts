@@ -10,6 +10,7 @@ import { VistEmpresaComponent } from './Ventas/component/vistas/vist-empresa/vis
 import { VistBailarinaComponent } from './Ventas/component/vistas/mod-bailarinas/vist-bailarina/vist-bailarina.component';
 import { VistZapatillaComponent } from './Ventas/component/vistas/vist-zapatilla/vist-zapatilla.component';
 import { CarritoComprasComponent } from './Ventas/component/carrito-compras/carrito-compras.component';
+import { PerfilListComponent } from './pages/perfil/perfil-list/perfil-list.component';
 
 const routes: Routes = [
   //Routeo
@@ -53,6 +54,12 @@ const routes: Routes = [
     canActivate: [  authGuard],
     path:'carrito',
     component:CarritoComprasComponent //Si es vacio dirigite a este componente
+
+  },
+  {
+    canActivate: [  authGuard],
+    path:'perfil',
+    component:PerfilListComponent //Si es vacio dirigite a este componente
 
   },
   {

@@ -17,3 +17,16 @@
         <button  type="button" (click)="eliminarProducto(item)">Eliminar</button>
     </li>
 </ul>
+<button (click)="realizarEnvio(modalEdit)">Envio</button>
+<ng-template #modalEdit>
+    <app-envio-domicilio
+    [title]="titleModal"
+    [dreccion]="direccionSelect"
+    [accion]="accionModal"
+    (closeModalEmmit)="getCloseModalEmmit($event)"
+    >
+
+    
+    </app-envio-domicilio>
+
+  </ng-template>

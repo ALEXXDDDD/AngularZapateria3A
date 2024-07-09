@@ -1,5 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { AcciontConstants } from 'src/app/constants/general.constans';
+import { ResponseVUsuario } from 'src/app/models/response-vwUsuario-model';
 import { CarritoItem } from 'src/app/modules/matenimiento/models/carritoItem/carritoItem.model';
+import { RequestActualizacionDireccion } from 'src/app/modules/matenimiento/models/cliente/request-actualizacionUsuario.model';
+import { ResponseUsuario } from 'src/app/modules/matenimiento/models/usuario/responseUsuario.models';
 import { CarritoService } from 'src/app/services/carrito/carrito.service';
 
 @Component({
@@ -8,9 +13,16 @@ import { CarritoService } from 'src/app/services/carrito/carrito.service';
   styleUrls: ['./carrito-compras.component.css']
 })
 export class CarritoComprasComponent implements OnInit{
+  modalRef?: BsModalRef;
+  // UsuarioSelect :ResponseCliente = new ResponseCliente() // Mandar para el register 
+  usuarioSelect :ResponseUsuario = new ResponseUsuario()
+  direccionSelect:RequestActualizacionDireccion = new RequestActualizacionDireccion
+  titleModal : string = ""
+  accionModal : number = 0
   carrito:CarritoItem[]=[]
   constructor(
-    private _carritoService:CarritoService
+    private _carritoService:CarritoService,
+    private modalService: BsModalService,
   )
   {
 
@@ -21,7 +33,15 @@ export class CarritoComprasComponent implements OnInit{
         next:(data)=>{ this.carrito=data}
       }
     )
-    throw new Error('Method not implemented.');
+  }
+  
+  getCloseModalEmmit(res:boolean)
+  {
+    this.modalRef?.hide()
+    if(res)
+    {
+      this._carritoService.listarCarrito()
+    }
   }
   eliminarProducto(item:CarritoItem):void
   {
@@ -41,6 +61,15 @@ export class CarritoComprasComponent implements OnInit{
       {
         this._carritoService.editarCantidad(item.producto.idProducto,--item.cantidad)
       }
+  }
+  realizarEnvio(template: TemplateRef<any>)
+  {
+    this.titleModal ="Nuevo Credito"
+    this.accionModal = AcciontConstants.crear
+    this.openModal(template);
+  }
+  openModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template);
   }
 
 }

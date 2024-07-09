@@ -1,41 +1,13 @@
-
-body{
+*{
   background-color: black;
 }
-.parte2{
-  float: right;
+input{
+  background-color: white;
 }
-h1{
-  text-align: center;
-  font-size: 50px;
-  font-family: Georgia, 'Times New Roman', Times, serif;
+select{
+  background-color: white;
 }
-form{
-  background-color: rgb(41, 69, 161);
+button{
+  background-color: white;
   color: black;
- float: right;
- margin-right: 80px;
- margin-left: 200px;
- padding-right: 70px;
- padding-left: 20px;
-  
-}
-.botonesRegister{
-  text-align: center;
-  margin-left: 50px;
-}
-
-input
-{
-  padding: 20px;
-  width: 300px;
-  height: 80px;
-  margin: 20px;
-}
-img{
-  perspective: 100px;
-  
-  margin-top: 20px;
-  margin-bottom: 20px;
-  margin-left: 20px;
 }

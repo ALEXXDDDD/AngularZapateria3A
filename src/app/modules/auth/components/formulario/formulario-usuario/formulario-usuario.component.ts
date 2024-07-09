@@ -30,6 +30,8 @@ export class FormularioUsuarioComponent implements OnInit {
     this.myForm = this.fb.group(
       {
         idUsuario: [{value:0 , disabled:true},[Validators.required]],
+        idPersona: [{value:0 , disabled:true},[Validators.required]],
+        irol: [{value:0 , disabled:true},[Validators.required]],
         nombrePersona: [null,Validators.required],
         tipoPersona: [null,Validators.required],
         tipoDocumento: [null,Validators.required],
@@ -37,10 +39,10 @@ export class FormularioUsuarioComponent implements OnInit {
         telefono: [null,Validators.required],
         codigoUbigeo: [null,Validators.required], 
         direccion: [null,Validators.required], 
-        usuarioV: [null,Validators.required],
+        usuario1: [null,Validators.required],
         password: [null,Validators.required],
         email: [null,Validators.required,Validators.email],
-        estado: [null,Validators.required],
+        estado: [true,Validators.required],
       }
     )
   }
@@ -55,8 +57,10 @@ export class FormularioUsuarioComponent implements OnInit {
   guardar()
   {
     
- 
+    debugger
+    
     this.usuarioEnvio = this.myForm.getRawValue()
+
     this.crearUsuario()
   }
   crearUsuario()

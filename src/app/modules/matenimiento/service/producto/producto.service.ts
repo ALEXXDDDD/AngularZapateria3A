@@ -18,8 +18,9 @@ export class ProductoService extends CrudService<RequestProducto,ResponseProduct
     super (http,urlConstants.producto)
    }
 
-
-   getById(id:number){
+   
+   getById(id:number):Observable<ResponseDetalleProducto[]>{
+    debugger;
     return this._http.get<ResponseDetalleProducto[]>(`${this.url_service}/${id}`)
   }
 }

@@ -1,3 +1,4 @@
+import { PerfilListComponent } from "../pages/perfil/perfil-list/perfil-list.component"
 
 
 export const dominio = "https://localhost:7282/"  
@@ -30,6 +31,9 @@ export const urlConstants ={
     SalidaMaterial:dominio+"api/SalidaMaterial",
     detalleCredito:dominio+"api/DetalleCredito",
     /// Store Procedure
+    verDetalleProducto :dominio+"api/DetalleProducto",
+    perfil :dominio+"api/Perfil",
+    actualizacionDireccion :dominio+"api/ActualizacionDireccion",
     vistaBailarinas:dominio+"api/BailarinasStore",
     vistaZapatos:dominio+"api/ZapatosStore",
     vistaZapatillas:dominio+"api/ZapatillasStore"

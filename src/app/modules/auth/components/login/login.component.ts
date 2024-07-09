@@ -46,7 +46,7 @@ export class LoginComponent {
 
   login ()
   {
-    debugger;
+   
    /*  console.log(this.loginForm.getRawValue()) */
     this.loginRequest = this.loginForm.getRawValue()
     this._authService.login(this.loginRequest).subscribe(
@@ -54,7 +54,7 @@ export class LoginComponent {
         next: (data:ResponseLogin) => {
           this._router.navigate(['dasboard'])
           console.log(data)
-          debugger;
+  
           
           // routeamos al dahboard
           
@@ -63,10 +63,11 @@ export class LoginComponent {
           if(data.success)
           {
             alert_sucess("Iniciaste Sesion Correctamente")
-            debugger;
+            // debugger;
             if(data.nameRol=="Cliente")
               {
-                debugger;
+                // debugger;
+
                 this._router.navigate([''])
                 sessionStorage.setItem("token", data.token);
                 sessionStorage.setItem("nombrePersona",data.persona.nombrePersona);
@@ -74,24 +75,22 @@ export class LoginComponent {
                 .idUsuario.toString());
                 sessionStorage.setItem("usuario",data.vwUsuario.usuario);
                 sessionStorage.setItem("nombreRol",data.nameRol);
-                sessionStorage.setItem("rolId",data.rol.irol.toString());
+             
               }
               if(data.nameRol=="Administador")
                 {
-                  debugger;
-                  this._router.navigate([''])
                   sessionStorage.setItem("token", data.token);
                   sessionStorage.setItem("nombrePersona",data.persona.nombrePersona);
                   sessionStorage.setItem("idUsuario",data.vwUsuario
                   .idUsuario.toString());
                   sessionStorage.setItem("usuario",data.vwUsuario.usuario);
                   sessionStorage.setItem("nombreRol",data.nameRol);
-                  sessionStorage.setItem("rolId",data.rol.irol.toString());
+               
                   this._router.navigate(['dasboard'])
                 }
-                if(data.nameRol=="Cliente")
+                if(data.nameRol=="Vendedor")
                   {
-                    debugger;
+                    // debugger;
                     this._router.navigate(['dasboard'])
                     sessionStorage.setItem("token", data.token);
                     sessionStorage.setItem("nombrePersona",data.persona.nombrePersona);
@@ -99,17 +98,17 @@ export class LoginComponent {
                     .idUsuario.toString());
                     sessionStorage.setItem("usuario",data.vwUsuario.usuario);
                     sessionStorage.setItem("nombreRol",data.nameRol);
-                    sessionStorage.setItem("rolId",data.rol.irol.toString());
+                 
                     this._router.navigate(['dasboard'])
                   }
-            debugger;
+            // debugger;
             sessionStorage.setItem("token", data.token);
             sessionStorage.setItem("nombrePersona",data.persona.nombrePersona);
             sessionStorage.setItem("idUsuario",data.vwUsuario
             .idUsuario.toString());
             sessionStorage.setItem("usuario",data.vwUsuario.usuario);
             sessionStorage.setItem("nombreRol",data.nameRol);
-            sessionStorage.setItem("rolId",data.rol.irol.toString());
+         
             
           }
           else{
