@@ -1,0 +1,23 @@
+
+<div >
+    <h4>Hola Esta es tu direccion</h4>
+    <form action="" *ngFor="let item of responsePerfil" [formGroup]="myForm">
+
+        <ul>{{item.direccion}}</ul>
+        <input type="text" value="{{item.direccion}}" type="text" 
+
+        formControlName="direccion"
+
+        [readonly]="!isEditable" 
+       
+        placeholder="Escribe aquí">
+        <br>
+        <button *ngIf="isEditable" (click)="guardar()" >
+            Actualizar Direccion
+        </button>
+        <button *ngIf="!isEditable" (click)="enableEditing()"  class="btn btn-primary">Cambiar Direccion</button>
+        <br>
+        <button (click)="saveChanges()" class="btn btn-danger">Confirmar Direccion</button> <!-- *ngIf="isEditable"-->
+    </form>
+
+</div>

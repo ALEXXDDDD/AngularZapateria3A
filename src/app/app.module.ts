@@ -28,10 +28,14 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { CommonModule } from '@angular/common';
 import { TemplateRoutingModule } from './modules/template/template-routing.module';
 import { SharedModule } from './modules/shared/shared.module';
+import { EnvioDomicilioComponent } from './Ventas/component/vistas/envio-domicilio/envio-domicilio.component';
+import { PerfilListComponent } from './pages/perfil/perfil-list/perfil-list.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     PruebaComponent,
+    EnvioDomicilioComponent,
     NotFoudComponent,
     VistEmpresaComponent,
     VistContactoComponent,
@@ -44,7 +48,9 @@ import { SharedModule } from './modules/shared/shared.module';
     CarritoComprasComponent,
     SinPermisoComponent,
     ServiceRolComponent,
-    VistaZapatoComponent
+    VistaZapatoComponent,
+    EnvioDomicilioComponent,
+    PerfilListComponent
   ],
   imports: [
     SharedModule,

@@ -3,54 +3,65 @@
   <!--Formulario del registro del Usuario -->
   <img  src="./../../../assets/img/Img_Welcome/images.png" alt="">
   <img class="omh-login" src="./../../../assets/img/imagen-login.jpg" alt="">
-  <form class="formularioRegistro" action="">
+  <form class="formularioRegistro" action="" [formGroup]="myForm">
     <div class="parte1">
         <div class="row g-3 align-items-center">
         <div class="col-auto">
-          <input placeholder="Nombre de Usuario"  class="form-control" >
+          <input placeholder="Nombre de Usuario" formControlName="usuario1"  class="form-control" >
         </div>
       </div>
       <div class="row g-3 align-items-center">
         <div class="col-auto">
-          <input placeholder="fnfnf@gmail.com"   class="form-control" >
+          <select name="" id="" class="form-select" formControlName="tipoPersona">
+            <option value="DNI">Natural</option>
+            <option value="CARNET">Juridica</option>
+          </select>
         </div>
       </div>
       <div class="row g-3 align-items-center">
         <div class="col-auto">
-          <input placeholder="Nombres"   class="form-control" >
+          <input placeholder="ejemplo@gmail.com"  formControlName="email" class="form-control" >
         </div>
       </div>
       <div class="row g-3 align-items-center">
         <div class="col-auto">
-          <input placeholder="Como desea registrarse"   class="form-control" >
+          <input placeholder="Nombres"   class="form-control" formControlName="nombrePersona">
         </div>
       </div>
       <div class="row g-3 align-items-center">
         <div class="col-auto">
-          <input placeholder="Documento de Identidad"   class="form-control" >
+          <select name="" id="" class="form-select" formControlName="tipoDocumento">
+            <option value="DNI">DNI</option>
+            <option value="CARNET">CARNET</option>
+          </select>
         </div>
       </div>
     </div>
     <div class="parte2">
         <div class="row g-3 align-items-center">
         <div class="col-auto">
-          <input placeholder="Numero Documento"   class="form-control" >
+          <input placeholder="Numero Documento" formControlName="numeroDocumento"   class="form-control" >
         </div>
       </div>
       <div class="row g-3 align-items-center">
         <div class="col-auto">
-          <input placeholder="Telefono de Celular"   class="form-control" >
-        </div>
-      </div>
-      <div class="row g-3 align-items-center">
-
-        <div class="col-auto">
-          <input placeholder="Codigo de Ubigeo de tu DNI"   class="form-control" >
+          <input placeholder="Telefono de Celular" formControlName="telefono"  class="form-control" >
         </div>
       </div>
       <div class="row g-3 align-items-center">
         <div class="col-auto">
-          <input placeholder="Direccion de tu Casa"   class="form-control" >
+          <input placeholder="codigoUbigeo" formControlName="codigoUbigeo" value=""   class="form-control" >
+        </div>
+      </div>
+      <div class="row g-3 align-items-center">
+        <div class="col-auto">
+          <input placeholder="Direccion de tu Casa" formControlName="direccion"  class="form-control" >
+        </div>
+      </div>
+      <div class="row g-3 align-items-center">
+        <div class="col-auto">
+          <input placeholder="Tu sontraseña" formControlName="password"  class="form-control" type="password">
+          <input placeholder="Cofirma tu contraseña" formControlName="confirmContra"  class="form-control" type="password">
         </div>
       </div>
     </div>
@@ -62,7 +73,7 @@
 
   
     <div class="d-grid gap-2">
-      <button class="btn btn-primary" type="button">Registrar</button>
+      <button class="btn btn-primary" (click)="guardar()" type="button">Registrar</button>
       
     </div>
     <div>

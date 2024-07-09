@@ -2,10 +2,13 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AcciontConstants } from 'src/app/constants/general.constans';
 import { alert_error, alert_sucess } from 'src/app/funcionts/general.funcionts';
+import { LoadStateEnum } from 'src/app/modules/matenimiento/models/core/utils/load-enum';
 import { RequestProducto } from 'src/app/modules/matenimiento/models/producto/producto-request.model';
 import { ResponseProducto } from 'src/app/modules/matenimiento/models/producto/producto-response.model';
 import { ResponseDetalleProducto } from 'src/app/modules/matenimiento/models/producto/producto-responseDetalleProducto.model';
 import { ResponseVDetalleProducto } from 'src/app/modules/matenimiento/models/producto/producto-responseVDetalle.model';
+import { ResponseDetalleProcedureProducto } from 'src/app/modules/matenimiento/models/producto/productoResponseDetalle.model';
+import { DetalleProductoService } from 'src/app/modules/matenimiento/service/detalleProducto/detalle-producto.service';
 import { ProductoService } from 'src/app/modules/matenimiento/service/producto/producto.service';
 
 @Component({
@@ -25,12 +28,16 @@ export class ListarDetalleComponent {
   @Output () closeModalEmmit = new EventEmitter<boolean>()
   responseVDetalle : ResponseVDetalleProducto[]=[]
   responseDetalle : ResponseDetalleProducto[]=[]
+  detalleProductoResponse : ResponseDetalleProcedureProducto[] =[]
   responseProducto : ResponseProducto []=[]
   myForm:FormGroup 
   ProductoEnvio : RequestProducto = new RequestProducto()
+  frmLoadSt = LoadStateEnum.None;
+  loadStateEnum = LoadStateEnum;
   constructor (
     private fb:FormBuilder,
-    private  _ProductoService:ProductoService
+    private  _ProductoService:ProductoService,
+    private _DetalleProducto:DetalleProductoService
   )
   {
     //Enviar el Producto Request 
@@ -42,24 +49,48 @@ export class ListarDetalleComponent {
       }
     )
   }
+  carga:number = 1;
+  
   ngOnInit(): void {
-      console.log("Title =>",this.title)
-      console.log("CARGO =>",this.Producto)
+     
       this.myForm.patchValue(this.Producto)
       this.monstrarDetalleProducto(this.Producto.idProducto)
      
   }
   monstrarDetalleProducto(id:number)
   {
-    this._ProductoService.getById(id).subscribe(
+
+    this._DetalleProducto.getDetalle(id).subscribe(
       {
-        next:(data:ResponseDetalleProducto[])=>{
-          this.responseDetalle=data
-          console.log(data)
-        }
+        next:(data:ResponseDetalleProcedureProducto[])=>{
+          
+          if (Array.isArray(data)) {
+            this.frmLoadSt = LoadStateEnum.Success;
+            this.detalleProductoResponse = data;
+          } else {
+            console.error('Data is not an array', data);
+          }
+         },
+         error:()=>
+         {
+          this.frmLoadSt = LoadStateEnum.Error;
+         }
       }
     )
   }
+  save(name: string, lastName: string) {
+    this.frmLoadSt = LoadStateEnum.Loading;
+
+    // envio al servido
+    setTimeout(() => {
+      // guargador correcto
+      alert('Se guardo');
+      this.frmLoadSt = LoadStateEnum.Success;
+    }, 4000);
+  }
+  cambiar(){
+    
+   }
   // guardar()
   // {
   //   this.ProductoEnvio = this.myForm.getRawValue()
