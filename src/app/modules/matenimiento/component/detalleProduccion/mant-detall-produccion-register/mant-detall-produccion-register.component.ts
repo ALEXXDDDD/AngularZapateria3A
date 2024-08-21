@@ -79,7 +79,7 @@ export class MantDetallProduccionRegisterComponent implements OnInit {
   }
   crearProduccion()
     {
-      this._ProduccionService.create(this.requestProduccion).subscribe(
+      this._ProduccionService.create(this.ProduccionEnvio).subscribe(
         {
           next: (data:ResponseProduccion) => 
           {
@@ -100,7 +100,7 @@ export class MantDetallProduccionRegisterComponent implements OnInit {
     }
   editarProduccion()
     {
-      this._ProduccionService.update(this.requestProduccion).subscribe(
+      this._ProduccionService.update(this.ProduccionEnvio).subscribe(
         {
           next: (data:ResponseProduccion) => 
           {

@@ -9,7 +9,7 @@ import { RequestVWIngresoProducto } from '../../models/ingresoProducto/requestVW
 @Injectable({
   providedIn: 'root'
 })
-export class ProduccionService  extends CrudService<RequestVWIngresoProducto,ResponseProduccion>{
+export class ProduccionService  extends CrudService<RequestVWProduccion,ResponseProduccion>{
 
   constructor(
     protected  http:HttpClient

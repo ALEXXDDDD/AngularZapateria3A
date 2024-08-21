@@ -35,7 +35,7 @@ export const urlConstants ={
     perfil :dominio+"api/Perfil",
     actualizacionDireccion :dominio+"api/ActualizacionDireccion",
     vistaBailarinas:dominio+"api/BailarinasStore",
-    vistaZapatos:dominio+"api/ZapatosStore",
+    vistaZapatos:dominio+"api/MirarZapatosStore",
     vistaZapatillas:dominio+"api/ZapatillasStore"
 }
 

@@ -5,7 +5,8 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { Router } from '@angular/router';
 import { OrdenService } from '../../../service/orden/orden.service';
 import { AcciontConstants } from 'src/app/constants/general.constans';
-import { ResponseListOrden } from '../../../models/orden/orden.request.model';
+import { ResponseListOrden } from '../../../models/orden/orden-request.model';
+import { RequestUnidad } from '../../../models/unidad/p/unidad-request.model';
 
 @Component({
   selector: 'app-mant-list-orden',
@@ -16,6 +17,7 @@ export class MantListOrdenComponent implements OnInit {
   responseOrden : ResponseOrden []=[];
   response: ResponseOrden = new ResponseOrden();
   OrdenSelect : ResponseListOrden = new ResponseListOrden()
+  UnidadSelect : RequestUnidad = new RequestUnidad()
   responseVWOrden: ResponseListOrden = new ResponseListOrden();
   modalRef? : BsModalRef;
   titleModal : string = ""
@@ -62,6 +64,13 @@ export class MantListOrdenComponent implements OnInit {
     this.OrdenSelect = Orden
     this.accionModal = AcciontConstants.editar
     this.openModal(template)
+  }
+  crearUnidad(templateUnidad:TemplateRef<any>)
+  {
+    this.titleModal= "Crear Unidad"
+    this.UnidadSelect = new RequestUnidad()
+    this.accionModal = AcciontConstants.crear
+    this.openModal(templateUnidad)
   }
   eliminarOrden(id:number)
   {

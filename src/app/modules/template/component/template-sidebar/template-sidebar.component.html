@@ -3,7 +3,7 @@
         <div class="sb-sidenav-menu">
             
     <img src="./../../../assets/img/Img_Welcome/images.png" alt="">
-            
+            <a class="nav-link"  href="" routerLink="mantenimiento/inicioSidebar"><i class="fas fa-card" class="mr-5"></i>Inicio</a>
             <div class="nav" *ngFor="let d of meny">
 
                 <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" 
@@ -15,6 +15,7 @@
                 </a>
                 <div *ngFor="let x of d.subMenu" class="collapse" id="{{d.target}}" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
                     <nav class="sb-sidenav-menu-nested nav">
+       
                         <a class="nav-link"  href="" [routerLink]="[x.url]"><i class="{{x.incon}}" class="mr-5"></i>{{x.name}}</a>
                         
                     </nav>

@@ -1,7 +1,12 @@
 export class RequestVWIngresoProducto {
-    idProduccion: string = "";
+    idProduccion: number = 0;
     nombreProd: string = "" ;
+    fechaInicio : string = "";
+    estadoProduccion : string = "";
+    cantidadFaltante  : number = 0;
+    meta  : number = 0;
+    codigoProduccion : string = "" ;
     nombreUnidad: string = "" ;
-    cantidad: number = 0;
-    fechaIngreso: string = "";
+    idUnidad : number = 0;
+    fechaFin: string = "";
 }

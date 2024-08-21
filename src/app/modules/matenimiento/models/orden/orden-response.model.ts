@@ -1,4 +1,4 @@
-import { ResponseListOrden } from "./orden.request.model";
+import { ResponseListOrden } from "./orden-request.model";
 
 
 export class ResponseOrden {

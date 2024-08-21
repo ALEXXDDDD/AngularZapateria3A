@@ -13,13 +13,13 @@ import { ResponseFilterGeneric } from '../../../models/genericFilterResponse.mod
 import { VistProducAcabadoService } from '../../../service/producto/vist-produc-acabado.service';
 import { ResponseProcedureProducto } from '../../../models/producto/producto-responseProcedure.model';
 
+
 @Component({
   selector: 'app-mant-producto-list',
   templateUrl: './mant-producto-list.component.html',
   styleUrls: ['./mant-producto-list.component.css']
 })
 export class MantProductoListComponent implements OnInit {
-
   responseProducto : ResponseProducto []=[]
   responseModelo : ResponseModelo []=[]
   responseStoreProducto : ResponseProcedureProducto[]=[]
@@ -49,6 +49,7 @@ export class MantProductoListComponent implements OnInit {
       }
     )
   }
+ 
   ngOnInit(): void {
     this.filtrar()
     this.listarProductos()

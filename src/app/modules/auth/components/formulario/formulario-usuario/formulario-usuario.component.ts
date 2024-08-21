@@ -30,6 +30,7 @@ export class FormularioUsuarioComponent implements OnInit {
     this.myForm = this.fb.group(
       {
         idUsuario: [{value:0 , disabled:true},[Validators.required]],
+        // lugarRegistro: [{value:1 , disabled:true},[Validators.required]],
         idPersona: [{value:0 , disabled:true},[Validators.required]],
         irol: [{value:0 , disabled:true},[Validators.required]],
         nombrePersona: [null,Validators.required],

@@ -1,9 +1,10 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { ActivatedRoute, Router, UrlSerializer } from '@angular/router';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { PageChangedEvent } from 'ngx-bootstrap/pagination';
 import { AcciontConstants } from 'src/app/constants/general.constans';
+import { AuthService } from 'src/app/modules/auth/service/auth.service';
 import { RequestFilterGeneric } from 'src/app/modules/matenimiento/models/genericFilterRequest.model';
 import { ResponseFilterGeneric } from 'src/app/modules/matenimiento/models/genericFilterResponse.models';
 import { ResponseModelo } from 'src/app/modules/matenimiento/models/modelo/modelo-response.model';
@@ -13,13 +14,20 @@ import { ResponseVDetalleProducto } from 'src/app/modules/matenimiento/models/pr
 import { ModeloService } from 'src/app/modules/matenimiento/service/modelo/modelo.service';
 import { ProductoService } from 'src/app/modules/matenimiento/service/producto/producto.service';
 import { CarritoService } from 'src/app/services/carrito/carrito.service';
-
+import { AuthGoogleService } from 'src/app/services/google/auth-goggle-service.service';
+interface City {
+  name: string;
+  code: string;
+}
 @Component({
   selector: 'app-welcome',
   templateUrl: './welcome.component.html',
   styleUrls: ['./welcome.component.css']
 })
+
 export class WelcomeComponent implements OnInit  {
+  cities: City[] | undefined;
+  formGroup: FormGroup | undefined;
   modalRef?: BsModalRef;
   titleModal : string = ""
   accionModal : number = 0
@@ -41,9 +49,11 @@ export class WelcomeComponent implements OnInit  {
     private fb:FormBuilder,
     private _carritoService:CarritoService,
     private modalService: BsModalService,
+    private oauthService: AuthGoogleService,
+    private _authService:AuthService, 
     private _productoService : ProductoService,
     private _modeloService : ModeloService,
-
+    private route: ActivatedRoute
     
 
   )
@@ -58,8 +68,42 @@ export class WelcomeComponent implements OnInit  {
   }
  
   ngOnInit(): void {
+    console.log(
+    this.route.snapshot.paramMap.get('access_token') );
+    this.route.fragment.subscribe(fragment => {
+      if (fragment) {
+        const urlParams = new URLSearchParams(fragment);
+        const idToken = urlParams.get('id_token');
+        const accessToken = urlParams.get('access_token');
+       
+        if (idToken) {
+          // Validar el id_token en el backend
+          this.oauthService.validateToken(idToken).subscribe(response => {
+            console.log('Token validado:', response);
+            // Manejar la lógica después de la validación del token
+          }, (error: any) => {
+            console.error('Error al validar el token:', error);
+          });
+        } else {
+          console.error('No se encontró id_token en el fragmento de la URL');
+        }
+      } else {
+        console.error('No se encontró el fragmento en la URL');
+      }
+    });
     //  this.listarProductos()
      this.filtrar()
+     this.cities = [
+      { name: 'New York', code: 'NY' },
+      { name: 'Rome', code: 'RM' },
+      { name: 'London', code: 'LDN' },
+      { name: 'Istanbul', code: 'IST' },
+      { name: 'Paris', code: 'PRS' }
+  ];
+
+  this.formGroup = new FormGroup({
+      selectedCity: new FormControl<City | null>(null)
+  });
     // this.listarModelos()
   }
   addProducto(prod:ResponseProducto)

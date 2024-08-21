@@ -14,10 +14,17 @@
         {{item.cantidad}}
         <button (click)="agregar1(item)">+</button>
         <br>
+       
         <button  type="button" (click)="eliminarProducto(item)">Eliminar</button>
+
+        
     </li>
+    <div>
+            Total de precios: {{ totalPrecios }}
+          </div>
 </ul>
 <button (click)="realizarEnvio(modalEdit)">Envio</button>
+<button  [routerLink]="['/pasarela']">Pagar</button>
 <ng-template #modalEdit>
     <app-envio-domicilio
     [title]="titleModal"

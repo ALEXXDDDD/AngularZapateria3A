@@ -1,5 +1,6 @@
 export class RequestVWUsuario {
     idUsuario: number = 0;
+    lugarRegistro: string = "";
     idPersona: number = 0;
     irol: number= 0;
     nombrePersona: string = "";
@@ -20,24 +21,9 @@ export interface RequestUsuario {
     idUsuario: number;
     idPersona: number;
     usuario1: string;
+    lugarRegistro: string;
     password: string;
     email: string;
-    nombreRol: string;
-    irol: number;
-    nombrePersona: string;
-    tipoDocumento: string;
-    numeroDocumento: string;
-    telefono: string;
-    codigoUbigeo: string | null;
-    direccion: string | null;
-}
-export interface RequestUsuario {
-    idUsuario: number;
-    idPersona: number;
-    usuario1: string;
-    password: string;
-    email: string;
-    nombreRol: string;
     estado: boolean;
     irol: number;
     nombrePersona: string;

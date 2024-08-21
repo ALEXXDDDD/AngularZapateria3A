@@ -5,6 +5,7 @@ import { MantEmpleadoListComponent } from '../matenimiento/component/empleado/ma
 import { MantRolListComponent } from '../matenimiento/component/rol/mant-rol-list/mant-rol-list.component';
 import { MantSalidaMaterialListComponent } from '../matenimiento/component/salidaMaterial/mant-salida-material-list/mant-salida-material-list.component';
 import { MantUsuarioListComponent } from '../matenimiento/component/usuario/mant-usuario-list/mant-usuario-list.component';
+import { InicioSidebarComponent } from '../matenimiento/component/inicio-sidebar/inicio-sidebar.component';
 
 const routes: Routes = [
   {
@@ -20,14 +21,17 @@ const routes: Routes = [
         path: 'usuario', component:MantUsuarioListComponent
       },
       {
+        path: 'inicioSidebar', component:InicioSidebarComponent
+      },
+      {
         path: 'saukdaMaterial', component:MantSalidaMaterialListComponent
       },
       {
         path: 'rol', component:MantRolListComponent
       },
-      {
-        path:'mantenimiento/persona',loadChildren:()=>import("../matenimiento/matenimiento.module").then(x=>x.MatenimientoModule)
-      }
+      // {
+      //   path:'mantenimiento/persona',loadChildren:()=>import("../matenimiento/matenimiento.module").then(x=>x.MatenimientoModule)
+      // }
     ]
   },
   

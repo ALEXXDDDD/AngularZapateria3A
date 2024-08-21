@@ -6,6 +6,7 @@ import { TemplateComponent } from './component/template/template.component';
 import { TemplateHeaderComponent } from './component/template-header/template-header.component';
 import { TemplateFooterComponent } from './component/template-footer/template-footer.component';
 import { TemplateSidebarComponent } from './component/template-sidebar/template-sidebar.component';
+import { SharedModule } from 'primeng/api';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { TemplateSidebarComponent } from './component/template-sidebar/template-
   ],
   imports: [
     CommonModule,
+    SharedModule,
     TemplateRoutingModule
   ]
 })

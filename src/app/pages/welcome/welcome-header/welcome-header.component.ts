@@ -50,8 +50,8 @@ export class WelcomeHeaderComponent implements OnInit {
           name:"Administracion", target:"TargetMantenimiento",
           subMenu:[
                   
-                {name:"Carrito ",url:"carrito", incon:"fas fa-card"},
-                {name:"Dasboard",url:"dasboard", incon:"fas fa-card"},                    
+                {name:"Cuenta ",url:"/perfil", incon:"fas fa-card"},
+                {name:"Dasboard",url:"dasboard/mantenimiento/inicioSidebar", incon:"fas fa-card"},                    
               ]           
               }        
             ]
@@ -61,7 +61,7 @@ export class WelcomeHeaderComponent implements OnInit {
         {
           name:"Cliente", target:"TargetCliente",
           subMenu:[
-            {name:"Carrito ",url:"carrito", incon:"fa fa-fw fa-search text-dark mr-2"},
+            {name:"Carrito ",url:"/carrito", incon:"fa fa-fw fa-search text-dark mr-2"},
                 
                 ]
                 
@@ -69,7 +69,7 @@ export class WelcomeHeaderComponent implements OnInit {
           {
             name:"Cuenta", target:"TargetCuenta",
             subMenu:[
-              {name:"Cuenta",url:"perfil", incon:"fa fa-fw fa-user text-dark mr-3"},     
+              {name:"Cuenta",url:"/perfil", incon:"fa fa-fw fa-user text-dark mr-3"},     
               ]
           }             
         ]

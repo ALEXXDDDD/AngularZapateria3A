@@ -5,6 +5,7 @@ import { AcciontConstants } from 'src/app/constants/general.constans';
 import { alert_sucess } from 'src/app/funcionts/general.funcionts';
 import { RequestVWUsuario } from 'src/app/models/request-vwUsuario-model';
 import { ResponseVUsuario } from 'src/app/models/response-vwUsuario-model';
+import { CarritoItem } from 'src/app/modules/matenimiento/models/carritoItem/carritoItem.model';
 import { RequestActualizacionDireccion } from 'src/app/modules/matenimiento/models/cliente/request-actualizacionUsuario.model';
 import { ResponsePerfil } from 'src/app/modules/matenimiento/models/perfil/perfil-response.model';
 import { ResponsePersona } from 'src/app/modules/matenimiento/models/persona/response-persona.model';
@@ -13,6 +14,7 @@ import { ResponseUsuario } from 'src/app/modules/matenimiento/models/usuario/res
 import { ActuDirecService } from 'src/app/modules/matenimiento/service/actuDirec/actu-direc.service';
 import { UsuarioService } from 'src/app/modules/matenimiento/service/usuario/usuario.service';
 import { PerfilListComponent } from 'src/app/pages/perfil/perfil-list/perfil-list.component';
+import { CarritoService } from 'src/app/services/carrito/carrito.service';
 import { PerfilService } from 'src/app/services/perfil/perfil.service';
 
 @Component({
@@ -30,11 +32,13 @@ export class EnvioDomicilioComponent implements OnInit {
   isEditable: boolean = false;  // Estado inicial del input
   inputValue: string = 'Texto inicial';  // Valor inicial del input
   direccionEnvio : RequestVWUsuario = new RequestVWUsuario()
+  carrito:CarritoItem[]=[]
   requestDireccion : RequestActualizacionDireccion = new RequestActualizacionDireccion()
   constructor(
     private fb:FormBuilder,
     private _perfilService:PerfilService,
     private _actuaDireccion : ActuDirecService,
+    private _carritoService:CarritoService,
     private _usuarioService : UsuarioService
   ) { 
     
@@ -45,7 +49,7 @@ export class EnvioDomicilioComponent implements OnInit {
       {
         
         idUsuario: [{value:idUsu,disabled:true},[Validators.required]],
-        direccion : ["",Validators.required],
+        direccion : [null,Validators.required],
         nombrePersona:["",Validators.required] ,
         iRol:["",Validators.required] ,
         nombreRol:["",Validators.required] ,
@@ -62,6 +66,18 @@ export class EnvioDomicilioComponent implements OnInit {
       }
     )
   }
+  }
+  eliminarProducto(item:CarritoItem):void
+  {
+    this._carritoService.removeProducto(item.producto.idProducto)
+  }
+  listarCarrito()
+  {
+    this._carritoService.listarCarrito().subscribe(
+      {
+        next:(data)=>{ this.carrito=data}
+      }
+    )
   }
   enableEditing() {
  
@@ -88,7 +104,7 @@ export class EnvioDomicilioComponent implements OnInit {
   }
   guardar()
   {
-    debugger;
+
     this.requestDireccion = this.myForm.getRawValue()
     switch(this.accion)
     { 
@@ -105,7 +121,7 @@ export class EnvioDomicilioComponent implements OnInit {
   }
   actualizarDireccion()
   {
-    debugger;
+
     this._actuaDireccion.update(this.requestDireccion).subscribe(
       {
         next:(data:RequestActualizacionDireccion)=>{
@@ -125,6 +141,7 @@ export class EnvioDomicilioComponent implements OnInit {
     throw new Error('Method not implemented.');
   }
   ngOnInit(): void {
+    this.listarCarrito()
     this.perfil()
   }
   

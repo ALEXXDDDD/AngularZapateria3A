@@ -24,7 +24,7 @@ export class MantProduccionRegisterComponent implements OnInit {
   /**
    * TODO inPUT 
    */
-  @Input () title :string = ""
+  @Input () title :string=""
   @Input () Produccion : ResponseProduccion = new ResponseProduccion()
 
   @Input () ingresoProducto : RequestVWIngresoProducto = new RequestVWIngresoProducto()
@@ -53,11 +53,16 @@ export class MantProduccionRegisterComponent implements OnInit {
     this.myForm = this._fb.group
     (
       {
-        idProduccion :[null,Validators.required],
-        nombreMaterial :[null,Validators.required],
-        nombreUnidad :[null,Validators.required],
-        cantidad: [null,Validators.required],
-        fechaSalida :[null,Validators.required]
+        idProduccion: [{value:0,disabled:true},[Validators.required]],
+        nombreProd: [null,Validators.required] ,
+        fechaInicio : [null,Validators.required],
+        meta : [null,Validators.required],
+        estadoProduccion : [null,Validators.required],
+        cantidadFaltante  : [null,Validators.required],
+        codigoProduccion : [null,Validators.required] ,
+        nombreUnidad: [null,Validators.required] ,
+        idUnidad : [{value:0,disabled:true},[Validators.required]],
+        fechaFin: [null,Validators.required],
       }
     )
   }
@@ -85,7 +90,7 @@ export class MantProduccionRegisterComponent implements OnInit {
   crearProduccion()
   {
     debugger;
-    this._ProduccionService.create(this.ingresoProducto).subscribe(
+    this._ProduccionService.create(this.ProduccionEnvio).subscribe(
       {
         next:()=>
           {
@@ -103,7 +108,7 @@ export class MantProduccionRegisterComponent implements OnInit {
   }
   editarSailda()
   {
-    this._ProduccionService.update(this.ingresoProducto).subscribe
+    this._ProduccionService.update(this.ProduccionEnvio).subscribe
     (
       {
         next:(data:ResponseProduccion) => 

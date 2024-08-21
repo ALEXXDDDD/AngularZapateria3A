@@ -14,11 +14,12 @@ import { CarritoService } from 'src/app/services/carrito/carrito.service';
 })
 export class CarritoComprasComponent implements OnInit{
   modalRef?: BsModalRef;
+  totalPrecios?: number ;
   // UsuarioSelect :ResponseCliente = new ResponseCliente() // Mandar para el register 
   usuarioSelect :ResponseUsuario = new ResponseUsuario()
   direccionSelect:RequestActualizacionDireccion = new RequestActualizacionDireccion
   titleModal : string = ""
-  accionModal : number = 0
+  accionModal : number = 1
   carrito:CarritoItem[]=[]
   constructor(
     private _carritoService:CarritoService,
@@ -28,11 +29,15 @@ export class CarritoComprasComponent implements OnInit{
 
   }
   ngOnInit(): void {
+
     this._carritoService.listarCarrito().subscribe(
       {
-        next:(data)=>{ this.carrito=data}
+        next:(data)=>{ this.carrito=data} 
+       
       }
     )
+    this.totalPrecios = this._carritoService.sumarPrecios();
+   
   }
   
   getCloseModalEmmit(res:boolean)

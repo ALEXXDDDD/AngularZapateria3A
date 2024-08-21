@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { OAuthService } from 'angular-oauth2-oidc';
 import { ResponsePerfil } from 'src/app/modules/matenimiento/models/perfil/perfil-response.model';
+import { AuthGoogleService } from 'src/app/services/google/auth-goggle-service.service';
 import { PerfilService } from 'src/app/services/perfil/perfil.service';
 
 @Component({
@@ -16,6 +18,7 @@ export class PerfilListComponent implements OnInit {
 
   constructor(
     private _perfilService : PerfilService,
+    private authGoogel: AuthGoogleService, 
 
   )
   {
@@ -23,6 +26,7 @@ export class PerfilListComponent implements OnInit {
   }
   logout(): void {
     this._perfilService.logout();
+   
   }
   perfil()
   {

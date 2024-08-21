@@ -1,7 +1,7 @@
-<html style="background-color: black;">
+<html >
   
 
-<a ><img class="omh-login" src="./../../../assets/img/imagen-login.jpg" alt="" href="" [routerLink]="['/contactenos']"></a>
+<!--<a ><img class="omh-login" src="./../../../assets/img/imagen-login.jpg" alt="" href="" [routerLink]="['/contactenos']"></a>-->
   <body  >
    
       <div class="login">
@@ -12,8 +12,8 @@
         </div>
     
         <form method="post" [formGroup]="loginForm" >
-          <input formControlName="usuario" type="text" name="u" placeholder="Username" required="required" />
-          <input formControlName="password" type="password" name="p" placeholder="Password" required="required" />
+          <input formControlName="usuario" type="text" name="u" placeholder="Username" />
+          <input formControlName="password" type="password" name="p" placeholder="Password"/>
           <a href="">Te olvidaste</a>
           <br>
           <a href="" routerLink="register">No tienes Cuenta ?</a>
@@ -24,13 +24,13 @@
         </form>      
       </div >
         <div class="button-pag" >
-            <button type="button" class="btn btn-primary ">
+            <button type="button"   (click)="loginGoogle()"class="btn btn-primary ">
               Iniciar Sesion con Facebook
               <i class="fab fa-facebook-f"></i>
             </button>
              <br>     
-            <button type="button" class="btn btn-primary btn-floating mx-1">
-              niciar Sesion con Google
+           <button (click)="loginGoogle()" type="button" class="btn btn-primary btn-floating mx-1">
+              Iniciar Sesion con Google
               <i class="fab fa-google"></i>
             </button>
                 
@@ -47,7 +47,3 @@
     
   </div>
 </html>
-
-
-
-    

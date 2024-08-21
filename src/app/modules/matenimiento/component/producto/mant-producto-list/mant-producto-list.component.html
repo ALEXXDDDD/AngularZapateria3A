@@ -145,7 +145,10 @@
         <td >{{list.idProducto}}</td>
         <td>{{list.nombreProd}}</td>
         <td>{{list.precioUnitario}}</td>
+        <br>
         <img src="{{list.fotografia}}" alt="" class="img_producto">
+        
+        <input type="file" name="Actualizar Imagen" id="">
        <td>
         <button (click)="editarProducto(modalEdit,list)" class="btn btn-primary mr-4">
           <i class="fas fa-edit"></i>
@@ -164,22 +167,16 @@
         </div>
         
       </div>  
-  
+      <div class="card">
+        
   
   <ng-template #modalEdit>
-    <!-- <app-mant-rol-registrer
-    [title]="titleModal"
-    [Producto]="productoEnviar"
-    [accion]="accionModal"
-  (closeModalEmmit)="getCloseModalEmmit($event)"
-    >
-    </app-mant-rol-registrer> -->
     <app-mant-producto-register
-    
-      [title]="titleModal"
-      []
+    [title]="titleModal"
+   
+    [accion]="accionModal"
+  
     >
-
     </app-mant-producto-register>
   </ng-template>
   

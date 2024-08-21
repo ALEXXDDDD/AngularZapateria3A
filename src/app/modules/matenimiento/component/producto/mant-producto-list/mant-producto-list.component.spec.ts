@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { DataViewModule } from 'primeng/dataview';
 import { MantProductoListComponent } from './mant-producto-list.component';
 
 describe('MantProductoListComponent', () => {

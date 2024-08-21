@@ -38,6 +38,7 @@ import { MantCreditoListComponent } from './component/credito/mant-credito-list/
 import { MantCreditoRegisterComponent } from './component/credito/mant-credito-register/mant-credito-register.component';
 import { MantDetalleCreditoLisComponent } from './component/detalleCredito/mant-detalle-credito-lis/mant-detalle-credito-lis.component';
 import { MantDetalleCreditoRegisterComponent } from './component/detalleCredito/mant-detalle-credito-register/mant-detalle-credito-register.component';
+import { InicioSidebarComponent } from './component/inicio-sidebar/inicio-sidebar.component';
 
 
 
@@ -77,6 +78,7 @@ import { MantDetalleCreditoRegisterComponent } from './component/detalleCredito/
     MantCreditoRegisterComponent,
     MantDetalleCreditoLisComponent,
     MantDetalleCreditoRegisterComponent,
+   
    
   ],
   imports: [

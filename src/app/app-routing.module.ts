@@ -11,6 +11,7 @@ import { VistBailarinaComponent } from './Ventas/component/vistas/mod-bailarinas
 import { VistZapatillaComponent } from './Ventas/component/vistas/vist-zapatilla/vist-zapatilla.component';
 import { CarritoComprasComponent } from './Ventas/component/carrito-compras/carrito-compras.component';
 import { PerfilListComponent } from './pages/perfil/perfil-list/perfil-list.component';
+import { VistaZapatoComponent } from './Ventas/component/vistas/vist-zapato/vista-zapato/vista-zapato.component';
 
 const routes: Routes = [
   //Routeo
@@ -23,6 +24,13 @@ const routes: Routes = [
     path:'auth',loadChildren:()=>import("./modules/auth/auth.module").then(x=>x.AuthModule) //Si es vacio dirigite a este componente
 
   },
+  
+  {
+    path:'pasarela',
+    canActivate:[authGuard]
+    ,loadChildren:()=>import("./Pasarela/pasarela-module/pasarela-module.module").then(x=>x.PasarelaModuleModule) //Si es vacio dirigite a este componente
+
+  },
   {
     path:'lista_productos',component:ProductoComponent //Si es vacio dirigite a este componente
 
@@ -33,6 +41,10 @@ const routes: Routes = [
   },
   {
     path:'vistaZapatillas',component:VistZapatillaComponent //Si es vacio dirigite a este componente
+
+  },
+  {
+    path:'vistaZapatos',component:VistaZapatoComponent //Si es vacio dirigite a este componente
 
   },
   
@@ -70,13 +82,22 @@ const routes: Routes = [
     path:'404',component:NotFoudComponent //Si es vacio dirigite a este componente
     
   },
-  /* {
-    path:'**',redirectTo:'/404'
-  } */
+  {
+    path:'login-cb',component:ProductoComponent //Si es vacio dirigite a este componente
+
+  },
+  /*{
+    {
+      path:'login-cb',component:ProductoComponent //Si es vacio dirigite a este componente
+   
+    },
+    path:'**',redirectTo:'/'
+    } */
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {useHash:true})],
-  exports: [RouterModule]
+ imports: [RouterModule.forRoot(routes)],
+// imports: [RouterModule.forRoot(routes, {useHash:true})],
+exports: [RouterModule]
 })
 export class AppRoutingModule { }

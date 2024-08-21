@@ -54,7 +54,7 @@ export class MantProduccionListComponent implements OnInit{
   }
   crearProduccion(template:TemplateRef<any>)
   {
-    this.title = "Registrar Nueva Salida"
+    this.title = "Registrar Nueva Produccion"
     this.envioProduccion  = new RequestVWProduccion()
     this.accionModal = AcciontConstants.crear
     this.openModal(template)

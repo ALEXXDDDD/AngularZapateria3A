@@ -1,115 +1,63 @@
-<html style="background-color: black;">
-    <h1>Registrese para realizar sus Acciones</h1>
-  <!--Formulario del registro del Usuario -->
-  <img  src="./../../../assets/img/Img_Welcome/images.png" alt="">
-  <img class="omh-login" src="./../../../assets/img/imagen-login.jpg" alt="">
-  <form class="formularioRegistro" action="" [formGroup]="myForm">
-    <div class="parte1">
-        <div class="row g-3 align-items-center">
-        <div class="col-auto">
-          <input placeholder="Nombre de Usuario" formControlName="usuario1"  class="form-control" >
-        </div>
-      </div>
-      <div class="row g-3 align-items-center">
-        <div class="col-auto">
-          <select name="" id="" class="form-select" formControlName="tipoPersona">
+<div class="flex">
+    <form class="form" [formGroup]="myForm" >
+        <p class="title">Register </p>
+        <p class="message">Signup now and get full access to our app. </p>
+        <div class="flex">
+            <label>
+                <input required="" placeholder=""  type="password" formControlName="nombrePersona" type="text" class="input">
+                <span>Nombres</span>
+            </label>
+
+            <label>
+                <input required=""  formControlName="telefono" type="text" class="input">
+                <span>Telefono</span>
+            </label>
+        </div>  
+                
+        <label>
+            <input required="" placeholder="" type="email" class="input">
+            <span>Email</span>
+        </label> 
+            
+        <label>
+            <input required="" placeholder="" type="password" class="input">
+            <span>Password</span>
+        </label>
+        <label>
+            <input  formControlName="codigoUbigeo" type="email" class="input">
+            <span>Codigo Ubigeo</span>
+        </label> 
+            
+        <label>
+            <input required="" formControlName="direccion" class="input">
+            <span>Direccion</span>
+        </label>
+        <select name="" id="" class="form-select" formControlName="tipoPersona">
             <option value="DNI">Natural</option>
             <option value="CARNET">Juridica</option>
-          </select>
-        </div>
-      </div>
-      <div class="row g-3 align-items-center">
-        <div class="col-auto">
-          <input placeholder="ejemplo@gmail.com"  formControlName="email" class="form-control" >
-        </div>
-      </div>
-      <div class="row g-3 align-items-center">
-        <div class="col-auto">
-          <input placeholder="Nombres"   class="form-control" formControlName="nombrePersona">
-        </div>
-      </div>
-      <div class="row g-3 align-items-center">
-        <div class="col-auto">
-          <select name="" id="" class="form-select" formControlName="tipoDocumento">
+        </select>
+        <select name="" id="" class="form-select" formControlName="tipoDocumento">
             <option value="DNI">DNI</option>
             <option value="CARNET">CARNET</option>
-          </select>
-        </div>
-      </div>
-    </div>
-    <div class="parte2">
-        <div class="row g-3 align-items-center">
-        <div class="col-auto">
-          <input placeholder="Numero Documento" formControlName="numeroDocumento"   class="form-control" >
-        </div>
-      </div>
-      <div class="row g-3 align-items-center">
-        <div class="col-auto">
-          <input placeholder="Telefono de Celular" formControlName="telefono"  class="form-control" >
-        </div>
-      </div>
-      <div class="row g-3 align-items-center">
-        <div class="col-auto">
-          <input placeholder="codigoUbigeo" formControlName="codigoUbigeo" value=""   class="form-control" >
-        </div>
-      </div>
-      <div class="row g-3 align-items-center">
-        <div class="col-auto">
-          <input placeholder="Direccion de tu Casa" formControlName="direccion"  class="form-control" >
-        </div>
-      </div>
-      <div class="row g-3 align-items-center">
-        <div class="col-auto">
-          <input placeholder="Tu sontraseña" formControlName="password"  class="form-control" type="password">
-          <input placeholder="Cofirma tu contraseña" formControlName="confirmContra"  class="form-control" type="password">
-        </div>
-      </div>
-    </div>
-    
-   
-  </form>
-  
-  <div class="botonesRegister">
-
-  
-    <div class="d-grid gap-2">
-      <button class="btn btn-primary" (click)="guardar()" type="button">Registrar</button>
-      
-    </div>
-    <div>
-      <button class="btn btn-danger" [routerLink]="['']">
-        Volver
-      </button>
-      
-    </div>
-    
-    <a class="icon-link icon-link-hover" href="#" [routerLink]="['/auth']">
-      Tienes cuenta Inicia Sesion 
-      <svg class="bi" aria-hidden="true"><use xlink:href="#arrow-right"></use></svg>
-    </a>
-    
-    <p>
-      <button class="btn btn-success">
-        Ver la Empresa
-      </button>
-    </p>
-  </div>
-  <div class="d-grid gap-2" >
-    <button type="button" class="btn btn-primary ">
-      Iniciar Sesion con Facebook
-      <i class="fab fa-facebook-f"></i>
-    </button>
-     <br>     
-    <button type="button" class="btn btn-primary ">
-      Iniciar Sesion con Google
-      <i class="fab fa-google"></i>
-    </button>
-        
+        </select>
+        <label>
+            <input required="" formControlName="numeroDocumento" class="input">
+            <span>Numero Documento</span>
+        </label>
+        <button class="submit">Submit</button>
+        <p class="signin">Already have an acount ? <a href="#">Signin</a> </p>
+        <div class="button-pag" >
+            <button type="button"  class="btn btn-primary ">
+            Iniciar Sesion con Facebook
+            <i class="fab fa-facebook-f"></i>
+            </button>
+            <br>     
+        <button type="button" class="btn btn-primary btn-floating mx-1">
+            Iniciar Sesion con Google
+            <i class="fab fa-google"></i>
+            </button>
+                
+        </div> 
+    </form>
+    <img src="http://aa.somee.com/imagen_pagina/MODELOS-[Recuperado]2.gif" alt="">
 </div> 
-
-</html>
-
-
-
-
-  

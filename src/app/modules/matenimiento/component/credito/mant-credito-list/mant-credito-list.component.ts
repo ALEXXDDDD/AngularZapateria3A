@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ResponseVCliente } from '../../../models/cliente/list-cliente-response.model';
-import { ResponseListOrden } from '../../../models/orden/orden.request.model';
+import { ResponseListOrden } from '../../../models/orden/orden-request.model';
 import { ClienteService } from '../../../service/cliente/cliente.service';
 import { OrdenService } from '../../../service/orden/orden.service';
 import { ResponseVWCliente } from '../../../models/cliente/response-VMCliente.model';

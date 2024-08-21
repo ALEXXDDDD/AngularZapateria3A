@@ -81,6 +81,9 @@ export class MantCreditoRegisterComponent {
       break;
     }
   }
+  /**
+   *TODO: FALTA VALIDAR AL BACK  
+    */  
   crearCredito()
     {
       this._CreditoService.create(this.requestCiente).subscribe(

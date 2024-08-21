@@ -23,6 +23,9 @@ export class TemplateSidebarComponent implements OnInit {
       case "Administrador":
         this.meny =[
         {
+
+
+
           name:"Administracion", target:"TargetMantenimiento",
           subMenu:[
                   
@@ -33,6 +36,7 @@ export class TemplateSidebarComponent implements OnInit {
                 ]
                 
               },
+             
               {
                 name:"Venta", target:"TargetVenta",incon:"fas fa-users",
                 subMenu:[

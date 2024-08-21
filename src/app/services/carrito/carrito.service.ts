@@ -21,6 +21,49 @@ export class CarritoService {
       }
 
   }
+
+  sumarPrecios(): number {
+    const productosStr = localStorage.getItem('carrito-compras');
+   this.listaProducto
+    if (!productosStr) {
+      return 0; // Si no hay productos en localStorage, retornar 0
+    }
+
+    let productos: any[];
+    try {
+      productos = JSON.parse(productosStr);
+    } catch (e) {
+      console.error('Error al parsear los productos desde localStorage', e);
+      return 0;
+    }
+
+    if (!Array.isArray(productos)) {
+      console.error('El contenido de localStorage no es un arreglo');
+      return 0;
+    }
+
+    return productos.reduce((sum, producto) => {
+      if (typeof producto !== 'object' || producto === null) {
+        console.warn('Producto inválido:', producto);
+        return sum;
+      }
+      
+      const precioUnitario = producto.producto.precioUnitario;
+      if (precioUnitario === undefined || precioUnitario === null) {
+        console.warn(`El precioUnitario para el producto con id ${producto.id || 'desconocido'} no está definido:`, producto);
+        return sum;
+      }
+
+      const precio = parseFloat(precioUnitario);
+      if (isNaN(precio)) {
+        console.warn(`El precio para el producto con id ${producto.id || 'desconocido'} no es un número:`, precioUnitario);
+        return sum;
+      }
+      
+      return sum + precio;
+    }, 0);
+  }
+
   addProducto(producto:ResponseProducto):void
   {
     let item = this.listaProducto
