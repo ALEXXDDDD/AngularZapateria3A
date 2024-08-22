@@ -39,7 +39,7 @@ export class MantRegisterOrdenComponent implements OnInit {
     private _unidadService:UnidadService
   )
   {
-    debugger
+
     const dataNow = new Date();
     
     const idUsuario = sessionStorage.getItem('idUsuario');
