@@ -1,7 +1,7 @@
 import { PerfilListComponent } from "../pages/perfil/perfil-list/perfil-list.component"
 
 
-export const dominio = "https://localhost:7282/"  
+export const dominio = "https://zapateriaback.somee.com/"  
 /* export const dominio = "https://localhost:7287/"  */
 /**
  * TODO: las constantes para llamar al backedn 
