@@ -1,30 +1,64 @@
 <app-welcome-header></app-welcome-header>
 
-<h1>Nuestros Productos</h1>
+<h1>Bienvenido Al Catalogo</h1>
 <aside class="col-lg-3">
         
     <img src="./../../../assets/img/Img_Welcome/720X1300-ecco.jpg" alt="" class="imagen">
 </aside>
 
-<section class="colum col-lg-9">
-    <form action="" class="container-producto"
-    *ngFor="let mod of responseProducto"
+<body class="bg-gray-100">
+    <div class="row">
+        <div class="col-xs-6 col-6">
+          <!-- <pagination [totalItems]="5" [(ngModel)]="currentPage"></pagination> -->
+          <select (change)="changeItemsPerPage()" [(ngModel)]="itemsPerPage"  class="form-select">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+          </select>
+        </div>
+        </div> 
+    <div class="container mx-auto p-5">
+        <h1 class="text-3xl font-bold text-center mb-8">Nuestros Productos</h1>
+        Cuantos Productos quieres mostrar
+        <div class="row" id="flitro">
+            <div class="col-xs-6 col-6">
+              <!-- <pagination [totalItems]="5" [(ngModel)]="currentPage"></pagination> -->
+              <select (change)="changeItemsPerPage()" [(ngModel)]="itemsPerPage"  class="form-select">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+              </select>
+            </div>
+        </div> 
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Producto 1 -->
+            <div class="bg-white p-6 rounded-lg shadow-lg" *ngFor="let mod of responseProducto">
+                <img src="{{mod.fotografia}}" alt="Producto 1" class="w-full h-48 object-cover mb-4 rounded-lg">
+                <h3 class="text-xl font-semibold mb-2">{{mod.nombreProd}}</h3>
+                <p class="text-gray-700 mb-2">{{mod.precioUnitario}}</p>
+                <button class="mt-4 bg-red-500 text-white py-2 px-4 rounded-lg hover:bg-red-600" (click)="monstrarDetalle(modalEdit,mod,mod.idProducto)">Ver Detalle</button>
+                <div>
+                    <button (click)="addProducto(mod)">Agregar al carrito</button>
+                </div>
+            </div>
+    </div>
+    <div class="row" id="botonSiguiente">
+        <div class="col-xs-12 col-12">
+          <!-- <pagination [totalItems]="5" [(ngModel)]="currentPage"></pagination> -->
+          <pagination (pageChanged)="changePage($event)" [totalItems]="totalItems"  [itemsPerPage]="  itemsPerPage" [previousText]="'Anterior'" [nextText]="'Siguiente'"></pagination>
+        </div>
+        
+    </div>
+
+<ng-template #modalEdit>
+    <app-listar-detalle
+    [title]="titleModal"
+    [Producto]="productoSelect"
+    [accion]="accionModal"
+  (closeModalEmmit)="getCloseModalEmmit($event)"
     >
-     <a href="" ><img src="{{mod.fotografia}}" alt=""></a><br>
-     <div class="container">
-         <label class="vista" for="">Nombre De Producto </label>
-            <p>  </p>
-         <label for="">{{mod.nombreProd}}</label><br>
-         <br>
-         <label class="vista" for="">Precio</label>
-   
-         <label for="">{{mod.precioUnitario}}</label><br>
-         <button class="btn btn-danger" id="danger">Agregar Carrito</button>
-     </div>
-     
-     
- </form>
-         
- </section>
 
-
+    </app-listar-detalle>
+</ng-template>  

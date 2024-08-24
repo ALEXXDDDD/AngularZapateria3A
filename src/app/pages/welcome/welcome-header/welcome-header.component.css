@@ -11,6 +11,12 @@ nav{
 span{
     color: wheat;
 }
+.seccion-header{
+    height: 130;
+}
+img{
+    height: 100px;
+}
 a{
     font-size: 1em;
     text-decoration: none;
@@ -49,23 +55,8 @@ a{
     color: #fff;
     margin-right: 5px;
 }
-img{
-    width: 133px;
-    height: 150px;
-    margin-top: 0px;
-    margin-right: 33px;
-    margin-left: -84px;
-    height: 118px;
-}
-#inicio li a{
-    display: contents;
-    background-color: #d34e4e;
-    color: rgb(2, 2, 2);
-    padding: 2px px;
-    border-radius: 20px;
-    margin-right: 10px;
-    margin-left: px;
-}
+
+
 .imgP{
     margin-right: 735px;
     margin-bottom: 20px;

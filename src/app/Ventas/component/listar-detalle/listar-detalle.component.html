@@ -1,41 +1,57 @@
-<p>listar-detalle works!</p>
-<h2>{{title}}</h2>
-<div *ngIf="frmLoadSt == loadStateEnum.Loading" class="home"  >
-    <h1 class="text-white">Buscando algo que leer...</h1>
+<p>Listar Detalle de Producto</p>
+<h2>{{ title }}</h2>
 
+<div *ngIf="frmLoadSt == loadStateEnum.Loading" class="home">
+    <h1 class="text-white">Buscando algo que leer...</h1>
     <ng-template #sc>
         <div class="loader">
             <svg viewBox="0 0 80 80">
-              <circle r="32" cy="40" cx="40" id="test"></circle>
+                <circle r="32" cy="40" cx="40" id="test"></circle>
             </svg>
-          </div>
-          
-          <div class="loader triangle">
+        </div>
+        <div class="loader triangle">
             <svg viewBox="0 0 86 80">
-              <polygon points="43 8 79 72 7 72"></polygon>
+                <polygon points="43 8 79 72 7 72"></polygon>
             </svg>
-          </div>
-          
-          <div class="loader">
+        </div>
+        <div class="loader">
             <svg viewBox="0 0 80 80">
-              <rect height="64" width="64" y="8" x="8"></rect>
+                <rect height="64" width="64" y="8" x="8"></rect>
             </svg>
-          </div>
-          
+        </div>
     </ng-template>
 </div>
-<div *ngIf="frmLoadSt == loadStateEnum.Success" class="home"  >
-    <tbody  *ngFor="let car of detalleProductoResponse"> 
-        <ul>{{car.categoria}}</ul>
-        <ul>{{car.material}}</ul>
-        <ul>{{car.color}}</ul>
-        <ul>{{car.talla}}</ul>
-        <ul>{{car.nombreProd}}</ul>
-        <ul>{{car.precioUnitario}}</ul>
-      
-    </tbody>
-    <button >Agregar Al Carrito</button>
-</div>
 
+<body>
+    <div class="container">
+        <div class="product-detail" *ngFor="let car of detalleProductoResponse">
+            <div class="image-container">
+                <img [src]="car.fotografia" alt="Producto">
+            </div>
+            <div class="details-container">
+                <h1 class="product-title">{{ car.nombreProd }}</h1>
+                <p class="product-price">${{ car.precioUnitario }}</p>
 
- 
+                <table class="product-description-table">
+                    <tr>
+                        <th>Categoría:</th>
+                        <td>{{ car.categoria }}</td>
+                    </tr>
+                    <tr>
+                        <th>Material:</th>
+                        <td>{{ car.material }}</td>
+                    </tr>
+                    <tr>
+                        <th>Color:</th>
+                        <td>{{ car.color }}</td>
+                    </tr>
+                    <tr>
+                        <th>Talla:</th>
+                        <td>{{ car.talla }}</td>
+                    </tr>
+                </table>
+                <button class="add-to-cart-btn">Añadir al Carrito</button>
+            </div>
+        </div>
+    </div>
+</body>

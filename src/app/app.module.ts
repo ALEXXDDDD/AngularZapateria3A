@@ -38,6 +38,9 @@ import { WelcomeBodyComponent } from './pages/welcome/welcome-body/welcome-body/
 import { InicioSidebarComponent } from './modules/matenimiento/component/inicio-sidebar/inicio-sidebar.component';
 import { ApiMapsGoogleComponent } from './Ventas/component/maps-google/api-maps-google/api-maps-google.component';
 import { GoogleMapsModule } from '@angular/google-maps';
+import { ListarDetalleVistasComponent } from './Ventas/component/listar-detalle-vistas/listar-detalle-vistas/listar-detalle-vistas.component';
+import { WelcomeFooterComponent } from './pages/welcome/welcome-footer/welcome-footer/welcome-footer.component';
+
 
 
 @NgModule({
@@ -48,7 +51,6 @@ import { GoogleMapsModule } from '@angular/google-maps';
     NotFoudComponent,
     VistEmpresaComponent,
     VistContactoComponent,
-    
     ProductoComponent,
     WelcomeComponent,
     WelcomeHeaderComponent,
@@ -63,7 +65,9 @@ import { GoogleMapsModule } from '@angular/google-maps';
     EnvioDomicilioComponent,
     PerfilListComponent,
     WelcomeBodyComponent,
-    ApiMapsGoogleComponent
+    ApiMapsGoogleComponent,
+    ListarDetalleVistasComponent,
+    WelcomeFooterComponent
   ],
   imports: [
     SharedModule,

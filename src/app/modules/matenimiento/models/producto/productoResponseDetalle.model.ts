@@ -5,4 +5,6 @@ export class ResponseDetalleProcedureProducto {
     material: string ="";
     nombreProd: string ="";
     precioUnitario: number =0;
+    fotografia: string = "";
+
 }

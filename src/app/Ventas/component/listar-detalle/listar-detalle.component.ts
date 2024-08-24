@@ -8,8 +8,10 @@ import { ResponseProducto } from 'src/app/modules/matenimiento/models/producto/p
 import { ResponseDetalleProducto } from 'src/app/modules/matenimiento/models/producto/producto-responseDetalleProducto.model';
 import { ResponseVDetalleProducto } from 'src/app/modules/matenimiento/models/producto/producto-responseVDetalle.model';
 import { ResponseDetalleProcedureProducto } from 'src/app/modules/matenimiento/models/producto/productoResponseDetalle.model';
+import { ResponseVerModelos } from 'src/app/modules/matenimiento/models/VerStore/verModelosResponse.model';
 import { DetalleProductoService } from 'src/app/modules/matenimiento/service/detalleProducto/detalle-producto.service';
 import { ProductoService } from 'src/app/modules/matenimiento/service/producto/producto.service';
+import { CarritoService } from 'src/app/services/carrito/carrito.service';
 
 @Component({
   selector: 'app-listar-detalle',
@@ -19,6 +21,7 @@ import { ProductoService } from 'src/app/modules/matenimiento/service/producto/p
 export class ListarDetalleComponent {
   @Input() title :string=""
   @Input() Producto :ResponseProducto= new ResponseProducto() 
+  @Input() VerModelos :ResponseVerModelos= new ResponseVerModelos() 
   @Input() DetalleProducto :ResponseVDetalleProducto= new ResponseVDetalleProducto() 
   @Input() accion :number= 0 
 
@@ -37,6 +40,7 @@ export class ListarDetalleComponent {
   constructor (
     private fb:FormBuilder,
     private  _ProductoService:ProductoService,
+    private _carritoService:CarritoService,
     private _DetalleProducto:DetalleProductoService
   )
   {
@@ -50,7 +54,10 @@ export class ListarDetalleComponent {
     )
   }
   carga:number = 1;
-  
+  addProducto(prod:ResponseProducto)
+  {
+    this._carritoService.addProducto(prod)
+  }
   ngOnInit(): void {
      
       this.myForm.patchValue(this.Producto)

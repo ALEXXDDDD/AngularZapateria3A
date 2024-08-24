@@ -5,4 +5,5 @@ export class ResponseVerModelos {
     nombreModelo: string ="";
     talla: string="";
     color: string ="";
+    fotografia : string ="";
 }

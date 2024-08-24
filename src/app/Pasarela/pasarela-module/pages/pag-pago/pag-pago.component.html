@@ -1,47 +1,73 @@
-<p>pag-pago works!</p>
-<script src="https://js.stripe.com/v3/"></script>
-<app-headerpasarela></app-headerpasarela>
-<div class="checkout">
-    <div class="checkout-in">
-      <div class="checkout-user">
-        <img class="avatar" src="./../../../../../assets/img/imagen-login.jpg" alt="">
-      </div>
-  
-      <div class="checkout-customer">
-        <!--{{orderData?.name}}"-->
-        <div class="title">Hola, <span class="highlight"></span></div>
-      </div>
-  
-      <div class="checkout-card">
-        <div class="checkbox-alert">
-          📌 A continuación debes de introducir los datos de tu tarjeta para procesar el pago! <br>
-          El pago se procesara mediante la platforma de <b><a href="https://stripe.com/" target="_blank">stripe</a></b>
-        </div>
-        <form action="" [formGroup]="form">
-            <!--[formGroup]="form" (submit)="initPay()"-->
-          <div class="input input-amount" >
-            <label class="label">Monto a pagar</label>
-            <input type="text" readonly  formControlName="amount" placeholder="0.00">
-            <span class="currency">USD</span>
-          </div>
-          <hr>
-          <div class="input">
-            <label class="label">Número de tarjeta</label>
-            <div id="card"></div>
-          </div>
-          <hr>
-          <div class="input">
-            <label class="label">CVC</label>
-            <div id="cvc"></div>
-          </div>
-          <hr>
-          <div class="input">
-            <label class="label">Fecha de vencimiento</label>
-            <div id="exp"></div>
-          </div>
-          <button  class="button" type="submit">Pagar</button>
-          <!--[disabled]="form.invalid || form.disabled"-->
+<div class="payment-container">
+    <div class="payment-form">
+        <h2>Formulario de Pago</h2>
+        <form (ngSubmit)="processPayment()" #paymentForm="ngForm">
+            <div class="form-group">
+                <label for="cardNumber">Número de Tarjeta
+                    <span class="info-icon" (click)="toggleInfo()">?</span>
+                </label>
+                <input
+                    id="cardNumber"
+                    type="text"
+                    formControlName="cardNumber"
+                    placeholder="XXXX-XXXX-XXXX-XXXX"
+                    class="form-control"
+                    required
+                />
+                <div class="info-popup" *ngIf="showInfo">
+                    <img src="https://via.placeholder.com/200x150?text=Tarjeta+de+Cr%C3%A9dito" alt="Información sobre tarjeta" />
+                    <p>Introduce el número de tu tarjeta de crédito aquí.</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="cardName">Nombre en la Tarjeta</label>
+                <input
+                    id="cardName"
+                    type="text"
+                    formControlName="cardName"
+                    placeholder="Nombre Completo"
+                    class="form-control"
+                    required
+                />
+            </div>
+
+            <div class="form-group">
+                <label for="expiryDate">Fecha de Expiración</label>
+                <input
+                    id="expiryDate"
+                    type="text"
+                    formControlName="expiryDate"
+                    placeholder="MM/AA"
+                    class="form-control"
+                    required
+                />
+            </div>
+
+            <div class="form-group">
+                <label for="cvv">CVV</label>
+                <input
+                    id="cvv"
+                    type="text"
+                    formControlName="cvv"
+                    placeholder="CVV"
+                    class="form-control"
+                    required
+                />
+            </div>
+
+            <button type="submit" class="btn btn-primary">Pagar</button>
         </form>
-      </div>
     </div>
-  </div>
+
+    <div class="payment-methods">
+        <h2>Métodos de Pago</h2>
+        <div class="payment-icons">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXalPMjNwXaU8xcGbEND634noc-NcdBjIqNiYvPGuuqfHvYUotioI6Sit0zvp2V-Nwcsc" alt="Visa" />
+            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Masstercad" />
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/American_Express_logo_%282018%29.svg/180px-American_Express_logo_%282018%29.svg.png" alt="American Express" />
+            <img src="https://www.consumoteca.com/wp-content/uploads/Logo-PayPal-jpg.webp" alt="PayPal" />
+            <img src="https://latinanoticias.pe/wp-content/uploads/2023/12/Yape-BCP.jpg" alt="Yape" />
+        </div>
+    </div>
+</div>

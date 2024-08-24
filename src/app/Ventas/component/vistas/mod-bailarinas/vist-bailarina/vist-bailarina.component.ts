@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
+import { BsModalRef } from 'ngx-bootstrap/modal';
+import { AcciontConstants } from 'src/app/constants/general.constans';
+import { ResponseProducto } from 'src/app/modules/matenimiento/models/producto/producto-response.model';
 import { ResponseVerModelos } from 'src/app/modules/matenimiento/models/VerStore/verModelosResponse.model';
 import { VistBailarinasService } from 'src/app/modules/matenimiento/service/vistaBailarinas/vist-bailarinas.service';
 
@@ -9,6 +12,11 @@ import { VistBailarinasService } from 'src/app/modules/matenimiento/service/vist
 })
 export class VistBailarinaComponent implements OnInit {
   responseVerModelos:ResponseVerModelos[]=[]
+  modalRef?: BsModalRef;
+  titleModal : string = ""
+  productoSelect : ResponseVerModelos = new ResponseVerModelos()
+  accionModal : number = 0
+  modalService: any;
   constructor(
     private _verBaularinasService:VistBailarinasService
 
@@ -18,6 +26,25 @@ export class VistBailarinaComponent implements OnInit {
   }
   ngOnInit(): void {
     this.lsitarBailarinas()
+  }
+  monstrarDetalle(template:TemplateRef<any>)
+  {
+    this.titleModal ="Detalle"
+    this.accionModal = AcciontConstants.detalle
+    this.openModal(template);
+
+  }
+  openModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template);
+  }
+
+  getCloseModalEmmit(res:boolean)
+  {
+    this.modalRef?.hide()
+    if(res)
+    {
+      this.lsitarBailarinas()
+    }
   }
   lsitarBailarinas()
   {

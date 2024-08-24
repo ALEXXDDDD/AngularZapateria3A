@@ -32,6 +32,17 @@ const routes: Routes = [
 
   },
   {
+    path:'lista_productos/auth',loadChildren:()=>import("./modules/auth/auth.module").then(x=>x.AuthModule) //Si es vacio dirigite a este componente
+
+  }
+  ,
+  {
+    canActivate: [  authGuard],
+    path:'lista_productos/carrito',
+    component:CarritoComprasComponent //Si es vacio dirigite a este componente
+
+  },
+  {
     path:'lista_productos',component:ProductoComponent //Si es vacio dirigite a este componente
 
   },
