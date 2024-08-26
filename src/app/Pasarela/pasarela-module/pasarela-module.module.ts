@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { PasarelaModuleRoutingModule } from './pasarela-module-routing.module';
-import { PagPagoComponent } from './pages/pag-pago/pag-pago.component';
+import { PagPagoComponent } from './pages/pag-pago/PagPagoComponent';
 import { SharedModule } from 'src/app/modules/shared/shared.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { ModalModule } from 'ngx-bootstrap/modal';
