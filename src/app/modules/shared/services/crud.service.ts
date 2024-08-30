@@ -4,6 +4,8 @@ import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { RequestFilterGeneric } from '../../matenimiento/models/genericFilterRequest.model';
 import { ResponseFilterGeneric } from '../../matenimiento/models/genericFilterResponse.models';
+import { RequestFiltroNombre } from '../../matenimiento/models/request-flitro.model';
+import { ResponseRol } from '../../matenimiento/models/rol/rol-response.model';
 
 @Injectable({
   providedIn: 'root'
@@ -42,4 +44,6 @@ export class CrudService<T,Y> implements crudInterface <T,Y> {
   {
     return this._http.post<ResponseFilterGeneric<Y>>(`${this.url_service}/filter`,request)
   }
+
+ 
 }

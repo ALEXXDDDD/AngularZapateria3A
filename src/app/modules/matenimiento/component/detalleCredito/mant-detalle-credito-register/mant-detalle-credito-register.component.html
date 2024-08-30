@@ -15,10 +15,16 @@
                 </div>
             </div>
            
-            <div class="col-4" *ngFor="let ma of responseOrden">
+            <div class="col-4">
                 <label for="">Codigo del Orden</label>
-                <select *ngFor="let d of ma.ordens" name="" id=""  class="form-select" formControlName="codigoOrden">
-                    <option value="{{d.codigoOrden}}"  >{{d.codigoOrden}}</option>
+                <select  *ngFor="let ma of responseOrden"  name="" id=""  class="form-select" formControlName="codigoOrden">
+                    <option  *ngFor="let d of ma.ordens" value="{{d.codigoOrden}}"  >{{d.codigoOrden}}</option>
+                </select>
+            </div>
+            <div class="col-4">
+                <label for="">Nombre Del Cliente</label>
+                <select  *ngFor="let clie of responseVwCliente"  name="" id=""  class="form-select" formControlName="nombreCliente">
+                    <option  *ngFor="let d of clie.clientes" value="{{d.nombreCliente}}"  >{{d.nombreCliente}}</option>
                 </select>
             </div>
             <div class="col-4" >

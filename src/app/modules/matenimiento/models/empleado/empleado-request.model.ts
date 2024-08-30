@@ -1,5 +1,6 @@
 export class RequestVWEmpleado {
     idEmpleado: number= 0;// public int IdEmpleado { get; set; }
+    idUsuario: number= 0;// p
     apellidoEmp: string ="";
     salario: number= 0;
     nombrePersona: string="";

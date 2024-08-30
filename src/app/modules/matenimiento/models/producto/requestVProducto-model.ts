@@ -1,4 +1,4 @@
-export class RequestProducto {
+export class RequestVProducto {
     idProducto: number=0;
     nombreProd: string ="";
     codigoProd: string ="";

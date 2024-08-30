@@ -1,14 +1,15 @@
 import { PerfilListComponent } from "../pages/perfil/perfil-list/perfil-list.component"
 
 
-export const dominio = "https://localhost:7282/"  
-/* export const dominio = "https://localhost:7287/"  */
+export const dominio = "https://localhost:7282/"
+/* export const dominio = "https://localhost:7282/"  */
+// export const dominio = "https://zapateriaback.somee.com/"
 /**
  * TODO: las constantes para llamar al backedn 
  */
 
 
-// export const dominio = "https://zapateriaback.somee.com/" 
+//  export const dominio = "https://zapateriaback.somee.com/
 
 export const urlConstants ={
     rol: dominio+'api/Rol',
@@ -36,7 +37,15 @@ export const urlConstants ={
     actualizacionDireccion :dominio+"api/ActualizacionDireccion",
     vistaBailarinas:dominio+"api/BailarinasStore",
     vistaZapatos:dominio+"api/MirarZapatosStore",
-    vistaZapatillas:dominio+"api/ZapatillasStore"
+    vistaZapatillas:dominio+"api/ZapatillasStore",
+    // Vistas
+    traerMaterialesAcabados :dominio+"api/VIstaModeloProducto/Materiales",
+    traerProductosAcabados :dominio+"api/VIstaModeloProducto",
+    traerPerfil :dominio+"api/VIstaModeloProducto",
+    traerVista:dominio+"api/VIstaModeloProducto",
+
+
+
 }
 
     

@@ -1,39 +1,93 @@
 <div id="layoutSidenav_nav">
-    <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
-        <div class="sb-sidenav-menu">
-            
-    <img src="./../../../assets/img/Img_Welcome/images.png" alt="">
-            <a class="nav-link"  href="" routerLink="mantenimiento/inicioSidebar"><i class="fas fa-card" class="mr-5"></i>Inicio</a>
-            <div class="nav" *ngFor="let d of meny">
-
-                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" 
-                [attr.data-bs-target]="'#'+ d.target"
-                aria-expanded="false" aria-controls="pagesCollapseAuth">
-                    <div class="sb-nav-link-icon"><i class="{{d.incon}}"></i></div>
-                    {{d.name}}
-                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                </a>
-                <div *ngFor="let x of d.subMenu" class="collapse" id="{{d.target}}" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
-                    <nav class="sb-sidenav-menu-nested nav">
-       
-                        <a class="nav-link"  href="" [routerLink]="[x.url]"><i class="{{x.incon}}" class="mr-5"></i>{{x.name}}</a>
-                        
-                    </nav>
-                </div>
-                                                               
-            </div>
-        </div>
-        <!-- <nav class="sb-sidenav-menu-nested nav">
-            <a class="nav-link"  href="" routerLink="mantenimiento/rol"><i class="fas fa-card" class="mr-5"><img src="https://th.bing.com/th/id/R.db36b787a971279c919d456c9ad2d853?rik=PJpzhrqKX8vdNg&pid=ImgRaw&r=0" alt=""></i>Roles de la Empresa</a>
-            <a class="nav-link"  href="" routerLink="mantenimiento/empleado"><i class="fas fa-card" class="mr-5"><img src="https://tse3.mm.bing.net/th/id/OIP.g_t2vqFs1Y0ggeJfygp40QHaEJ?w=324&h=182&c=7&r=0&o=5&pid=1.7" alt=""></i>Empleados</a>
-            <a class="nav-link"  href="" routerLink="mantenimiento/producto"><i class="fas fa-card" class="mr-5"><img src=">
-        <nav class="sb-sidenav-menu-nested nav">
-            <a class="nav-link"  href="" routerLink="mantenimiento/cliente"><i class="fas fa-card" class="mr-5"><img src="https://tse1.mm.bing.net/th/id/OIP.kFXorh4C86GrIgdOJjnMdQHaFR?rs=1&pid=ImgDetMain" alt=""></i>Clientes</a>
-            <a class="nav-link"  href="" routerLink="mantenimiento/Proveedor"><i class="fas fa-card" class="mr-5"></i>Provedores</a>
-            <a class="nav-link"  href="" routerLink="mantenimiento/ventas"><i class="fas fa-card" class="mr-5"></i>Ventas</a>
-           
-        </nav> -->
+    <!-- <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+      <div class="sb-sidenav-menu">
+        <img src="./../../../assets/img/Img_Welcome/images.png" alt="Logo" class="sidebar-logo">
         
-    </nav>
-
-</div>
+        <a class="nav-link" href="" routerLink="mantenimiento/inicioSidebar">
+          <i class="fas fa-home mr-2"></i>Inicio
+        </a>
+        
+        <div *ngFor="let d of meny">
+          <a class="nav-link collapsed" href="#" (click)="toggleDropdown(d.target)" [attr.data-bs-target]="'#' + d.target" aria-expanded="false" aria-controls="pagesCollapseAuth">
+            <div class="sb-nav-link-icon">
+              <i class="{{d.incon}}"></i>
+            </div>
+            {{d.name}}
+            <div class="sb-sidenav-collapse-arrow">
+              <i class="fas fa-angle-down"></i>
+            </div>
+          </a>
+          <div id="{{d.target}}" class="collapse" *ngIf="dropdowns[d.target]">
+            <nav class="sb-sidenav-menu-nested nav">
+              <a *ngFor="let x of d.subMenu" class="nav-link" href="" [routerLink]="[x.url]">
+                <i class="{{x.incon}} mr-2"></i>{{x.name}}
+              </a>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </nav> -->
+    <ul class="sidebar-menu" *ngIf="!isSidebarHidden">
+        <li>
+            <button class="dropdown-btn" (click)="toggleDropdown(0)">
+                Administracion
+            </button>
+            <ul [class.show]="dropdowns[0]" class="dropdown-content">
+                <li><a href="dasboard/mantenimiento/rol">Roles</a></li>
+                <li><a href="dasboard/mantenimiento/empleado">Empleados</a></li>
+                <li><a href="dasboard/mantenimiento/usuario">Usuarios</a></li>
+            </ul>
+        </li>
+        <li>
+            <button class="dropdown-btn" (click)="toggleDropdown(1)">
+                Venta
+            </button>
+            <ul [class.show]="dropdowns[1]" class="dropdown-content">
+                <li><a href="dasboard/mantenimiento/cliente">Clientes</a></li>
+                <li><a href="dasboard/mantenimiento/orden">Ordenes</a></li>
+                <li><a href="dasboard/mantenimiento/produccion">Produccion</a></li>
+            </ul>
+        </li>
+        <li>
+            <button class="dropdown-btn" (click)="toggleDropdown(2)">
+                Produccion
+            </button>
+            <ul [class.show]="dropdowns[2]" class="dropdown-content">
+                <li><a href="dasboard/mantenimiento/producto">Productos</a></li>
+                <li><a href="dasboard/mantenimiento/produccion">Ingreso de Producto</a></li>
+                <li><a href="dasboard/mantenimiento/modelo">Modelos de Zapatos </a></li>
+            </ul>
+        </li>
+        <li>
+            <button class="dropdown-btn" (click)="toggleDropdown(3)">
+                Creditos
+            </button>
+            <ul [class.show]="dropdowns[3]" class="dropdown-content">
+                <li><a href="dasboard/mantenimiento/credito">Creditos Disponibles</a></li>
+                <li><a href="#">Informe de Credito</a></li>
+        
+            </ul>
+        </li>
+        <li>
+            <button class="dropdown-btn" (click)="toggleDropdown(4)">
+              Materiales
+            </button>
+            <ul [class.show]="dropdowns[4]" class="dropdown-content">
+                <li><a href="dasboard/mantenimiento/salidaMaterial">Salida Materiales</a></li>
+                <li><a href="dasboard/mantenimiento/material">Materiales</a></li>
+                <li><a href="dasboard/mantenimiento/producto">Productos</a></li>
+            </ul>
+        </li>
+        <li>
+            <button class="dropdown-btn" (click)="toggleDropdown(5)">
+               Informes
+            </button>
+            <ul [class.show]="dropdowns[5]" class="dropdown-content">
+                <li><a href="#">Informe de Ventas</a></li>
+                <li><a href="#">Informe de Productos</a></li>
+                <li><a href="#">Informe de Materiales</a></li>
+            </ul>
+        </li>
+    </ul>
+  </div>
+  

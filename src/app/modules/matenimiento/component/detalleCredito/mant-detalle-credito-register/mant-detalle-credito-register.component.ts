@@ -7,6 +7,9 @@ import { AcciontConstants } from 'src/app/constants/general.constans';
 import { ResponseOrden } from '../../../models/orden/orden-response.model';
 import { OrdenService } from '../../../service/orden/orden.service';
 import { alert_error } from 'src/app/funcionts/general.funcionts';
+import { ClienteService } from '../../../service/cliente/cliente.service';
+import { ResponseVWCliente } from '../../../models/cliente/response-VMCliente.model';
+import { ResponseVCliente } from '../../../models/cliente/list-cliente-response.model';
 
 @Component({
   selector: 'app-mant-detalle-credito-register',
@@ -17,7 +20,6 @@ export class MantDetalleCreditoRegisterComponent implements OnInit {
   
   @Input() title :string=""
   @Input() responseVwDetalleCredito: ResponseVDetalleCredito = new ResponseVDetalleCredito();
-
   @Input() accion :number=0
 
   //Output
@@ -28,6 +30,8 @@ export class MantDetalleCreditoRegisterComponent implements OnInit {
   myForm:FormGroup
   requestDetalleCredito:ResquestVDetalleCredito = new ResquestVDetalleCredito();
   responseOrden:ResponseOrden[]=[]
+  responseVwCliente: ResponseVWCliente[] = [];
+  clienteResponse:ResponseVCliente = new ResponseVCliente()
   responseVDetalleCredito:ResponseVDetalleCredito[]=[]
   num: string = "";
   doc: string = "";
@@ -35,15 +39,19 @@ export class MantDetalleCreditoRegisterComponent implements OnInit {
   constructor(
     private fb : FormBuilder,
     private _detalleCreditoService:DetalleCreditoService,
+    private _clienteService : ClienteService,
     private _ordenService:OrdenService
   )
   {
+    const idUsuario = sessionStorage.getItem('idUsuario');
     this.myForm = this.fb.group(
       {
         montoAmortizacion: [null,[Validators.required]] ,
         fechaAmortizacion: [null,[Validators.required]] ,
         codigoOrden: [null,[Validators.required]] ,
+        nombreCliente : [null,[Validators.required]] ,
         idOrden: [null,[Validators.required]] ,
+        idUsuario: [idUsuario,[Validators.required]] ,
         nombrePersona: ["null",[Validators.required]] ,
         relacionCliente: [null,[Validators.required]]  ,
         idCredito: [null,[Validators.required]] ,
@@ -60,6 +68,7 @@ export class MantDetalleCreditoRegisterComponent implements OnInit {
     console.log("Titulo =>",this.responseVwDetalleCredito);
     this.myForm.patchValue(this.responseVwDetalleCredito)
     this.listarOrden()
+    this.listarClientes()
     
   }
   /**
@@ -137,5 +146,18 @@ export class MantDetalleCreditoRegisterComponent implements OnInit {
         }
       )
     }
+    listarClientes()
+    {
+      this._clienteService.getAll().subscribe({
+        next:(data:ResponseVWCliente[])=>{
+          this.responseVwCliente=data
+          console.log(data)
+        },
+        error:(error)=>{
+          alert("OCURRIO UN ERROR ")
+        },
+        complete:()=>{}
+    }
+      )}
 
 }

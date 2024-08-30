@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -40,6 +40,7 @@ import { ApiMapsGoogleComponent } from './Ventas/component/maps-google/api-maps-
 import { GoogleMapsModule } from '@angular/google-maps';
 import { ListarDetalleVistasComponent } from './Ventas/component/listar-detalle-vistas/listar-detalle-vistas/listar-detalle-vistas.component';
 import { WelcomeFooterComponent } from './pages/welcome/welcome-footer/welcome-footer/welcome-footer.component';
+import { FacebookLoginProvider, GoogleLoginProvider, SocialAuthServiceConfig, SocialLoginModule } from '@abacritt/angularx-social-login';
 
 
 
@@ -57,6 +58,7 @@ import { WelcomeFooterComponent } from './pages/welcome/welcome-footer/welcome-f
     ChatPagesComponent,
     VistBailarinaComponent,
     VistZapatillaComponent,
+    VistBailarinaComponent,
     ListarDetalleComponent,
     CarritoComprasComponent,
     SinPermisoComponent,
@@ -85,9 +87,34 @@ import { WelcomeFooterComponent } from './pages/welcome/welcome-footer/welcome-f
   
     OAuthModule.forRoot(),
     HttpClientModule,
+    SocialLoginModule
   ],
+  schemas:  [CUSTOM_ELEMENTS_SCHEMA],
   providers: [
-    {provide: HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true} //Configuracion de angular 
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass:AuthInterceptor,
+      multi:true
+      
+    
+    
+    } ,
+    {
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: false,
+        providers: [
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider('818272992678-cacnetaor3df10ftd9ldih4ft588ajnb.apps.googleusercontent.com') // Reemplaza con tu Google Client ID
+          },
+          {
+            id: FacebookLoginProvider.PROVIDER_ID,
+            provider: new FacebookLoginProvider('FACEBOOK_APP_ID') // Reemplaza con tu Facebook App ID
+          }
+        ]
+      } as SocialAuthServiceConfig,
+    }//Configuracion de angular 
   ],
   bootstrap: [AppComponent]
 })

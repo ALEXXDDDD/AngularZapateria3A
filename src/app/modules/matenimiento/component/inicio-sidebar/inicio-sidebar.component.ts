@@ -22,7 +22,7 @@ export class InicioSidebarComponent implements OnInit {
       const surfaceBorder = documentStyle.getPropertyValue('--surface-border');
 
       this.basicData = {
-          labels: ['Q1', 'Q2', 'Q3', 'Q4'],
+          labels: ['Zapatos', 'Bailarinas', 'Botines', 'Sandalias'],
           datasets: [
               {
                   label: 'Sales',

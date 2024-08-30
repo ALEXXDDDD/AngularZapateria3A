@@ -58,6 +58,7 @@ export class MantEmpleadoListComponent {
   }
   editarEmpleado(template:TemplateRef<any>,Empleado:ResponseVWEmpleado)
   {
+    debugger
     this.titleModal= "Actaulizar Empleado"
     this.empleadoSelect = Empleado
     this.accionModal = AcciontConstants.editar

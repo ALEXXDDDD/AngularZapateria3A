@@ -7,6 +7,7 @@ import { ResponseEmpleado } from '../../models/empleado/response-list-empleado.m
 import { CrudService } from 'src/app/modules/shared/services/crud.service';
 import { ResponseVWEmpleado } from '../../models/empleado/empleadoVW-response.model';
 import { empleadoApiPeru } from '../../models/empleado/empleadoApisPero.model';
+import { RequestFiltroSueldo } from '../../models/empleado/request-flitroSueldo.model';
 
 
 @Injectable({
@@ -25,6 +26,11 @@ export class EmpleadoService extends CrudService<RequestVWEmpleado,ResponseEmple
      urlApisPeru = urlApisPeru.replace("DNI##",dni);
      return this.http.get<empleadoApiPeru>(urlApisPeru)
    }
+   filtroSueldo(request:RequestFiltroSueldo):Observable<ResponseVWEmpleado[]>
+   {
+       return this._http.post<ResponseVWEmpleado[]>(`${this.url_service}/filtro-sueldo`,request)
+   }
+
    /* getAll():Observable<ResponseEmpleado[]>
    {
     return this._http.get<ResponseEmpleado[]>(urlConstants.Empleado)

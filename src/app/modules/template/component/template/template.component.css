@@ -1,0 +1,27 @@
+#layoutSidenav {
+    display: flex;
+}
+
+#layoutSidenav.sidebar-hidden #layoutSidenav_nav {
+    display: none;
+}
+
+.toggle-btn {
+    background-color: #fff; /* Botón de color blanco */
+    color: #333; /* Texto oscuro para contraste */
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    text-align: center;
+    font-size: 20px;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 1000;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.toggle-btn:hover {
+    background-color: #f1f1f1;
+    color: #000;
+}

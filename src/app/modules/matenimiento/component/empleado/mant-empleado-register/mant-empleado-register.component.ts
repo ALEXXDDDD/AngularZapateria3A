@@ -10,6 +10,7 @@ import { HttpClient } from '@angular/common/http';
 import { empleadoApiPeru } from '../../../models/empleado/empleadoApisPero.model';
 import { Observable } from 'rxjs';
 import { identifierName } from '@angular/compiler';
+import { RequestFiltroSueldo } from '../../../models/empleado/request-flitroSueldo.model';
 
 @Component({
   selector: 'app-mant-empleado-register',
@@ -28,21 +29,23 @@ export class MantEmpleadoRegisterComponent implements OnInit{
 
   myForm:FormGroup
   EmpleadoEnvio : RequestVWEmpleado = new RequestVWEmpleado()
+  requestSalario : RequestFiltroSueldo = new RequestFiltroSueldo();
   requestEmpleado: RequestVWEmpleado = new RequestVWEmpleado();
-
+  responseEmpleado : ResponseVWEmpleado = new ResponseVWEmpleado();
   constructor(
     private fb : FormBuilder,
     private _empleadoService: EmpleadoService,
     private http:HttpClient
   )
   {
+    const idUsuario = sessionStorage.getItem('idUsuario');
     this.myForm = this.fb.group(
       {
         idEmpleado: [{value:0,disabled:true},[Validators.required]],
         apellidoEmp:[null,[Validators.required]] ,
         salario:[null,[Validators.required]] ,
         nombrePersona:[null,[Validators.required]] ,
-
+        idUsuario: [{value:idUsuario},[Validators.required]],
         tipoPersona:[null,[Validators.required]] ,
         usuario1:[null,[Validators.required]] ,
         password:[null,[Validators.required]] ,
@@ -56,7 +59,7 @@ export class MantEmpleadoRegisterComponent implements OnInit{
         imagenEmpleado:["dd",[Validators.required]]
       }
     )
-    
+    console.log(this.myForm.getRawValue)
   }
 
   ngOnInit(): void {
@@ -68,13 +71,24 @@ export class MantEmpleadoRegisterComponent implements OnInit{
     
     
   }
+  filtroSueldo()
+  {
+    this._empleadoService.filtroSueldo(this.requestSalario).subscribe(
+      {
+        next:()=>{},
+        error:()=>{},
+        complete:()=>{}
+      }
+    )
+  }
   /**
    * TODO: CRUD Guardar los datos a la base de datos
    */
   guardar()
   {
-    
+    debugger
     this.EmpleadoEnvio = this.myForm.getRawValue()
+  
     this.EmpleadoEnvio.estado = convertBolean(this.EmpleadoEnvio.estado.toString())
     switch(this.accion)
     {

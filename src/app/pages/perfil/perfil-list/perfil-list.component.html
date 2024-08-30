@@ -1,11 +1,31 @@
 
 <app-welcome-header></app-welcome-header>
 <h2>Tu perfil</h2>
-<tbody *ngFor="let p of responsePerfil">
+<!-- <tbody *ngFor="let p of responsePerfil">
     <ul>{{p.email}}</ul>
     <ul>{{p.nombrePersona}}</ul>
     <ul>{{p.direccion}}</ul>
     <ul>{{p.fotografia}}</ul>
     <ul>{{p.usuario}}</ul>
     <button class="btn btn-danger" (click)="logout()">Cerrar Sesion</button>
-</tbody>
+</tbody> -->
+<div class="profile-container">
+    <div class="profile-card">
+        <div class="profile-image-container" *ngFor="let p of vistPerfil">
+            <button class="image-button" (click)="triggerFileInput(p)">
+                <img src="{{p.fotografia}}" alt="Profile Picture">
+                <input type="file" class="file-input" (change)="updateImage($event, p)" />
+                <span class="tooltip-text">Actualizar imagen</span>
+            </button>
+        </div>
+        
+        <div class="profile-details" *ngFor="let p of vistPerfil">
+            <h2>{{p.nombrePersona}}</h2>
+            <p>Desarrollador de Software</p>
+            <p>Email: {{p.email}} </p>
+            <p>Usuario: {{p.usuario}}</p>
+            <p>Ubicación: {{p.direccion}}</p>
+        </div>
+        <button class="btn btn-danger" (click)="logout()">Cerrar Sesion</button>
+    </div>
+</div>

@@ -24,7 +24,7 @@
 
 <body>
     <div class="container">
-        <div class="product-detail" *ngFor="let car of detalleProductoResponse">
+        <div class="product-detail" *ngFor="let car of vistDetalle">
             <div class="image-container">
                 <img [src]="car.fotografia" alt="Producto">
             </div>
@@ -50,7 +50,7 @@
                         <td>{{ car.talla }}</td>
                     </tr>
                 </table>
-                <button class="add-to-cart-btn">Añadir al Carrito</button>
+                <button [routerLink]="" class="add-to-cart-btn">Volver</button>
             </div>
         </div>
     </div>

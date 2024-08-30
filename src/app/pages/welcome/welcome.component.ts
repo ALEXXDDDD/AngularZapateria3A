@@ -68,29 +68,29 @@ export class WelcomeComponent implements OnInit  {
   }
  
   ngOnInit(): void {
-    console.log(
-    this.route.snapshot.paramMap.get('access_token') );
-    this.route.fragment.subscribe(fragment => {
-      if (fragment) {
-        const urlParams = new URLSearchParams(fragment);
-        const idToken = urlParams.get('id_token');
-        const accessToken = urlParams.get('access_token');
+    // console.log(
+    // this.route.snapshot.paramMap.get('access_token') );
+    // this.route.fragment.subscribe(fragment => {
+    //   if (fragment) {
+    //     const urlParams = new URLSearchParams(fragment);
+    //     const idToken = urlParams.get('id_token');
+    //     const accessToken = urlParams.get('access_token');
        
-        if (idToken) {
-          // Validar el id_token en el backend
-          this.oauthService.validateToken(idToken).subscribe(response => {
-            console.log('Token validado:', response);
-            // Manejar la lógica después de la validación del token
-          }, (error: any) => {
-            console.error('Error al validar el token:', error);
-          });
-        } else {
-          console.error('No se encontró id_token en el fragmento de la URL');
-        }
-      } else {
-        console.error('No se encontró el fragmento en la URL');
-      }
-    });
+    //     if (idToken) {
+    //       // Validar el id_token en el backend
+    //       this.oauthService.validateToken(idToken).subscribe(response => {
+    //         console.log('Token validado:', response);
+    //         // Manejar la lógica después de la validación del token
+    //       }, (error: any) => {
+    //         console.error('Error al validar el token:', error);
+    //       });
+    //     } else {
+    //       console.error('No se encontró id_token en el fragmento de la URL');
+    //     }
+    //   } else {
+    //     console.error('No se encontró el fragmento en la URL');
+    //   }
+    // });
     //  this.listarProductos()
      this.filtrar()
      this.cities = [
@@ -170,21 +170,7 @@ export class WelcomeComponent implements OnInit  {
       this.filtrar()
     }
   }
-  crearProducto(template: TemplateRef<any>)
-  {
-    this.titleModal ="Nuevo Producto"
-    this.ProductoSelect = new ResponseProducto()
-    this.accionModal = AcciontConstants.crear
-    this.openModal(template);
-
-  }
-  editarProducto(template: TemplateRef<any>, Producto:ResponseProducto)
-  {
-    this.titleModal ="Editar Producto"
-    this.ProductoSelect = Producto
-    this.accionModal = AcciontConstants.editar
-    this.openModal(template);
-  }
+ 
   filtrar()
   {
     
