@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PagPagoComponent } from './pages/pag-pago/pag-pago.component';
+import { PagPagoComponent } from '../pasarela-module/pages/pag-pago/pag-pago.component';
 
 const routes: Routes = [
 
